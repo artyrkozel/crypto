@@ -1,0 +1,46 @@
+.Input {
+    width: 100%;
+    background-color: #2E3558;
+    border-radius: 8px;
+    color: #fff;
+    height: 58px;
+    padding: 12px 40px;
+    font-size: 16px;
+    &::placeholder {
+      color: '#616A8B'
+    }
+}
+
+.inputContainer {
+    position: relative;
+    display: inline-flex;
+    width: 100%;
+}
+
+.inputWithBeforeIcon {
+    padding-left: 45px;
+}
+  
+.inputWithAfterIcon {
+    padding-right: 45px;
+}
+
+.beforeIcon svg,
+.afterIcon svg {
+  overflow: visible;
+  transform: translateY(-50%);
+}
+
+.beforeIcon,
+.afterIcon {
+  position: absolute;
+  top: 50%;
+}
+
+.beforeIcon {
+  left: 12px;
+}
+
+.afterIcon {
+  right: 12px;
+}
