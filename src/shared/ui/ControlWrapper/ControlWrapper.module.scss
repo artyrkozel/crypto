@@ -1,0 +1,30 @@
+.wrapper {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+  }
+  
+  .error {
+    position: absolute;
+    padding: 0 8px;
+    display: block;
+    min-height: 20px;
+    color: #ff0000;
+    text-align: left;
+  }
+  
+  .header {
+    padding: 8px;
+    display: flex;
+    width: 40%;
+    font-size: 24px;
+  }
+  
+  .fullWidth {
+    width: 100%;
+  }
+  
+  .content {
+    position: relative;
+    width: 100%;
+  }

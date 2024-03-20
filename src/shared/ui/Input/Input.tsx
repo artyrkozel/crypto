@@ -1,6 +1,6 @@
+import { ChangeEvent, FC, InputHTMLAttributes, forwardRef, memo } from 'react';
 import { Mods, classNames } from 'helpers/classNames/classNames';
 import styles from './Input.module.scss';
-import { FC, InputHTMLAttributes, memo } from 'react';
 
 type HTMLInputProps = Omit<
 	InputHTMLAttributes<HTMLInputElement>,
@@ -11,16 +11,16 @@ export interface IInputProps extends HTMLInputProps {
 	className?: string;
 	variant?: 'primary' | 'secondary';
 	value?: string;
-	onChange?: (value: string) => void;
+	onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 	beforeIcon?: React.ReactNode;
 	afterIcon?: React.ReactNode;
 }
 
 const Input: FC<IInputProps> = memo(
 	({ className, value, onChange, beforeIcon, afterIcon, ...rest }) => {
-		const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-			onChange?.(e.target.value);
-		};
+		// const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+		// 	onChange?.(e.target.value);
+		// };
 
 		const mods: Mods = {
 			beforeIcon: styles.inputWithBeforeIcon,
@@ -28,11 +28,13 @@ const Input: FC<IInputProps> = memo(
 		};
 
 		return (
-			<div className={styles.inputContainer}>
+			<div
+				className={classNames(styles.inputContainer, mods, [className || ''])}
+			>
 				{beforeIcon && <span className={styles.beforeIcon}>{beforeIcon}</span>}
 				<input
-					className={classNames(styles.Input, mods, [className || ''])}
-					onChange={onChangeHandler}
+					className={styles.Input}
+					onChange={onChange}
 					value={value}
 					{...rest}
 				/>
