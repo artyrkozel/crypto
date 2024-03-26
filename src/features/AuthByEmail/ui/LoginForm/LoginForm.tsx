@@ -10,6 +10,7 @@ import * as yup from 'yup';
 import { CgProfile } from 'react-icons/cg';
 import { RiLockPasswordFill } from 'react-icons/ri';
 import { ContentTitle } from 'shared/ui/ContentTitle/ContentTitle';
+import { usePostLoginMutation } from 'entities/user/api/api';
 
 const FormSchema = yup
 	.object()
@@ -36,8 +37,10 @@ const LoginForm = () => {
 
 	const { register, handleSubmit } = methods;
 
-	const onSubmit = (data: IFormInputs) => {
-		console.log(data);
+	const [login] = usePostLoginMutation();
+
+	const onSubmit = async (data: IFormInputs) => {
+		await login(data);
 	};
 
 	return (

@@ -10,5 +10,6 @@ interface StoreProviderProps {
 
 export const StoreProvider = ({ children, initialStore }: StoreProviderProps) => {
 	const store = createReduxStore(initialStore);
+
 	return <Provider store={store}>{children}</Provider>;
 };

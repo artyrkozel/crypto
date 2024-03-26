@@ -1,0 +1,14 @@
+{
+  "users": [
+    {
+      "id": "70d5",
+      "email": "artyr_42@mail.ru",
+      "password": "34r34r34r3"
+    },
+    {
+      "email": "artyr_422@mail.ru",
+      "password": "$2a$10$tXHG.XwQjjpmduRJXVsqkOY4T8/J9WxcGCCTK6HS5spcQ3PcqC6/2",
+      "id": "xNqTKTY"
+    }
+  ]
+}
