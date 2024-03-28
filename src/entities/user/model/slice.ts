@@ -25,7 +25,6 @@ export const authSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addMatcher(authApi.endpoints.postLogin.matchFulfilled, (state) => {
-      debugger
       state.isAuthenticated = true;
     });
     builder.addMatcher(authApi.endpoints.postLogout.matchFulfilled, (state) => {

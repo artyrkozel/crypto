@@ -1,4 +1,4 @@
-import { ChangeEvent, FC, InputHTMLAttributes, forwardRef, memo } from 'react';
+import { ChangeEvent, FC, InputHTMLAttributes, memo } from 'react';
 import { Mods, classNames } from 'helpers/classNames/classNames';
 import styles from './Input.module.scss';
 

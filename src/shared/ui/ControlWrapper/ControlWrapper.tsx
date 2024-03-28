@@ -15,10 +15,7 @@ export type ControlWrapperProps = {
 };
 
 export const ControlWrapper: React.FC<ControlWrapperProps> = React.forwardRef(
-	(
-		{ children, error, className, label, headerClass, getElementProps },
-		ref,
-	) => {
+	({ children, error, className, label, headerClass, getElementProps }) => {
 		const wrapperClasses = classNames(styles.wrapper, {}, [className ?? '']);
 
 		const headerClasses = classNames(styles.header, {}, [headerClass ?? '']);

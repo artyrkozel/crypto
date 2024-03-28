@@ -1,5 +1,5 @@
 import { baseApi } from 'shared/config/api';
-import { LoginFormData, UserObject } from '../model/types';
+import { LoginFormData, UserObject, UserWithToken } from '../model/types';
 import { removeCookies, setCookies } from 'shared/lib/utils';
 
 
@@ -12,12 +12,12 @@ export const authApi = baseApi.injectEndpoints({
         headers: {'Content-Type' : 'application/json'},
         body: credentials,
       }),
-      transformResponse: (response: any) => {
+      transformResponse: (response: UserWithToken) => {
         const { accessToken } = response;
         setCookies({ accessToken });
         return response.user;
       },
-      async onQueryStarted(_, { dispatch, queryFulfilled }) {
+      async onQueryStarted(_, {queryFulfilled }) {
         const { data } = await queryFulfilled;
         if (data) {
           console.log(data)
