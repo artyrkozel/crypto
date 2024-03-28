@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import { getSidebarItems } from 'widgets/Sidebar/model/selectors/getSidebarItems';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 import { useLocation } from 'react-router-dom';
+import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher';
 
 interface SidebarProps {
 	className?: string;
@@ -43,6 +44,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
 			<Button onClick={onToggle} className={styles.collapseBtn}>
 				{collapsed ? '>' : '<'}
 			</Button>
+			<LangSwitcher clasNames={styles.lang} />
 		</aside>
 	);
 });

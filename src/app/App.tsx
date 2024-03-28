@@ -2,7 +2,7 @@ import { useAppSelector } from 'shared/lib/hooks/redux-hooks';
 import { AppRouter } from './providers/router';
 import { selectIsAuthenticated } from 'entities/user/model/selectors/SelectIsAuthenticated/selectIsAuthenticated';
 import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
+import { Suspense, useEffect } from 'react';
 import { Sidebar } from 'widgets/Sidebar';
 import { AppRoutes } from 'shared/config/routeConfig/routeConfig';
 
@@ -18,10 +18,12 @@ function App() {
 
 	return (
 		<div className='app'>
-			<div className='content-page'>
-				<Sidebar />
-				<AppRouter />
-			</div>
+			<Suspense fallback=''>
+				<div className='content-page'>
+					<Sidebar />
+					<AppRouter />
+				</div>
+			</Suspense>
 		</div>
 	);
 }

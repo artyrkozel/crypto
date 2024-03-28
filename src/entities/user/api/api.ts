@@ -12,7 +12,7 @@ export const authApi = baseApi.injectEndpoints({
         headers: {'Content-Type' : 'application/json'},
         body: credentials,
       }),
-      transformResponse: (response: any) => {
+      transformResponse: (response: UserWithToken) => {
         const { accessToken } = response;
         setCookies({ accessToken });
         return response.user;
