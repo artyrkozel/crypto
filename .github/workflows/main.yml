@@ -14,11 +14,11 @@ jobs:
         with:
           node-version: '17'
       - run: npm install
-      - name: build production project
+        name: build production project
       - run: npm run build:prod
-      - name: linting typescript
+        name: linting typescript
       - run: npm run lint:ts
-      - name: linting css
+        name: linting css
       - run: npm run lint:scss
-      - name: unit testing
+        name: unit testing
       - run: npm run test:unit
