@@ -15,7 +15,7 @@ jobs:
           node-version: '17'
       - run: npm install
         name: build production project
-      - run: npm run build:prod
+      - run: npm run build
         name: linting typescript
       - run: npm run lint:ts
         name: linting css
