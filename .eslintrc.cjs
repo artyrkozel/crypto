@@ -56,6 +56,7 @@ module.exports = {
     'object-curly-newline': 'off',
     'react/button-has-type': 'off',
     'react/jsx-props-no-spreading': "off",
+    'linebreak-style': 'off',
     'import/order': [
       1, 
       { "groups": 
