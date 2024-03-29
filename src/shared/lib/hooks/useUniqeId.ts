@@ -1,7 +1,6 @@
-import { useMemo } from "react";
+import { useMemo } from 'react';
 
-export const useUniqueId = (prefix: string) =>
-  useMemo(
-    () => `${prefix}-${new Date().getTime()}${Math.random()}`.replace('.', ''),
-    [prefix]
-  );
+export const useUniqueId = (prefix: string) => useMemo(
+  () => `${prefix}-${new Date().getTime()}${Math.random()}`.replace('.', ''),
+  [prefix],
+);

@@ -1,7 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { authApi } from '../api/api';
 
-
 export interface AuthState {
   isAuthenticated: boolean;
   isForgotPassword: boolean;

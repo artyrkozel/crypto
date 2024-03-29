@@ -1,3 +1,3 @@
-import ReactQueryProvider from './ui/ReactQueryProvider'
+import ReactQueryProvider from './ui/ReactQueryProvider';
 
-export {ReactQueryProvider}
+export { ReactQueryProvider };

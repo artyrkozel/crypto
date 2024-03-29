@@ -1,19 +1,19 @@
 import React from 'react';
-import styles from './ContentTitle.module.scss';
 import { classNames } from 'helpers/classNames/classNames';
+import styles from './ContentTitle.module.scss';
 
 export type ControlWrapperProps = {
-	children: string;
-	className?: string;
+  children: string;
+  className?: string;
 };
 
 export const ContentTitle: React.FC<ControlWrapperProps> = ({
-	children,
-	className,
+  children,
+  className,
 }) => {
-	return (
-		<h1 className={classNames(styles.contentTitle, {}, [className || ''])}>
-			{children}
-		</h1>
-	);
+  return (
+    <h1 className={classNames(styles.contentTitle, {}, [className || ''])}>
+      {children}
+    </h1>
+  );
 };
