@@ -1,31 +1,31 @@
 .item {
-    display: flex;
-    align-items: center;
-    padding: 13px 16px;
-    color: #616A8B;
-    margin-bottom: 12px;
+	display: flex;
+	align-items: center;
+	padding: 13px 16px;
+	color: #616a8b;
+	margin-bottom: 12px;
 }
 
 .link {
-    margin-left: 16px;
-    opacity: 1;
+	margin-left: 16px;
+	opacity: 1;
 }
 
 .icon {
-    font-size: 16px;
+	font-size: 16px;
 }
 
 .collapsed {
-    .link {
-        opacity: 0;
-        transition: 0.2s opacity;
-        width: 0;
-    }
+	.link {
+		opacity: 0;
+		transition: 0.2s opacity;
+		width: 0;
+	}
 }
 
 .active {
-    color: #fff;
-    background-color: #32395E;
-    border-bottom: 1px solid #1288E8;
-    border-radius: 5px;
+	color: #fff;
+	background-color: #32395e;
+	border-bottom: 1px solid #1288e8;
+	border-radius: 5px;
 }

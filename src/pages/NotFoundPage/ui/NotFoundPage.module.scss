@@ -1,6 +1,6 @@
 .NotFoundPage {
     display: flex;
-    background-color: rgb(26, 15, 74);
+    background-color: rgb(26 15 74);
     justify-content: center;
     align-items: center;
     flex-grow: 1;
@@ -9,12 +9,13 @@
 .textWrapper {
     color: #fff;
     text-align: center;
+
     p {
         text-align: 'center';
         font-size: 28px;
         margin-bottom: 70px;
     }
-
+ 
     span {
         font-weight: 700;
         font-size: 130px;

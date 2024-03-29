@@ -4,7 +4,7 @@
     position: relative;
     transition: width 0.3s;
     background: radial-gradient(46.41% 73.99% at 46.63% 48.05%, #20135C 0%, #140739 92.82%);
-    padding: 24px 15px 40px 15px
+    padding: 24px 15px 40px
 }
 
 .collapsed {
@@ -13,10 +13,6 @@
     .switchers {
         flex-direction: column;
         align-items: center;
-    }
-
-    .lang {
-        margin-left: 0;
     }
 }
 

@@ -1,4 +1,4 @@
-*, *:before, *:after{
+*, *::before, *::after{
     box-sizing: border-box;
     font-family: "Open Sans", sans-serif;
     border: none;
@@ -9,10 +9,10 @@
     padding: 0;
     border: 0;
     font-size: 100%;
-    font: inherit;
+    font-size: inherit;
     vertical-align: baseline;
     text-decoration: none;
-    text-rendering: optimizeLegibility;
+    text-rendering: optimizelegibility;
     -webkit-font-smoothing: antialiased;
     text-size-adjust: none;
     font-family: "Open Sans", sans-serif;
@@ -34,7 +34,7 @@
     quotes: none;
   }
   
-  blockquote:before, blockquote:after, q:before, q:after{
+  blockquote::before, blockquote::after, q::before, q::after{
     content: '';
     content: none;
   }
