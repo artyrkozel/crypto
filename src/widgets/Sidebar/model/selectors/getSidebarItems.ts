@@ -14,7 +14,7 @@ export const getSidebarItems = createSelector(
         text: 'Overview',
       },
       {
-        path: RoutePath.walets,
+        path: RoutePath.wallets,
         Icon: MdOutlineContactPage,
         text: 'Wallets',
       },

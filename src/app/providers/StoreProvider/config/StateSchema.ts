@@ -1,7 +1,7 @@
-import { CombinedState } from '@reduxjs/toolkit/query';
 import { AuthState } from 'entities/user/model/slice';
+import { baseApi } from 'shared/config/api';
 
 export interface StateSchema {
-    baseApi: CombinedState<{}, never, 'baseApi'>;
+    [baseApi.reducerPath]: ReturnType<typeof baseApi.reducer>
     authState: AuthState
 }

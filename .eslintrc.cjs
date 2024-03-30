@@ -57,6 +57,8 @@ module.exports = {
     'react/button-has-type': 'off',
     'react/jsx-props-no-spreading': "off",
     'linebreak-style': 'off',
+    'jsx-quotes': 'off',
+    'no-unused-expressions': 'off',
     'import/order': [
       1, 
       { "groups": 

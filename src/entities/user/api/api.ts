@@ -16,14 +16,11 @@ export const authApi = baseApi.injectEndpoints({
         setCookies({ accessToken });
         return response.user;
       },
-      // async onQueryStarted(_, { queryFulfilled }) {
+      // async onQueryStarted(_, { dispatch, queryFulfilled }) {
       //   const { data } = await queryFulfilled;
       //   if (data) {
-      //     console.log(data);
+      //     dispatch(authApi.util.upsertQueryData('getCurrentUser', undefined, data));
       //   }
-      //   // if (data) {
-      //   //   dispatch(authApi.util.upsertQueryData('getMe', undefined, data));
-      //   // }
       // },
     }),
 
@@ -40,9 +37,22 @@ export const authApi = baseApi.injectEndpoints({
         }
       },
     }),
+
+    getUserById: build.query({
+      query: (id) => ({
+        url: 'users/id'.replace('id', JSON.parse(id)),
+        method: 'GET',
+      }),
+      keepUnusedDataFor: Infinity,
+      transformResponse: (response: UserObject) => {
+        return response;
+      },
+    }),
+
   }),
 });
 
 export const {
   usePostLoginMutation,
+  useGetUserByIdQuery,
 } = authApi;

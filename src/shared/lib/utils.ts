@@ -12,4 +12,7 @@ export const setCookies = ({
 
 export const removeCookies = () => {
   Cookies.remove('accessToken');
+  localStorage.removeItem('UserId');
 };
+
+export const getCookies = (name: string) => Cookies.get(name);

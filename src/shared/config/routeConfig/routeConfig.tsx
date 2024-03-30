@@ -7,7 +7,7 @@ import { NotFoundPage } from 'pages/NotFoundPage';
 export enum AppRoutes {
   OVERVIEW = 'overview',
   LOGIN = 'login',
-  WALLETS = 'walets',
+  WALLETS = 'wallets',
   NOT_FOUND_PAGE = 'not_found',
 }
 
@@ -28,7 +28,7 @@ export const routeConfig: Record<AppRoutes, RouteProps> = {
     element: <LoginPage />,
   },
   [AppRoutes.WALLETS]: {
-    path: RoutePath.walets,
+    path: RoutePath.wallets,
     element: <WalletsPage />,
   },
   [AppRoutes.NOT_FOUND_PAGE]: {

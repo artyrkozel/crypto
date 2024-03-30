@@ -4,11 +4,13 @@ import { authApi } from '../api/api';
 export interface AuthState {
   isAuthenticated: boolean;
   isForgotPassword: boolean;
+  currentUserId: null| string;
 }
 
 const initialState: AuthState = {
   isAuthenticated: false,
   isForgotPassword: false,
+  currentUserId: null,
 };
 
 export const authSlice = createSlice({
@@ -23,7 +25,8 @@ export const authSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addMatcher(authApi.endpoints.postLogin.matchFulfilled, (state) => {
+    builder.addMatcher(authApi.endpoints.postLogin.matchFulfilled, (state, { payload }) => {
+      state.currentUserId = payload.id;
       state.isAuthenticated = true;
     });
     builder.addMatcher(authApi.endpoints.postLogout.matchFulfilled, (state) => {

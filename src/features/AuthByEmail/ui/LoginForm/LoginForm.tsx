@@ -49,25 +49,24 @@ const LoginForm = () => {
         <form noValidate onSubmit={handleSubmit(onSubmit)}>
           <div className={styles.loginForm}>
             <ContentTitle className={styles.title}>Welcome!</ContentTitle>
-            <ControlWrapperForm name="email" className={styles.email}>
+            <ControlWrapperForm name='email' className={styles.email}>
               <Input
-                // className={styles.email}
-                placeholder="Enter your email"
+                placeholder='Enter your email'
                 autoFocus
                 {...register('email')}
                 beforeIcon={<CgProfile />}
               />
             </ControlWrapperForm>
-            <ControlWrapperForm name="password">
+            <ControlWrapperForm name='password'>
               <Input
                 className={styles.password}
-                placeholder="Enter your password"
+                placeholder='Enter your password'
                 autoFocus
                 {...register('password')}
                 beforeIcon={<RiLockPasswordFill />}
               />
             </ControlWrapperForm>
-            <Button type="submit" variant="primary">
+            <Button type='submit' variant='primary'>
               Login
             </Button>
           </div>

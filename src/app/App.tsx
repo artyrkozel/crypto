@@ -1,25 +1,38 @@
 import { useAppSelector } from 'shared/lib/hooks/redux-hooks';
-import { selectIsAuthenticated } from 'entities/user/model/selectors/SelectIsAuthenticated/selectIsAuthenticated';
 import { useNavigate } from 'react-router-dom';
 import { Suspense, useEffect } from 'react';
 import { Sidebar } from 'widgets/Sidebar';
 import { AppRoutes } from 'shared/config/routeConfig/routeConfig';
+import { getCookies } from 'shared/lib/utils';
+import { useGetUserByIdQuery } from 'entities/user/api/api';
+import { skipToken } from '@reduxjs/toolkit/query';
+import { SelectCurrentUserId } from 'entities/user/model/selectors/SelectCurrentUserId/SelectCurrentUserId';
 import { AppRouter } from './providers/router';
 
 function App() {
-  const isAuthenticated = useAppSelector(selectIsAuthenticated);
+  const id = useAppSelector(SelectCurrentUserId) || localStorage.getItem('UserId');
   const navigate = useNavigate();
 
+  const accessToken = getCookies('accessToken');
+
+  if (!accessToken) navigate('/login');
+
+  const { data: user } = useGetUserByIdQuery(
+    accessToken && id ? id : skipToken,
+    { refetchOnMountOrArgChange: true },
+  );
+
   useEffect(() => {
-    if (isAuthenticated) {
+    if (user) {
+      user?.id && localStorage.setItem('UserId', JSON.stringify(user.id));
       navigate(AppRoutes.OVERVIEW, { replace: true });
     }
-  }, [navigate, isAuthenticated]);
+  }, [user, navigate]);
 
   return (
-    <div className="app">
-      <Suspense fallback="">
-        <div className="content-page">
+    <div className='app'>
+      <Suspense fallback=''>
+        <div className='content-page'>
           <Sidebar />
           <AppRouter />
         </div>

@@ -1,6 +1,6 @@
 export type UserObject = {
     email: string;
-    name: string;
+    id: string;
 };
 
 export type LoginFormData = {
