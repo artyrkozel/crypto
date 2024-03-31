@@ -12,7 +12,11 @@ export const setCookies = ({
 
 export const removeCookies = () => {
   Cookies.remove('accessToken');
-  localStorage.removeItem('UserId');
 };
 
 export const getCookies = (name: string) => Cookies.get(name);
+
+export const getLocalStorage = (value: string): string | null => {
+  const userId = localStorage.getItem(value);
+  return userId ? JSON.parse(userId) : null;
+};

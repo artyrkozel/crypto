@@ -1,6 +1,8 @@
 import { baseApi } from 'shared/config/api';
-import { removeCookies, setCookies } from 'shared/lib/utils';
+import { setCookies } from 'shared/lib/utils';
+import { ApiError } from 'app/types/globals';
 import { LoginFormData, UserObject, UserWithToken } from '../model/types';
+import { authActions } from '../model/slice';
 
 export const authApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
@@ -11,36 +13,26 @@ export const authApi = baseApi.injectEndpoints({
         headers: { 'Content-Type': 'application/json' },
         body: credentials,
       }),
+      transformErrorResponse: async (error: ApiError) => {
+        return alert(error.message);
+      },
       transformResponse: (response: UserWithToken) => {
         const { accessToken } = response;
         setCookies({ accessToken });
         return response.user;
       },
-      // async onQueryStarted(_, { dispatch, queryFulfilled }) {
-      //   const { data } = await queryFulfilled;
-      //   if (data) {
-      //     dispatch(authApi.util.upsertQueryData('getCurrentUser', undefined, data));
-      //   }
-      // },
-    }),
-
-    postLogout: build.mutation<{ message: string }, { token: string }>({
-      query: (credentials) => ({
-        url: 'auth/logout',
-        method: 'POST',
-        body: credentials,
-      }),
-      async onQueryStarted(_, { queryFulfilled }) {
+      async onQueryStarted(_, { dispatch, queryFulfilled }) {
         const { data } = await queryFulfilled;
         if (data) {
-          removeCookies();
+          localStorage.setItem('user', JSON.stringify(data));
+          dispatch(authActions.setAuthData(data));
         }
       },
     }),
 
     getUserById: build.query({
       query: (id) => ({
-        url: 'users/id'.replace('id', JSON.parse(id)),
+        url: `users/${id}`,
         method: 'GET',
       }),
       keepUnusedDataFor: Infinity,

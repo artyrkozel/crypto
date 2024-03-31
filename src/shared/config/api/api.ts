@@ -10,10 +10,21 @@ const _baseQuery = fetchBaseQuery({
     }
     return headers;
   },
+
 }) as BaseQueryFn<string | FetchArgs, unknown, {}, {}>;
+
+export const baseQueryWithRefresh: BaseQueryFn<
+  string | FetchArgs,
+  unknown,
+  {},
+  {}
+> = async (args, api, extraOptions) => {
+  const result = await _baseQuery(args, api, extraOptions);
+  return result;
+};
 
 export const baseApi = createApi({
   reducerPath: 'baseApi',
-  baseQuery: _baseQuery,
+  baseQuery: baseQueryWithRefresh,
   endpoints: () => ({}),
 });

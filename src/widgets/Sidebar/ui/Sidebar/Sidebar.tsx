@@ -1,10 +1,12 @@
 import { classNames } from 'helpers/classNames/classNames';
 import { memo, useMemo, useState } from 'react';
 import Button from 'shared/ui/Button/Button';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getSidebarItems } from 'widgets/Sidebar/model/selectors/getSidebarItems';
 import { useLocation } from 'react-router-dom';
 import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher';
+import { AppRoutes } from 'shared/config/routeConfig/routeConfig';
+import { authActions } from 'entities/user/model/slice';
 import styles from './Sidebat.module.scss';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 
@@ -16,7 +18,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
   const [collapsed, setCollapsed] = useState(false);
   const sidebarItemsList = useSelector(getSidebarItems);
   const location = useLocation();
-
+  const dispatch = useDispatch();
   const onToggle = () => {
     setCollapsed((prev) => !prev);
   };
@@ -32,9 +34,14 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
     return null;
   }
 
+  const onLogout = () => {
+    dispatch(authActions.setLoggedOut());
+    window.location.href = AppRoutes.LOGIN;
+  };
+
   return (
     <aside
-      data-testid="sidebar"
+      data-testid='sidebar'
       className={classNames(styles.Sidebar, { [styles.collapsed]: collapsed }, [
         className || '',
       ])}
@@ -44,6 +51,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
         {collapsed ? '>' : '<'}
       </Button>
       <LangSwitcher clasNames={styles.lang} />
+      <Button onClick={onLogout}>Logout</Button>
     </aside>
   );
 });

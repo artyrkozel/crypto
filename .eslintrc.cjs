@@ -59,6 +59,7 @@ module.exports = {
     'linebreak-style': 'off',
     'jsx-quotes': 'off',
     'no-unused-expressions': 'off',
+    'no-alert': 'off',
     'import/order': [
       1, 
       { "groups": 

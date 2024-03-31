@@ -10,6 +10,8 @@ import { CgProfile } from 'react-icons/cg';
 import { RiLockPasswordFill } from 'react-icons/ri';
 import { ContentTitle } from 'shared/ui/ContentTitle/ContentTitle';
 import { usePostLoginMutation } from 'entities/user/api/api';
+import { AppRoutes } from 'shared/config/routeConfig/routeConfig';
+import { QueryStatus } from '@reduxjs/toolkit/query';
 import styles from './LoginForm.module.scss';
 
 const FormSchema = yup
@@ -37,10 +39,13 @@ const LoginForm = () => {
 
   const { register, handleSubmit } = methods;
 
-  const [login] = usePostLoginMutation();
+  const [login, { status }] = usePostLoginMutation();
 
   const onSubmit = async (data: IFormInputs) => {
-    await login(data);
+    const res = await login(data);
+    if (res && status && status === QueryStatus.fulfilled) {
+      window.location.href = AppRoutes.OVERVIEW;
+    }
   };
 
   return (
