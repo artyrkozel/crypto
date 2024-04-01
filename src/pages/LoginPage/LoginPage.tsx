@@ -1,16 +1,30 @@
 import { LoginForm } from 'features/AuthByEmail';
+import { Text, TextAlign } from 'shared/ui/Text';
 import styles from './Login.module.scss';
+import LoginLogo from '../../assets/login-logo.png';
 
 const LoginPage = () => {
   return (
     <div className={styles.container}>
-      <div className={styles.logoContainer}>
-        <LoginForm />
-        <div>
-          <div className={styles.logo}>VALUET</div>
-          <div className={styles.divider} />
-          <div className={styles.logoText}>Your currency dashboard</div>
+      <div className={styles.leftContent}>
+        <div className={styles.leftContentWrapper}>
+          <div>
+            <img alt='logo' src={LoginLogo} />
+          </div>
+          <Text
+            title='Buy & Sell Each Digital Cryptocurrency and Arts'
+            align={TextAlign.CENTER}
+            className={styles.title}
+          />
+          <Text
+            text='Easily buy Bitcoin and other cryptocurrencies using a wide range of payment options.
+              Discover exclusive digital collectibles using InCrypto today'
+            align={TextAlign.CENTER}
+          />
         </div>
+      </div>
+      <div className={styles.rightContent}>
+        <LoginForm />
       </div>
     </div>
   );

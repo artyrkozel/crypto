@@ -6,8 +6,6 @@ import Button from 'shared/ui/Button/Button';
 import { ControlWrapperForm } from 'shared/ui/ControlWrapperForm/ControlWrapperForm';
 import Input from 'shared/ui/Input/Input';
 import * as yup from 'yup';
-import { CgProfile } from 'react-icons/cg';
-import { RiLockPasswordFill } from 'react-icons/ri';
 import { ContentTitle } from 'shared/ui/ContentTitle/ContentTitle';
 import { usePostLoginMutation } from 'entities/user/api/api';
 import { AppRoutes } from 'shared/config/routeConfig/routeConfig';
@@ -53,13 +51,13 @@ const LoginForm = () => {
       <FormProvider {...methods}>
         <form noValidate onSubmit={handleSubmit(onSubmit)}>
           <div className={styles.loginForm}>
-            <ContentTitle className={styles.title}>Welcome!</ContentTitle>
+            <ContentTitle className={styles.title}>Sing Up</ContentTitle>
             <ControlWrapperForm name='email' className={styles.email}>
               <Input
                 placeholder='Enter your email'
                 autoFocus
                 {...register('email')}
-                beforeIcon={<CgProfile />}
+                label='email'
               />
             </ControlWrapperForm>
             <ControlWrapperForm name='password'>
@@ -68,10 +66,10 @@ const LoginForm = () => {
                 placeholder='Enter your password'
                 autoFocus
                 {...register('password')}
-                beforeIcon={<RiLockPasswordFill />}
+                label='password'
               />
             </ControlWrapperForm>
-            <Button type='submit' variant='primary'>
+            <Button type='submit' variant='primary' fullWidth>
               Login
             </Button>
           </div>

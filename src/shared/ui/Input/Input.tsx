@@ -12,33 +12,37 @@ export interface IInputProps extends HTMLInputProps {
   variant?: 'primary' | 'secondary';
   value?: string;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
-  beforeIcon?: React.ReactNode;
-  afterIcon?: React.ReactNode;
+  label?: string;
+  id?: string;
 }
 
 const Input: FC<IInputProps> = memo(
-  ({ className, value, onChange, beforeIcon, afterIcon, ...rest }) => {
-    // const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // onChange?.(e.target.value);
-    // };
-
-    const mods: Mods = {
-      beforeIcon: styles.inputWithBeforeIcon,
-      afterIcon: styles.inputWithAfterIcon,
-    };
+  ({
+    className,
+    value,
+    onChange,
+    label,
+    id,
+    ...rest
+  }) => {
+    const mods: Mods = {};
 
     return (
       <div
         className={classNames(styles.inputContainer, mods, [className || ''])}
       >
-        {beforeIcon && <span className={styles.beforeIcon}>{beforeIcon}</span>}
+        {label && (
+          <label className={styles.lable} htmlFor={id}>
+            {label}
+          </label>
+        )}
         <input
           className={styles.Input}
           onChange={onChange}
           value={value}
+          name={id}
           {...rest}
         />
-        {afterIcon && <span className={styles.afterIcon}>{afterIcon}</span>}
       </div>
     );
   },

@@ -1,0 +1,49 @@
+.title {
+    color: var(--primary-text-color);
+}
+
+.text {
+    color: var(--primary-text-color);
+}
+
+.left {
+    text-align: left;
+}
+
+.right {
+    text-align: right;
+}
+
+.center {
+    text-align: center;
+}
+
+.size_s {
+    .title {
+        font-size: 18px;
+    }
+
+    .text {
+        font-size: var(--font-size-s);
+    }
+}
+
+.size_m {
+    .title {
+        font-size: 24px;
+    }
+
+    .text {
+        font-size: var(--font-size-m);
+    }
+}
+
+.size_l {
+    .title {
+        font-size: 32px;
+    }
+
+    .text {
+        font-size: var(--font-size-l);
+    }
+}

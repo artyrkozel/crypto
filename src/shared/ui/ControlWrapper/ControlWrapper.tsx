@@ -43,7 +43,6 @@ export const ControlWrapper: React.FC<ControlWrapperProps> = React.forwardRef(
             children as React.FunctionComponentElement<{ hasError: boolean }>,
             childrenProps,
           )}
-
           {error && <span className={styles.error}>{error}</span>}
         </div>
       </div>

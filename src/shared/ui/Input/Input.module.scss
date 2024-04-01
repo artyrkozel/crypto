@@ -1,25 +1,40 @@
 .Input {
     width: 100%;
-    background-color: #2E3558;
-    border-radius: 8px;
-    color: #fff;
-    height: 58px;
-    padding: 12px 40px;
+    background-color: #fff;
+    border-radius: 12px;
+    border: 1px solid #E8E8E8;
+    border-color: #B8B8B8;
+    color: #171717;
+    height: 48px;
+    padding: 12px 16px;
     font-size: 16px;
+    font-weight: 600;
 
     &::placeholder {
-      color: '#616A8B'
+      color: #b8b8b8;
+      font-weight: 600;
+      font-size: 12px;
     }
 }
 
 .inputContainer {
     position: relative;
-    display: inline-flex;
+    display: flex;
+    flex-direction: column;
     width: 100%;
 }
 
-.inputWithBeforeIcon {
-    padding-left: 45px;
+.lable {
+  text-transform: uppercase;
+  font-weight: 300;
+  color: #848484;
+  margin-left: 15px;
+  margin-bottom: 8px;
+  font-size: 12px;
+}
+
+.inputWithBeforeIcon  {
+    margin-right: 20px;
 }
   
 .inputWithAfterIcon {

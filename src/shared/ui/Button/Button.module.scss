@@ -1,18 +1,29 @@
 .Button {
     cursor: pointer;
-    font-size: 16px;
+    font-size: 14px;
     border-radius: 8px;
-    text-transform: uppercase;
+    font-weight: 600;
+    text-transform: capitalize;
     padding: 10px 24px;
     display: block;
+    transition: 0.3s;
 }
 
 .primary {
-    color: #fff;
+    color: var(--secondary-color);;
     background-color: var(--primary-color);
+
+    &:hover {
+        background-color: var(--secondary-color);
+        color: #FFF;
+    }
 }
 
 .secondary {
-    color: #949EC0;
+    color: #FFF;
     background-color: var(--secondary-color);
+}
+
+.fullWidth {
+    width: 100%;
 }

@@ -18,16 +18,19 @@ export enum ButtonSize {
 export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
   variant?: 'primary' | 'secondary';
+  fullWidth?: boolean;
 }
 
 const Button: FC<IButtonProps> = ({
   className,
   children,
   variant = 'secondary',
+  fullWidth,
   ...rest
 }) => {
   const mods: Mods = {
     [styles[variant]]: true,
+    [styles.fullWidth]: !!fullWidth,
   };
 
   return (

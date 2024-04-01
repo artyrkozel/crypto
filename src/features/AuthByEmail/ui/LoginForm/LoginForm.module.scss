@@ -1,8 +1,5 @@
 .container {
     padding: 82px 50px;
-    background: linear-gradient(180deg, #1E1156 0%, rgb(28 35 64 / 0%) 100%);
-    box-shadow: 0 15px 40px 0 #00000040;
-    border-radius: 8px;
 }
 
 .loginForm {
@@ -18,5 +15,9 @@
 }
 
 .title {
- margin-bottom: 62px;   
+    margin-bottom: 24px;
+    color: #171717;
+    font-size: 27px;
+    font-weight: 700;
+    text-align: center;   
 }
