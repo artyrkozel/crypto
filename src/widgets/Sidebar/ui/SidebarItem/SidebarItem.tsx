@@ -1,4 +1,5 @@
 import { memo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { classNames } from 'helpers/classNames/classNames';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { useLocation } from 'react-router-dom';
@@ -12,6 +13,7 @@ interface SidebarItemProps {
 
 export const SidebarItem = memo(({ item, collapsed }: SidebarItemProps) => {
   const location = useLocation();
+  const { t } = useTranslation();
 
   return (
     <AppLink
@@ -26,7 +28,7 @@ export const SidebarItem = memo(({ item, collapsed }: SidebarItemProps) => {
       )}
     >
       <item.Icon className={styles.icon} />
-      <span className={styles.link}>{item.text}</span>
+      <span className={styles.link}>{t(item.text)}</span>
     </AppLink>
   );
 });

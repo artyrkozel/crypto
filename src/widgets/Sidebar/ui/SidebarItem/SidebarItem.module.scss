@@ -1,9 +1,11 @@
 .item {
 	display: flex;
 	align-items: center;
-	padding: 13px 16px;
-	color: #616a8b;
+	color: #B8B8B8;
+	font-weight: 600;
 	margin-bottom: 12px;
+	font-size: 16px;
+	padding: 13px 16px;
 }
 
 .link {
@@ -20,12 +22,10 @@
 		opacity: 0;
 		transition: 0.2s opacity;
 		width: 0;
+		margin: 0;
 	}
 }
 
 .active {
 	color: #fff;
-	background-color: #32395e;
-	border-bottom: 1px solid #1288e8;
-	border-radius: 5px;
 }

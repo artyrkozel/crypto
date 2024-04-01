@@ -14,7 +14,7 @@ export const LangSwitcher = ({ clasNames }: ILangSwitcherProps) => {
   };
 
   return (
-    <Button className={classNames('', {}, [clasNames || ''])} onClick={fdf}>
+    <Button variant='primary' className={classNames('', {}, [clasNames || ''])} onClick={fdf}>
       {t('EN')}
     </Button>
   );

@@ -9,14 +9,14 @@ export const getSidebarItems = createSelector(
   () => {
     const sidebarItemsList: SidebarItemType[] = [
       {
-        path: RoutePath.overview,
+        path: RoutePath.dashboard,
         Icon: MdOutlineContactPage,
-        text: 'Overview',
+        text: 'Dashboard',
       },
       {
-        path: RoutePath.wallets,
+        path: RoutePath.wallet,
         Icon: MdOutlineContactPage,
-        text: 'Wallets',
+        text: 'Wallet',
       },
     ];
 

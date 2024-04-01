@@ -42,7 +42,7 @@ const LoginForm = () => {
   const onSubmit = async (data: IFormInputs) => {
     const res = await login(data);
     if (res && status && status === QueryStatus.fulfilled) {
-      window.location.href = AppRoutes.OVERVIEW;
+      window.location.href = AppRoutes.DASHBOARD;
     }
   };
 

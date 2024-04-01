@@ -7,6 +7,7 @@ import { useLocation } from 'react-router-dom';
 import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher';
 import { AppRoutes } from 'shared/config/routeConfig/routeConfig';
 import { authActions } from 'entities/user/model/slice';
+import { Logo } from 'shared/ui/Logo';
 import styles from './Sidebat.module.scss';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 
@@ -46,12 +47,19 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
         className || '',
       ])}
     >
-      <div>{itemsList}</div>
-      <Button onClick={onToggle} className={styles.collapseBtn}>
-        {collapsed ? '>' : '<'}
-      </Button>
-      <LangSwitcher clasNames={styles.lang} />
-      <Button onClick={onLogout}>Logout</Button>
+      <div>
+        <div className={styles.logoWrapper}>
+          <Logo collapsed={collapsed} />
+        </div>
+        <div>{itemsList}</div>
+      </div>
+      <div>
+        <Button variant='primary' onClick={onToggle} className={styles.collapseBtn}>
+          {collapsed ? '>' : '<'}
+        </Button>
+        <LangSwitcher clasNames={styles.lang} />
+        <Button variant='primary' onClick={onLogout}>Logout</Button>
+      </div>
     </aside>
   );
 });

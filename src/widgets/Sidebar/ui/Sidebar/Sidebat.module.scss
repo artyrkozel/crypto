@@ -1,14 +1,17 @@
 .Sidebar {
     height: 100vh;
-    width: 220px;
+    width: 312px;
     position: relative;
     transition: width 0.3s;
-    background: radial-gradient(46.41% 73.99% at 46.63% 48.05%, #20135C 0%, #140739 92.82%);
-    padding: 24px 15px 40px
+    background: #171717;
+    padding: 30px 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .collapsed {
-    width: 80px;
+    width: 115px;
 
     .switchers {
         flex-direction: column;
@@ -18,4 +21,9 @@
 
 .lang {
     margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.logoWrapper {
+    margin-bottom: 70px;
 }
