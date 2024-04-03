@@ -20,7 +20,7 @@ export const TopCoinListItem = memo((props: ArticleListItemProps) => {
       data-testid='ArticleListItem'
       target={target}
       to=""
-      className={classNames(styles.CoinListItem, {}, [className || ''])}
+      className={classNames('', {}, [className || ''])}
     >
       <Card className={styles.coinItem}>
         <div>

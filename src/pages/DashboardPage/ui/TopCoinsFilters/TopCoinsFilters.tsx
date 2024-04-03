@@ -4,7 +4,6 @@ import { TopCoinsFiltersTabs } from 'features/TopCoinsFiltersTabs';
 import { CoinFilterType } from 'entities/Coin/model/consts/coinConsts';
 import { useAppDispatch } from 'shared/lib/hooks/redux-hooks';
 import { dashboardPageActions } from 'pages/DashboardPage/model/slice/dashboardPageSlice';
-import styles from './TopCoinsFilters.module.scss';
 
 interface TopCoinsFiltersProps {
   className?: string;
@@ -21,7 +20,7 @@ export const TopCoinsFilters: FC<TopCoinsFiltersProps> = ({ className }) => {
 
   return (
     <div
-      className={classNames(styles.ArticlesPageFilters, {}, [className || ''])}
+      className={classNames('', {}, [className || ''])}
     >
       <TopCoinsFiltersTabs value={type} onChangeType={onChangeType} />
     </div>
