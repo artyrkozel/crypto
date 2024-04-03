@@ -3,10 +3,10 @@ import LoginPage from 'pages/LoginPage/LoginPage';
 import WalletsPage from 'pages/WalletsPage/WalletsPage';
 import { NotFoundPage } from 'pages/NotFoundPage';
 import { AppRoutesProps } from 'app/providers/router/ui/AppRouter';
+import { DashboardPage } from 'pages/DashboardPage';
 
 export enum AppRoutes {
   MAIN = '/',
-  DASHBOARD = 'dashboard',
   OVERVIEW = 'overview',
   LOGIN = 'login',
   WALLET = 'wallet',
@@ -15,7 +15,6 @@ export enum AppRoutes {
 
 export const RoutePath: Record<AppRoutes, string> = {
   [AppRoutes.MAIN]: '/',
-  [AppRoutes.DASHBOARD]: '/dashboard',
   [AppRoutes.OVERVIEW]: '/overview',
   [AppRoutes.LOGIN]: '/login',
   [AppRoutes.WALLET]: '/wallet',
@@ -25,12 +24,7 @@ export const RoutePath: Record<AppRoutes, string> = {
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
   [AppRoutes.MAIN]: {
     path: RoutePath['/'],
-    element: <div>Main</div>,
-    authOnly: true,
-  },
-  [AppRoutes.DASHBOARD]: {
-    path: RoutePath.dashboard,
-    element: <div>DASHBOARD</div>,
+    element: <DashboardPage />,
     authOnly: true,
   },
   [AppRoutes.OVERVIEW]: {

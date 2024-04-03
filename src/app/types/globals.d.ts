@@ -4,7 +4,8 @@ declare module '*.module.scss' {
   export default classes;
 }
 
-export interface ApiError {
-  code: number,
-  message: string
+declare module '*.svg' {
+  export const ReactComponent: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
+  const content: string;
+  export default content;
 }

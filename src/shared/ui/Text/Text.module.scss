@@ -1,9 +1,13 @@
 .title {
+    color: var(--secondary-text-color);
+}
+
+.primary {
     color: var(--primary-text-color);
 }
 
-.text {
-    color: var(--primary-text-color);
+.secondary {
+    color: var(--secondary-text-color);
 }
 
 .left {

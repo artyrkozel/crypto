@@ -9,7 +9,7 @@ export const getSidebarItems = createSelector(
   () => {
     const sidebarItemsList: SidebarItemType[] = [
       {
-        path: RoutePath.dashboard,
+        path: RoutePath['/'],
         Icon: MdOutlineContactPage,
         text: 'Dashboard',
       },

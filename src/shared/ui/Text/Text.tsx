@@ -8,6 +8,11 @@ export enum TextAlign {
   CENTER = 'center',
 }
 
+export enum TextColor {
+  primary = 'primary',
+  secondary = 'secondary',
+}
+
 export enum TextSize {
   S = 'size_s',
   M = 'size_m',
@@ -20,7 +25,7 @@ interface TextProps {
   text?: string;
   align?: TextAlign;
   size?: TextSize;
-
+  color?: TextColor;
   'data-testid'?: string;
 }
 
@@ -39,6 +44,7 @@ export const Text = memo((props: TextProps) => {
     title,
     align = TextAlign.LEFT,
     size = TextSize.M,
+    color = TextColor.primary,
     'data-testid': dataTestId = 'Text',
   } = props;
 
@@ -47,6 +53,7 @@ export const Text = memo((props: TextProps) => {
   const mods: Mods = {
     [cls[align]]: true,
     [cls[size]]: true,
+    [cls[color]]: true,
   };
 
   return (

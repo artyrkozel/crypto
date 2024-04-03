@@ -1,0 +1,16 @@
+export interface ICoin {
+    uuid: string,
+    symbol: string,
+    name: string,
+    color: string,
+    iconUrl: string,
+    marketCap: string,
+    price: string,
+    listedAt: number,
+    change: string,
+    rank: number,
+    sparkline: string[],
+    coinrankingUrl: string,
+    '24hVolume': string,
+    btcPrice: number,
+}
