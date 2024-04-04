@@ -23,7 +23,7 @@ export const Card = memo((props: CardProps) => {
 
   return (
     <div
-      className={classNames(styles.Card, mods, [className, styles[theme]])}
+      className={classNames(styles.Card, mods, [className || '', styles[theme]])}
       {...otherProps}
     >
       {children}
