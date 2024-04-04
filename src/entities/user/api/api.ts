@@ -1,6 +1,6 @@
 import { baseApi } from 'shared/config/api';
 import { setCookies } from 'shared/lib/utils';
-import { ApiError } from 'app/types/globals';
+import { ApiError } from 'app/types/types';
 import { LoginFormData, UserObject, UserWithToken } from '../model/types';
 import { authActions } from '../model/slice';
 

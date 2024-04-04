@@ -10,7 +10,7 @@ interface ILogo {
 
 export const Logo: FC<ILogo> = ({ collapsed }) => {
   return (
-    <Link to={AppRoutes.DASHBOARD}>
+    <Link to={AppRoutes.MAIN}>
       {collapsed ? (
         <img src={logoMini} alt='logo' />
       ) : (
