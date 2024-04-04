@@ -10,11 +10,12 @@ export enum CardTheme {
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
   className?: string;
   children: ReactNode;
+  theme?: CardTheme;
   max?: boolean;
 }
 
 export const Card = memo((props: CardProps) => {
-  const { className, children, max, ...otherProps } = props;
+  const { className, children, max, theme = CardTheme.OUTLINED, ...otherProps } = props;
 
   const mods: Mods = {
     [styles.max]: !!max,
@@ -22,7 +23,7 @@ export const Card = memo((props: CardProps) => {
 
   return (
     <div
-      className={classNames(styles.Card, mods, [className || ''])}
+      className={classNames(styles.Card, mods, [className, styles[theme]])}
       {...otherProps}
     >
       {children}

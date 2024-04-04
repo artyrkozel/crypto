@@ -17,12 +17,20 @@ export const TopCoinsFiltersTabs: FC<TopCoinsTabsProps> = memo(
     const typeTabs = useMemo<TabItem[]>(
       () => [
         {
-          value: CoinFilterType.POPULAR,
-          content: t('Popular'),
+          value: CoinFilterType.STABLECOIN,
+          content: t('Stablecoin'),
         },
         {
-          value: CoinFilterType.TOP_VALUE,
-          content: t('Top value'),
+          value: CoinFilterType.NFT,
+          content: t('NFT'),
+        },
+        {
+          value: CoinFilterType.PRIVACY,
+          content: t('Privacy'),
+        },
+        {
+          value: CoinFilterType.WEB_3,
+          content: t('WEB3'),
         },
       ],
       [t],

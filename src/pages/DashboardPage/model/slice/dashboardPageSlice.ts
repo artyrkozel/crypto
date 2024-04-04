@@ -7,7 +7,7 @@ export interface DasboardState {
 }
 
 const initialState: DasboardState = {
-  type: CoinFilterType.POPULAR,
+  type: CoinFilterType.STABLECOIN,
   _inited: false,
 };
 

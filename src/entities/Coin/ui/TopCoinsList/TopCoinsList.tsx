@@ -14,10 +14,7 @@ interface TopCoinsListProps {
 
 export const TopCoinsList = memo((props: TopCoinsListProps) => {
   const { className, coins, target } = props;
-  // const articles = useSelector(getArticles.selectAll);
-  // const isLoading = useSelector(getArticlesPageIsLoading);
 
-  // const error = useSelector(getArticlesPageError);
   const { t } = useTranslation();
 
   if (!coins || !coins.length) {
@@ -41,6 +38,7 @@ export const TopCoinsList = memo((props: TopCoinsListProps) => {
           className={styles.card}
         />
       ))}
+      {/* {isLoading && getSkeletons(view)} */}
     </div>
   );
 });

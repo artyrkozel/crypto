@@ -1,3 +1,20 @@
 .coinItem {
-    width: 300px;
+    width: 350px;
+}
+
+.coinWrapper {
+    margin-bottom: 12px;
+}
+
+.coinText {
+    color: var(--secondary-text-color);
+    font-weight: 600;
+}
+
+.price {
+    margin-bottom: 12px;
+}
+
+.name {
+    margin-top: 5px;
 }

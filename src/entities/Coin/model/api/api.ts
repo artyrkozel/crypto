@@ -3,11 +3,12 @@ import { baseApi } from "shared/config/api";
 
 export const coinApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
-    getTopCoins: build.query<ICoin[], {limit: number}>({
-      query: ({ limit }) => ({
+    getTopCoins: build.query<ICoin[], {limit: number, tags: string[]}>({
+      query: ({ limit, tags }) => ({
         url: `https://api.coinranking.com/v2/coins`,
         params: {
           limit,
+          tags,
         },
       }),
       /* eslint-disable */

@@ -1,6 +1,7 @@
 import { memo, ReactNode, useCallback } from 'react';
 import { classNames } from 'helpers/classNames/classNames';
 import { Card } from 'shared/ui/Card';
+import { CardTheme } from 'shared/ui/Card/ui/Card';
 import styles from './Tabs.module.scss';
 
 export interface TabItem {
@@ -16,9 +17,8 @@ interface TabsProps {
 }
 
 export const Tabs = memo((props: TabsProps) => {
-  /* eslint-disable */
   const { className, tabs, onTabClick, value } = props;
-  
+
   const clickHandle = useCallback(
     (tab: TabItem) => () => {
       onTabClick(tab);
@@ -29,7 +29,12 @@ export const Tabs = memo((props: TabsProps) => {
   return (
     <div className={classNames(styles.Tabs, {}, [className || ''])}>
       {tabs.map((tab) => (
-        <Card className={styles.tab} key={tab.value} onClick={clickHandle(tab)}>
+        <Card
+          className={styles.tab}
+          theme={tab.value === value ? CardTheme.OUTLINED : CardTheme.NORMAL}
+          key={tab.value}
+          onClick={clickHandle(tab)}
+        >
           {tab.content}
         </Card>
       ))}

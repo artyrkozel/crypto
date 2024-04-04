@@ -14,3 +14,8 @@ export interface ICoin {
     '24hVolume': string,
     btcPrice: number,
 }
+
+export const enum ChartColors {
+    POSITIVE = '#1ABC7B',
+    NEGATIVE = '#F13005'
+}
