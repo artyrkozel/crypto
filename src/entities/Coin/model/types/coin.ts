@@ -12,7 +12,9 @@ export interface ICoin {
     sparkline: string[],
     coinrankingUrl: string,
     '24hVolume': string,
-    btcPrice: number,
+    btcPrice: string,
+    lowVolume: boolean,
+    tier: number
 }
 
 export const enum ChartColors {

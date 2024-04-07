@@ -19,8 +19,8 @@ export const TopCoinsList = memo((props: TopCoinsListProps) => {
 
   if (!coins || !coins.length) {
     return (
-      <div className={classNames(styles.ArticleList, {}, [className || ''])}>
-        <Text size={TextSize.L} title={t('Статьи не найдены')} />
+      <div className={classNames(styles.CoinsList, {}, [className || ''])}>
+        <Text size={TextSize.L} title={t('No result')} />
       </div>
     );
   }
@@ -38,7 +38,6 @@ export const TopCoinsList = memo((props: TopCoinsListProps) => {
           className={styles.card}
         />
       ))}
-      {/* {isLoading && getSkeletons(view)} */}
     </div>
   );
 });

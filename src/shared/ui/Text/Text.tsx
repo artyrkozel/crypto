@@ -14,6 +14,7 @@ export enum TextColor {
 }
 
 export enum TextSize {
+  XS = 'size_xs',
   S = 'size_s',
   M = 'size_m',
   L = 'size_l',
@@ -21,6 +22,7 @@ export enum TextSize {
 
 interface TextProps {
   className?: string;
+  classNameText?: string;
   title?: string;
   text?: string;
   align?: TextAlign;
@@ -29,9 +31,10 @@ interface TextProps {
   'data-testid'?: string;
 }
 
-type HeaderTagType = 'h1' | 'h2' | 'h3';
+type HeaderTagType = 'h1' | 'h2' | 'h3' | 'h4';
 
 const mapSizeToHeaderTag: Record<TextSize, HeaderTagType> = {
+  [TextSize.XS]: 'h4',
   [TextSize.S]: 'h3',
   [TextSize.M]: 'h2',
   [TextSize.L]: 'h1',
@@ -40,6 +43,7 @@ const mapSizeToHeaderTag: Record<TextSize, HeaderTagType> = {
 export const Text = memo((props: TextProps) => {
   const {
     className,
+    classNameText,
     text,
     title,
     align = TextAlign.LEFT,
@@ -64,7 +68,10 @@ export const Text = memo((props: TextProps) => {
         </HeaderTag>
       )}
       {text && (
-        <p className={cls.text} data-testid={`${dataTestId}.Paragraph`}>
+        <p
+          className={classNames(cls.text, {}, [classNameText || ''])}
+          data-testid={`${dataTestId}.Paragraph`}
+        >
           {text}
         </p>
       )}

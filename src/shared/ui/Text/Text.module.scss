@@ -22,6 +22,16 @@
     text-align: center;
 }
 
+.size_xs {
+    .title {
+        font-size: 16px;
+    }
+
+    .text {
+        font-size: var(--font-size-xs);
+    }
+}
+
 .size_s {
     .title {
         font-size: 18px;

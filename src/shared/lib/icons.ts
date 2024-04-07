@@ -3,6 +3,7 @@ import { ReactComponent as BinanceCoin } from '../assets/icons/Binance.svg';
 import { ReactComponent as DogecoinCoin } from '../assets/icons/Dogecoin.svg';
 import { ReactComponent as EthereumCoin } from '../assets/icons/Ethereum.svg';
 import { ReactComponent as TetherCoin } from '../assets/icons/Tether.svg';
+import { ReactComponent as SortIcon } from '../assets/icons/Sort.svg';
 
 export const iconsMap = {
   CiBitcoin: Bitcoin,
@@ -10,4 +11,5 @@ export const iconsMap = {
   Ethereum: EthereumCoin,
   Dogecoin: DogecoinCoin,
   Binance: BinanceCoin,
+  Sort: SortIcon,
 };

@@ -1,6 +1,6 @@
 import { FC, memo } from 'react';
 import { classNames, Mods } from 'helpers/classNames/classNames';
-import { Text, TextAlign } from 'shared/ui/Text';
+import { Text, TextAlign, TextSize } from 'shared/ui/Text';
 import styles from './ChangePrice.module.scss';
 
 interface ChangePriceProps {
@@ -20,6 +20,7 @@ export const ChangePrice: FC<ChangePriceProps> = memo(
         align={TextAlign.CENTER}
         text={`${changeValue} %`}
         className={classNames(styles.ChangePrice, mods, [className || ''])}
+        size={TextSize.XS}
       />
     );
   },

@@ -1,0 +1,82 @@
+.TableContainer {
+  width: 100%;
+  height: 100%;
+}
+
+.Table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 0.9em;
+
+    tbody::before {
+      line-height:1em;
+      content:".";
+      color:white;
+      display:block;
+  }
+
+  tr td {
+    padding: 15px 20px;
+    background-color:#f1f1f1;
+    }
+
+    td { 
+      vertical-align: middle;
+      background-clip: padding-box;
+      padding: 16px 16px 16px 0;
+    }
+
+    tr::after {
+      line-height:1em;
+      content:".";
+      color:white;
+      display:block;
+  }
+}
+
+.price {
+  font-weight: 600;
+  display: flex;
+}
+
+.spacer {
+  height: 8px;
+}
+
+.head {
+  cursor: pointer;
+  text-align: left;
+  color: #848484;
+  font-size: 11px;
+  user-select: none;
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 0 0.5em;
+}
+
+tr {
+  font-size: 1.2em;
+}
+
+tr td {
+padding: 15px 20px;
+background-color:#f1f1f1;
+}
+
+tr td:first-of-type {
+border-top-left-radius: 12px;
+border-bottom-left-radius: 12px;
+padding-left: 12px;
+}
+
+tr td:last-of-type {
+border-top-right-radius: 12px;
+border-bottom-right-radius: 12px;
+}
+
+.sort_btn {
+  margin-left: 5px;
+}
