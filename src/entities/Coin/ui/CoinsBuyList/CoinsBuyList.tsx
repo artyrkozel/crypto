@@ -119,7 +119,7 @@ export const CoinsBuyList: FC<ICoinsBuyListTable> = ({ coins, className }) => {
 
   if (!coins || !coins.length) {
     return (
-      <div className={classNames(styles.CoinsList, {}, [className || ''])}>
+      <div className={classNames('', {}, [className || ''])}>
         <Text size={TextSize.L} title={t('No result')} />
       </div>
     );
@@ -127,7 +127,7 @@ export const CoinsBuyList: FC<ICoinsBuyListTable> = ({ coins, className }) => {
 
   return (
     <div
-      className={classNames(styles.CoinsList, {}, [className || ''])}
+      className={classNames('', {}, [className || ''])}
       data-testid='CoinsBuyList'
     >
       <div

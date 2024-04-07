@@ -16,22 +16,22 @@
       display:block;
   }
 
+  td { 
+    vertical-align: middle;
+    background-clip: padding-box;
+    padding: 16px 16px 16px 0;
+  }
+
   tr td {
     padding: 15px 20px;
     background-color:#f1f1f1;
-    }
+  }
 
-    td { 
-      vertical-align: middle;
-      background-clip: padding-box;
-      padding: 16px 16px 16px 0;
-    }
-
-    tr::after {
-      line-height:1em;
-      content:".";
-      color:white;
-      display:block;
+  tr::after {
+    line-height:1em;
+    content:".";
+    color:white;
+    display:block;
   }
 }
 
@@ -59,11 +59,6 @@ table {
 
 tr {
   font-size: 1.2em;
-}
-
-tr td {
-padding: 15px 20px;
-background-color:#f1f1f1;
 }
 
 tr td:first-of-type {
