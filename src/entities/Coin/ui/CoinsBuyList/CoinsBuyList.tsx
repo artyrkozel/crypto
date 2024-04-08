@@ -1,6 +1,6 @@
 import { ICoin } from 'entities/Coin/model/types/coin';
 import { classNames } from 'helpers/classNames/classNames';
-import { FC, useEffect, useMemo, useState } from 'react';
+import { FC, useCallback, useEffect, useMemo } from 'react';
 import { TextSize, Text, TextColor } from 'shared/ui/Text';
 import { useTranslation } from 'react-i18next';
 import { Table } from 'widgets/Table/Table';
@@ -13,7 +13,11 @@ import { numMask, round } from 'shared/lib/numbers';
 import { ChangePrice } from 'widgets/ChangePrice';
 import { Flex } from 'shared/ui/Stack/Flex/Flex';
 import { HStack, VStack } from 'shared/ui/Stack';
+import { useDispatch } from 'react-redux';
+import { dashboardPageActions } from 'pages/DashboardPage/model/slice/dashboardPageSlice';
+import { ContentWrapper } from 'widgets/ContentWrapper';
 import styles from './CoinsBuyList.module.scss';
+import { CoinTrade } from '../CoinTrade/CoinTrade';
 
 interface ICoinsBuyListTable {
   coins: ICoin[] | undefined;
@@ -22,24 +26,23 @@ interface ICoinsBuyListTable {
 /* eslint-disable */
 export const CoinsBuyList: FC<ICoinsBuyListTable> = ({ coins, className }) => {
   const { t } = useTranslation();
-  const [item, setItem] = useState<ICoin | null>(null);
-  // const dispath = useDispatch();
-  // const { data: coinData } = useGetCoinByIdQuery(
-  //   item?.uuid ? item?.uuid : skipToken,
-  // );
+  const dispath = useDispatch();
 
   const sortHanler = (params: SortingState) => {
     if (!params.length) {
-      return item;
+
     }
     // const { id, desc } = params[0];
     // console.log(id);
     // console.log(desc);
   };
 
-  const onClickHanlder = (row: ICoin) => {
-    setItem(row);
-  };
+  const onClickHanlder = useCallback(
+    (row: ICoin) => {
+      dispath(dashboardPageActions.setTradeCoinId(row.uuid));
+    },
+    [dispath],
+  );
 
   const columnHelper = createColumnHelper<ICoin>();
 
@@ -52,11 +55,11 @@ export const CoinsBuyList: FC<ICoinsBuyListTable> = ({ coins, className }) => {
           return (
             <Flex direction='row' style={{ textAlign: 'left' }}>
               <HStack style={{ display: 'flex', alignItems: 'center' }}>
-                <div style={{ width: 40, height: 48, display: 'block' }}>
+                <div style={{ width: 40, display: 'block' }}>
                   <img
                     src={row.original.iconUrl}
                     alt={row.original.name}
-                    style={{ width: 40, height: 48 }}
+                    style={{ width: 40, height: 40 }}
                   />
                 </div>
 
@@ -113,7 +116,7 @@ export const CoinsBuyList: FC<ICoinsBuyListTable> = ({ coins, className }) => {
 
   useEffect(() => {
     if (coins && coins.length) {
-      setItem(coins[0]);
+      dispath(dashboardPageActions.setTradeCoinId(coins[0].uuid));
     }
   }, [coins]);
 
@@ -126,18 +129,18 @@ export const CoinsBuyList: FC<ICoinsBuyListTable> = ({ coins, className }) => {
   }
 
   return (
-    <div
-      className={classNames('', {}, [className || ''])}
-      data-testid='CoinsBuyList'
+    <ContentWrapper
+      title='Buy Crypto'
+      className={classNames(styles.CoinsBuyList, {}, [className || ''])}
     >
       <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'minmax(250px, 350px) minmax(250px, 350px)',
-          gap: 12,
-        }}
+        className={classNames(styles.CoinsBuyList, {}, [className || ''])}
+        data-testid='CoinsBuyList'
       >
-        <div>
+        <div className={styles.coin_trade_data}>
+          <CoinTrade />
+        </div>
+        <div className={styles.coin_trade_table}>
           <Table
             data={coins}
             columns={columns}
@@ -146,6 +149,6 @@ export const CoinsBuyList: FC<ICoinsBuyListTable> = ({ coins, className }) => {
           />
         </div>
       </div>
-    </div>
+    </ContentWrapper>
   );
 };

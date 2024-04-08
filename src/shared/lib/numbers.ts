@@ -5,3 +5,5 @@ export const numMask = (value: number, digits: number = 5) => {
     value,
   );
 };
+
+export const transformCoinPrice = (price: string) => numMask(round(Number(price)));

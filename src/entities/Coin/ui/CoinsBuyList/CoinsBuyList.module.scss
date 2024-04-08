@@ -1,3 +1,22 @@
+.CoinsBuyList {
+    grid-column: 2 / 4;
+    display: flex;
+    gap: 14px;
+}
+
+.coin_trade_data {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.coin_trade_table {
+    width: 50%;
+    height: 510px;
+    overflow-y: scroll;
+}
+
 .name {
     font-size: 14px;
     font-weight: 600;
@@ -11,4 +30,5 @@
 
 .price {
     font-weight: 600;
+    white-space: nowrap;
 }

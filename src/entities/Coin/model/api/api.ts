@@ -1,3 +1,4 @@
+import { skipToken } from "@reduxjs/toolkit/query";
 import { ICoin } from "entities/Coin/model/types/coin";
 import { baseApi } from "shared/config/api";
 
@@ -18,9 +19,12 @@ export const coinApi = baseApi.injectEndpoints({
         return data?.coins;
       },
     }),
-    getCoinById: build.query({
-      query: (id) => ({
-        url: `https://api.coinranking.com/v2/coin/${id}`,
+    getCoinById: build.query<ICoin, {id: typeof skipToken | string, timePeriod?: string}>({
+      query: ({ id, timePeriod }) => ({
+        url: `https://api.coinranking.com/v2/coin/${id as string}`,
+        params: {
+          timePeriod,
+        },
       }),
       transformResponse: (response: { data: { coin: ICoin } }) => {
         const { data } = response;

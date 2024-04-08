@@ -21,9 +21,17 @@ const DashboardPage = () => {
 
   return (
     <Page>
+      <div className={styles.DashboardPage}>
+        <div style={{ border: '1px solid #e1e1e1' }}>11111111</div>
+        <CoinsBuyList coins={conins} className={styles.CoinsBuyList} />
+        <div style={{ border: '1px solid #e1e1e1' }}>222222222</div>
+        <div style={{ border: '1px solid #e1e1e1' }}>33333333</div>
+        <div style={{ border: '1px solid #e1e1e1' }}>4444444444</div>
+        <div style={{ border: '1px solid #e1e1e1' }}>555555555</div>
+        <div style={{ border: '1px solid #e1e1e1' }}>6666666666</div>
+      </div>
       {/* <TopCoinsFilters type={type} />
       <TopCoinsList coins={conins} /> */}
-      <CoinsBuyList coins={conins} className={styles.CoinsBuyList} />
     </Page>
   );
 };

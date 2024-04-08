@@ -1,5 +1,6 @@
-.CoinsBuyList {
-    height: 540px;
-
-    // overflow-y: scroll;
+.DashboardPage {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr 1fr;
+    gap: 40 16;
 }

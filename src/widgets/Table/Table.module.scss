@@ -6,11 +6,10 @@
 .Table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
     font-size: 0.9em;
 
     tbody::before {
-      line-height:1em;
+      line-height:16px;
       content:".";
       color:white;
       display:block;
@@ -19,12 +18,11 @@
   td { 
     vertical-align: middle;
     background-clip: padding-box;
-    padding: 16px 16px 16px 0;
+    padding: 15px 16px 15px 0;
   }
 
   tr td {
-    padding: 15px 20px;
-    background-color:#f1f1f1;
+    background-color:#f9f9f9;
   }
 
   tr::after {
