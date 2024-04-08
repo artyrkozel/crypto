@@ -10,5 +10,35 @@
       "password": "$2a$10$tXHG.XwQjjpmduRJXVsqkOY4T8/J9WxcGCCTK6HS5spcQ3PcqC6/2",
       "id": "xNqTKTY"
     }
+  ],
+  "leaders": [
+    {
+      "changePersent": 64.8,
+      "name": "Marketlove"
+    },
+    {
+      "changePersent": 35.9,
+      "name": "CrTrader"
+    }, 
+    {
+      "changePersent": 28.3,
+      "name": "Syngh"
+    }, 
+    {
+      "changePersent": 28.2,
+      "name": "Codecrypto"
+    }, 
+    {
+      "changePersent": 23.3,
+      "name": "Bitcoinbutler"
+    }, 
+    {
+      "changePersent": 19.6,
+      "name": "Coinunlike"
+    }, 
+    {
+      "changePersent": 14.3,
+      "name": "Coinfizzle"
+    }
   ]
 }

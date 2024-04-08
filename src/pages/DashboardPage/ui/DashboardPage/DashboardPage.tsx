@@ -3,6 +3,7 @@ import { useGetTopCoinsQuery } from 'entities/Coin/model/api/api';
 import { useSelector } from 'react-redux';
 import { getArticlesPageType } from 'pages/DashboardPage/model/selectors/dashboardPageSelectors';
 import { CoinsBuyList } from 'entities/Coin/ui/CoinsBuyList/CoinsBuyList';
+import { LeaderBoardList } from 'features/LeaderBoard';
 import styles from './DashboardPage.module.scss';
 
 const DashboardPage = () => {
@@ -24,11 +25,10 @@ const DashboardPage = () => {
       <div className={styles.DashboardPage}>
         <div style={{ border: '1px solid #e1e1e1' }}>11111111</div>
         <CoinsBuyList coins={conins} className={styles.CoinsBuyList} />
-        <div style={{ border: '1px solid #e1e1e1' }}>222222222</div>
+        <LeaderBoardList />
         <div style={{ border: '1px solid #e1e1e1' }}>33333333</div>
         <div style={{ border: '1px solid #e1e1e1' }}>4444444444</div>
         <div style={{ border: '1px solid #e1e1e1' }}>555555555</div>
-        <div style={{ border: '1px solid #e1e1e1' }}>6666666666</div>
       </div>
       {/* <TopCoinsFilters type={type} />
       <TopCoinsList coins={conins} /> */}

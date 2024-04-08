@@ -15,3 +15,8 @@ export type TokenObject = {
 export type UserWithToken = TokenObject & {
     user: UserObject;
 };
+
+export type LeaderUser = {
+    changePersent: number;
+    name: string;
+}

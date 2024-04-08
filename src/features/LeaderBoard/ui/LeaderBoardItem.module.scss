@@ -1,0 +1,18 @@
+.LeaderBoardItem {
+    border: 1px solid #e8e8e8;
+    border-radius: 12px;
+    padding: 24px 16px;
+    width: 100%;
+}
+
+.place {
+    width: 23px;
+    height: 23px;
+    background-color: #E0f64b;
+    border-radius: 50%;
+    display: inline-grid;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    font-weight: 600;
+}
