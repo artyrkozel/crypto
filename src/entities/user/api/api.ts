@@ -1,6 +1,5 @@
 import { baseApi } from 'shared/config/api';
 import { setCookies } from 'shared/lib/utils';
-import { ApiError } from 'app/types/types';
 import { LeaderUser, LoginFormData, UserObject, UserWithToken } from '../model/types';
 import { authActions } from '../model/slice';
 
@@ -13,12 +12,9 @@ export const authApi = baseApi.injectEndpoints({
         headers: { 'Content-Type': 'application/json' },
         body: credentials,
       }),
-      transformErrorResponse: async (error: ApiError) => {
-        return alert(error.message);
-      },
       transformResponse: (response: UserWithToken) => {
         const { accessToken } = response;
-        setCookies({ accessToken });
+        accessToken && setCookies({ accessToken });
         return response.user;
       },
       async onQueryStarted(_, { dispatch, queryFulfilled }) {

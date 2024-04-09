@@ -9,7 +9,6 @@ import * as yup from 'yup';
 import { ContentTitle } from 'shared/ui/ContentTitle/ContentTitle';
 import { usePostLoginMutation } from 'entities/user/api/api';
 import { AppRoutes } from 'shared/config/routeConfig/routeConfig';
-import { QueryStatus } from '@reduxjs/toolkit/query';
 import styles from './LoginForm.module.scss';
 
 const FormSchema = yup
@@ -37,11 +36,11 @@ const LoginForm = () => {
 
   const { register, handleSubmit } = methods;
 
-  const [login, { status }] = usePostLoginMutation();
+  const [login, { isError }] = usePostLoginMutation();
 
   const onSubmit = async (data: IFormInputs) => {
-    const res = await login(data);
-    if (res && status && status === QueryStatus.fulfilled) {
+    const res = await login(data).unwrap();
+    if (res && !isError) {
       window.location.href = AppRoutes.MAIN;
     }
   };
