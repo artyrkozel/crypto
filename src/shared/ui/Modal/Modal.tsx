@@ -1,8 +1,8 @@
 import { FC, ReactNode } from 'react';
-import { Portal } from '../Portal/Portal';
-import styles from './Modal.module.scss';
 import { useModal } from 'shared/lib/hooks/useModal';
 import { Mods, classNames } from 'helpers/classNames/classNames';
+import styles from './Modal.module.scss';
+import { Portal } from '../Portal/Portal';
 
 interface ModalProps {
   className?: string;
@@ -21,7 +21,6 @@ export const Modal: FC<ModalProps> = ({
   onClose,
   lazy,
 }) => {
-
   const { close, isClosing, isMounted } = useModal({
     animationDelay: ANIMATION_DELAY,
     onClose,
@@ -45,7 +44,7 @@ export const Modal: FC<ModalProps> = ({
           'app_modal',
         ])}
       >
-        <div style={{backgroundColor: 'red'}} onClick={close}>close</div>
+        <div style={{ backgroundColor: 'red' }} onClick={close}>close</div>
         <div className={styles.content}>{children}</div>
       </div>
     </Portal>
