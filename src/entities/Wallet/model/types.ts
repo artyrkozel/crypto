@@ -10,3 +10,11 @@ export type IWallet = {
 }
 
 export type IWalletCreate = Omit<IWallet, 'id'>
+
+export interface IWalletCoin {
+    id: number;
+    currency: string;
+    iconUrl: string;
+    symbol: string;
+    value: number;
+}

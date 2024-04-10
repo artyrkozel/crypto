@@ -4,6 +4,10 @@ import { useSelector } from 'react-redux';
 import { getArticlesPageType } from 'pages/DashboardPage/model/selectors/dashboardPageSelectors';
 import { CoinsBuyList } from 'entities/Coin/ui/CoinsBuyList/CoinsBuyList';
 import { LeaderBoardList } from 'features/LeaderBoard';
+import { Wallet } from 'widgets/Wallet';
+import { WalletList } from 'widgets/WalletList';
+import { ContentWrapper } from 'widgets/ContentWrapper';
+import { CardTheme } from 'shared/ui/Card/ui/Card';
 import styles from './DashboardPage.module.scss';
 
 const DashboardPage = () => {
@@ -23,7 +27,10 @@ const DashboardPage = () => {
   return (
     <Page>
       <div className={styles.DashboardPage}>
-        <div style={{ border: '1px solid #e1e1e1' }}>11111111</div>
+        <ContentWrapper title='Wallet Cryptocurrency' theme={CardTheme.NORMAL}>
+          <Wallet className={styles.wallet} />
+          <WalletList walletCoins={[]} />
+        </ContentWrapper>
         <CoinsBuyList coins={conins} className={styles.CoinsBuyList} />
         <LeaderBoardList />
         <div style={{ border: '1px solid #e1e1e1' }}>33333333</div>

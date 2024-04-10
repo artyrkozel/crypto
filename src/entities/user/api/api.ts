@@ -14,6 +14,8 @@ export const authApi = baseApi.injectEndpoints({
       }),
       transformResponse: (response: UserWithToken) => {
         const { accessToken } = response;
+        // const date = new Date();
+        // date.setTime(date.getTime() + 30 * 1000);
         accessToken && setCookies({ accessToken });
         return response.user;
       },

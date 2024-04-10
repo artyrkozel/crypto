@@ -5,7 +5,7 @@ export const setCookies = ({
   expires = 1,
 }: {
     accessToken: string;
-    expires?: number;
+    expires?: number | Date;
   }) => {
   Cookies.set('accessToken', accessToken, { expires });
 };
