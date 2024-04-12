@@ -16,6 +16,7 @@ import { HStack, VStack } from 'shared/ui/Stack';
 import { useDispatch } from 'react-redux';
 import { dashboardPageActions } from 'pages/DashboardPage/model/slice/dashboardPageSlice';
 import { ContentWrapper } from 'widgets/ContentWrapper';
+import { coinActions } from 'entities/Coin/model/slice/slice';
 import styles from './CoinsBuyList.module.scss';
 import { CoinTrade } from '../CoinTrade/CoinTrade';
 
@@ -30,7 +31,6 @@ export const CoinsBuyList: FC<ICoinsBuyListTable> = ({ coins, className }) => {
 
   const sortHanler = (params: SortingState) => {
     if (!params.length) {
-
     }
     // const { id, desc } = params[0];
     // console.log(id);
@@ -40,6 +40,7 @@ export const CoinsBuyList: FC<ICoinsBuyListTable> = ({ coins, className }) => {
   const onClickHanlder = useCallback(
     (row: ICoin) => {
       dispath(dashboardPageActions.setTradeCoinId(row.uuid));
+      dispath(coinActions.setCoinToBuy(row));
     },
     [dispath],
   );
@@ -117,6 +118,7 @@ export const CoinsBuyList: FC<ICoinsBuyListTable> = ({ coins, className }) => {
   useEffect(() => {
     if (coins && coins.length) {
       dispath(dashboardPageActions.setTradeCoinId(coins[0].uuid));
+      dispath(coinActions.setCoinToBuy(coins[0]));
     }
   }, [coins]);
 

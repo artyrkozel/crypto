@@ -1,0 +1,212 @@
+.wrapper {
+    width: 100%;
+    min-width: 8rem;
+    user-select: none;
+  }
+  
+  .menu,
+  .button,
+  .input {
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-radius: 12px;
+    background-color: rgb(224 224 224 / 0%);
+    border: none;
+    font-size: 14px;
+    color: #171717;
+    font-weight: 600;
+    cursor: pointer;
+    box-sizing: border-box;
+    outline: none;
+  }
+  
+  .menuSmall,
+  .buttonSmall {
+    font-size: 12px;
+  }
+  
+  .inputContainer {
+    width: 100%;
+    display: inline-flex;
+    position: relative;
+  }
+  
+  .input {
+    padding: 13px;
+  }
+  
+  .inputSmall {
+    height: 100%;
+    padding: 4px 10px;
+    font-size: 14px;
+  }
+  
+  .inputBtnsContainer {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+  }
+  
+  .inputBtnsContainer * {
+    cursor: pointer;
+    padding: 0;
+  }
+  
+  .inputArrow {
+    background: none;
+    border: none;
+    border-radius: 50%;
+    transition: transform 0.4s;
+    will-change: transform;
+  }
+  
+  .button {
+    height: 48px;
+    justify-content: space-between;
+    background-color: #EBEBEB;
+  }
+  
+  .buttonSmall {
+    height: auto;
+    padding: 4px 10px;
+    font-size: 14px;
+    line-height: 20px;
+  }
+  
+  .button:disabled {
+    opacity: 0.4;
+    cursor: auto;
+  }
+  
+  .menu {
+    position: absolute;
+    border-radius: 0 0 6px 6px;
+    max-height: 40vh;
+    flex-direction: column;
+    align-items: flex-start;
+    overflow-y: scroll;
+    list-style: none;
+    cursor: pointer;
+    scrollbar-color: #f1f1f1 #232323;
+    scrollbar-width: thin;
+  }
+  
+  .button:focus,
+  .menu:focus {
+    border-color: #818181;
+  }
+  
+  .button:disabled,
+  .input:disabled {
+    background-color: #eee;
+  }
+  
+  .menu::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  .menu::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+    border-radius: 50%;
+  }
+  
+  .menu::-webkit-scrollbar-thumb {
+    background-color: #232323;
+    border-radius: 8px;
+  }
+  
+  .li {
+    padding: 8px 15px;
+    width: 100%;
+    background-color: #fff;
+
+    // border-radius: 12px;
+    &:hover {
+      background-color: #171717;
+      color: #fff;
+    }
+  }
+  
+  .isOpen {
+    // border-radius: 6px 6px 0 0;
+    border-bottom-color: rgb(224 224 224 / 0%);
+  }
+  
+  .wrapperPlaceHolder {
+    display: flex;
+    justify-content: space-between;
+
+    // align-items: center;
+    width: 100%;
+  }
+  
+  .wrapperButtons {
+    position: absolute;
+    right: 6px;
+    display: flex;
+  }
+  
+  .placeholder {
+    padding: 0 24px 0 13px;
+    min-height: 19px;
+    font-weight: 600;
+  }
+  
+  .placeholderSmall {
+    padding-right: 42px;
+    font-weight: 600;
+  }
+  
+  .cleanBtn {
+    place-self: center end;
+    font-size: 20px;
+    color: #818181;
+  }
+  
+  .arrow {
+    place-self: center end;
+    border: 0;
+    background: none;
+    transition: transform 0.4s;
+    will-change: transform;
+  }
+  
+  .rotate {
+    fill: red
+  }
+  
+  .rotateInputArrow {
+    transform: rotate(-180deg);
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  .error {
+    border-color: red;
+  }
+  
+  .mgtop {
+    margin-top: 5px;
+  }
+  
+  .highlighted {
+    color: #232323;
+    font-weight: 700;
+  }
+  
+  .selected {
+    background-color: #dedede;
+  }
+  
+  .relative {
+    position: relative;
+    width: 100%;
+    z-index: 10;
+  }

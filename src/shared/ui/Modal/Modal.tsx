@@ -21,7 +21,7 @@ export const Modal: FC<ModalProps> = ({
   onClose,
   lazy,
 }) => {
-  const { close, isClosing, isMounted } = useModal({
+  const { isClosing, isMounted } = useModal({
     animationDelay: ANIMATION_DELAY,
     onClose,
     isOpen,
@@ -44,7 +44,6 @@ export const Modal: FC<ModalProps> = ({
           'app_modal',
         ])}
       >
-        <div style={{ backgroundColor: 'red' }} onClick={close}>close</div>
         <div className={styles.content}>{children}</div>
       </div>
     </Portal>

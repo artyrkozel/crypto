@@ -31,6 +31,21 @@ export const coinApi = baseApi.injectEndpoints({
         return data?.coin;
       },
     }),
+
+    // tradeCoin: build.mutation({
+    //   query: (credentials) => ({
+    //     url: 'login',
+    //     method: 'POST',
+    //     headers: { 'Content-Type': 'application/json' },
+    //     body: credentials,
+    //   }),
+    //   async onQueryStarted(_, { dispatch, queryFulfilled }) {
+    //     const { data } = await queryFulfilled;
+    //     if (data) {
+    //       localStorage.setItem('user', JSON.stringify(data));
+    //     }
+    //   },
+    // }),
   }),
 });
 

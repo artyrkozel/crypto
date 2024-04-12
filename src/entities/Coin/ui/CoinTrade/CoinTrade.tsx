@@ -11,6 +11,7 @@ import { ApexOptions } from 'apexcharts';
 import { ChartColors } from 'entities/Coin/model/types/coin';
 import { TextSize, Text, TextColor } from 'shared/ui/Text';
 import Button from 'shared/ui/Button/Button';
+import { BuyCoinButton } from 'features/ByCoin';
 import styles from './CoinTrade.module.scss';
 
 export const CoinTrade = () => {
@@ -153,9 +154,7 @@ export const CoinTrade = () => {
           <Button fullWidth style={{ marginRight: 16 }}>
             Sell
           </Button>
-          <Button variant='primary' fullWidth>
-            Buy
-          </Button>
+          <BuyCoinButton type='buy' />
         </HStack>
       </div>
     </>
