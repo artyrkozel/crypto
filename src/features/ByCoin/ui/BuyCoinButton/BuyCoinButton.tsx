@@ -8,7 +8,7 @@ interface IBuyCoinButtonProps {
 }
 
 export const BuyCoinButton: FC<IBuyCoinButtonProps> = ({ type }) => {
-  const [showModal, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
 
   return (
     <div style={{ width: '100%' }}>

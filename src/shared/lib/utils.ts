@@ -20,3 +20,18 @@ export const getLocalStorage = (value: string): string | null => {
   const userId = localStorage.getItem(value);
   return userId ? JSON.parse(userId) : null;
 };
+
+export const generateDepositTest = (
+  type: 'withdraw' | 'deposit',
+  sum: number,
+  coinName: string,
+) => {
+  let message = '';
+  if (type === 'deposit') {
+    message = `You have successful deposit ${sum} ${coinName} to your account.
+    Vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt
+    ornare. Justo donec enim diam vulputate ut pharetra. Ut placerat orci
+    nulla pellentesque dignissim`;
+  }
+  return message;
+};

@@ -13,6 +13,10 @@ import { useUpdateWalletMutation } from 'entities/Wallet/api/api';
 import { getWalletData } from 'entities/Wallet/model/selectors';
 import { IWalletCurrency } from 'entities/Wallet/model/types';
 import { WalletFactory } from 'shared/lib/factories/WalletFactory';
+import {
+  useCreateNotificationMutation,
+} from 'entities/Notification/model/api/api';
+import { NotificationFactory } from 'shared/lib/factories/NotificationFactory';
 
 interface IBuyCoinModal {
   onClose: () => void;
@@ -30,6 +34,7 @@ export const BuyCoinModal: FC<IBuyCoinModal> = ({ onClose }) => {
   const walletData = useSelector(getWalletData);
 
   const [update] = useUpdateWalletMutation();
+  const [createNotify] = useCreateNotificationMutation();
 
   const methods = useForm<IFormBuyCoin>({
     mode: 'onChange',
@@ -105,12 +110,20 @@ export const BuyCoinModal: FC<IBuyCoinModal> = ({ onClose }) => {
         walletData,
       );
 
-      const result = await update({
+      const resultWallet = await update({
         walletId: Number(walletData?.id),
         walletUpdate: walletUpdateData,
       }).unwrap();
 
-      if (result) {
+      const notification = NotificationFactory.createNotification(
+        coinToTrade,
+        walletUpdateData.userId,
+        +data.toSum,
+      );
+
+      const resultNotify = await createNotify(notification).unwrap();
+
+      if (resultWallet && resultNotify) {
         onClose();
       }
     }

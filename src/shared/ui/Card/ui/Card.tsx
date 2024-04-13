@@ -12,18 +12,27 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
   theme?: CardTheme;
   max?: boolean;
+  overflowY?: boolean;
 }
 
 export const Card = memo((props: CardProps) => {
-  const { className, children, max, theme = CardTheme.OUTLINED, ...otherProps } = props;
+  const {
+    className,
+    children,
+    max,
+    theme = CardTheme.OUTLINED,
+    overflowY = false,
+    ...otherProps
+  } = props;
 
   const mods: Mods = {
     [styles.max]: !!max,
+    [styles.overflow_y]: !!overflowY,
   };
 
   return (
     <div
-      className={classNames(styles.Card, mods, [className || '', styles[theme]])}
+      className={classNames(styles.Card, mods, [className, styles[theme]])}
       {...otherProps}
     >
       {children}

@@ -8,6 +8,7 @@ import { Wallet } from 'widgets/Wallet';
 import { WalletList } from 'widgets/WalletList';
 import { ContentWrapper } from 'widgets/ContentWrapper';
 import { CardTheme } from 'shared/ui/Card/ui/Card';
+import { NotificationList } from 'widgets/NotificationList';
 import styles from './DashboardPage.module.scss';
 
 const DashboardPage = () => {
@@ -35,7 +36,7 @@ const DashboardPage = () => {
         <LeaderBoardList />
         <div style={{ border: '1px solid #e1e1e1' }}>33333333</div>
         <div style={{ border: '1px solid #e1e1e1' }}>4444444444</div>
-        <div style={{ border: '1px solid #e1e1e1' }}>555555555</div>
+        <NotificationList />
       </div>
       {/* <TopCoinsFilters type={type} />
       <TopCoinsList coins={conins} /> */}

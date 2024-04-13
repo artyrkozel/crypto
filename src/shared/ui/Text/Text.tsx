@@ -11,6 +11,7 @@ export enum TextAlign {
 export enum TextColor {
   primary = 'primary',
   secondary = 'secondary',
+  grey = 'grey',
 }
 
 export enum TextSize {

@@ -54,11 +54,11 @@
     {
       "id": 4,
       "userId": "h34cFBR",
-      "totalValue": 154,
+      "totalValue": 654,
       "currencies": [
         {
           "name": "Gemini dollar",
-          "value": 110,
+          "value": 376,
           "iconUrl": "https://cdn.coinranking.com/s5cHqxxYr/gusd.svg",
           "symbol": "GUSD"
         },
@@ -73,8 +73,62 @@
           "value": 22,
           "iconUrl": "https://cdn.coinranking.com/nFn6b97om/9566.png",
           "symbol": "LUSD"
+        },
+        {
+          "name": "USDe",
+          "value": 216,
+          "iconUrl": "https://cdn.coinranking.com/qKumrPI5t/USDe.png",
+          "symbol": "USDE"
+        },
+        {
+          "name": "Euro Tether",
+          "value": 18,
+          "iconUrl": "https://cdn.coinranking.com/og62e1bDS/10789.png",
+          "symbol": "EURT"
         }
       ]
+    }
+  ],
+  "notification": [
+    {
+      "userId": "h34cFBR",
+      "date": "2024-04-13T13:23:05.702Z",
+      "type": "deposit",
+      "currency": "Gemini dollar",
+      "summ": 22,
+      "id": 1
+    },
+    {
+      "userId": "h34cFBR",
+      "date": "2024-04-13T13:49:21.835Z",
+      "type": "deposit",
+      "currency": "Gemini dollar",
+      "summ": 222,
+      "id": 2
+    },
+    {
+      "userId": "h34cFBR",
+      "date": "2024-04-13T14:40:04.185Z",
+      "type": "deposit",
+      "currency": "USDe",
+      "summ": 30,
+      "id": 3
+    },
+    {
+      "userId": "h34cFBR",
+      "date": "2024-04-13T14:40:17.655Z",
+      "type": "deposit",
+      "currency": "Euro Tether",
+      "summ": 18,
+      "id": 4
+    },
+    {
+      "userId": "h34cFBR",
+      "date": "2024-04-13T14:40:27.900Z",
+      "type": "deposit",
+      "currency": "USDe",
+      "summ": 186,
+      "id": 5
     }
   ]
 }
