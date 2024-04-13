@@ -4,8 +4,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Sidebar } from 'widgets/Sidebar';
 import { useDispatch } from 'react-redux';
 import { authActions } from 'entities/user/model/slice';
-import { AppRouter } from './providers/router';
 import { createPortal } from 'react-dom';
+import { AppRouter } from './providers/router';
 
 function App() {
   const dispatch = useDispatch();

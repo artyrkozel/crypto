@@ -1,3 +1,3 @@
-import {Alert as alert} from './ui/Notification'
+import { Alert as alert } from './ui/Notification';
 
-export {alert} 
+export { alert };

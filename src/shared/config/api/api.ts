@@ -24,7 +24,7 @@ export const baseQueryWithRefresh: BaseQueryFn<
   const result = await _baseQuery(args, api, extraOptions);
   if (result.error) {
     const error = result.error as IApiError;
-    alert({type: 'error',  message: error.data.message})
+    alert({ type: 'error', message: error.data.message });
   }
 
   return result;
