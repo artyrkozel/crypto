@@ -1,12 +1,15 @@
-interface ICurrency {
+export interface IWalletCurrency {
     name: string;
-    value: number
+    value: number;
+    iconUrl: string;
+    symbol: string;
 }
 
 export type IWallet = {
     id: number;
     userId: string;
-    currencies: ICurrency[]
+    currencies: IWalletCurrency[];
+    totalValue: number;
 }
 
 export type IWalletCreate = Omit<IWallet, 'id'>

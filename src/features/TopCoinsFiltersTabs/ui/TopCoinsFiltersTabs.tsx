@@ -48,7 +48,7 @@ export const TopCoinsFiltersTabs: FC<TopCoinsTabsProps> = memo(
         tabs={typeTabs}
         value={value}
         onTabClick={onTabClick}
-        className={classNames('', {}, [className || ''])}
+        className={classNames('', {}, [className])}
       />
     );
   },

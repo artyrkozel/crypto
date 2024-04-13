@@ -29,7 +29,7 @@ const DashboardPage = () => {
       <div className={styles.DashboardPage}>
         <ContentWrapper title='Wallet Cryptocurrency' theme={CardTheme.NORMAL}>
           <Wallet className={styles.wallet} />
-          <WalletList walletCoins={[]} />
+          <WalletList />
         </ContentWrapper>
         <CoinsBuyList coins={conins} className={styles.CoinsBuyList} />
         <LeaderBoardList />

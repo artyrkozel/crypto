@@ -9,6 +9,11 @@
       "email": "artyr_422@mail.ru",
       "password": "$2a$10$tXHG.XwQjjpmduRJXVsqkOY4T8/J9WxcGCCTK6HS5spcQ3PcqC6/2",
       "id": "xNqTKTY"
+    },
+    {
+      "email": "artyr_4222@mail.ru",
+      "password": "testpassword",
+      "id": "h34cFBR"
     }
   ],
   "leaders": [
@@ -45,6 +50,31 @@
     {
       "userId": "xNqTKTY",
       "id": 3
+    },
+    {
+      "id": 4,
+      "userId": "h34cFBR",
+      "totalValue": 154,
+      "currencies": [
+        {
+          "name": "Gemini dollar",
+          "value": 110,
+          "iconUrl": "https://cdn.coinranking.com/s5cHqxxYr/gusd.svg",
+          "symbol": "GUSD"
+        },
+        {
+          "name": "Anchored Coins EUR",
+          "value": 22,
+          "iconUrl": "https://cdn.coinranking.com/6lCUSEget/ae.png",
+          "symbol": "AEUR"
+        },
+        {
+          "name": "Liquity USD",
+          "value": 22,
+          "iconUrl": "https://cdn.coinranking.com/nFn6b97om/9566.png",
+          "symbol": "LUSD"
+        }
+      ]
     }
   ]
 }

@@ -9,12 +9,16 @@ import { Dropdown } from 'shared/ui/Dropdown';
 import Input from 'shared/ui/Input/Input';
 import { HStack } from 'shared/ui/Stack';
 import { IOptions } from 'shared/ui/Dropdown/Dropdown';
+import { useUpdateWalletMutation } from 'entities/Wallet/api/api';
+import { getWalletData } from 'entities/Wallet/model/selectors';
+import { IWalletCurrency } from 'entities/Wallet/model/types';
+import { WalletFactory } from 'shared/lib/factories/WalletFactory';
 
 interface IBuyCoinModal {
   onClose: () => void;
 }
 
-interface IFormBuyCoin {
+export interface IFormBuyCoin {
   fromSumm: string;
   toSum: string;
   fromCurrenency: IOptions | null;
@@ -23,6 +27,9 @@ interface IFormBuyCoin {
 
 export const BuyCoinModal: FC<IBuyCoinModal> = ({ onClose }) => {
   const coinToTrade = useSelector(getCoinToBuy);
+  const walletData = useSelector(getWalletData);
+
+  const [update] = useUpdateWalletMutation();
 
   const methods = useForm<IFormBuyCoin>({
     mode: 'onChange',
@@ -66,7 +73,48 @@ export const BuyCoinModal: FC<IBuyCoinModal> = ({ onClose }) => {
     }
   }, [coinToTrade, setValue]);
 
-  const onSubmit = async (data: IFormBuyCoin) => data;
+  const onSubmit = async (data: IFormBuyCoin) => {
+    if (walletData && coinToTrade) {
+      const isCurrentCoinIndex = walletData.currencies.findIndex(
+        (currency) => currency.name === coinToTrade.name,
+      );
+
+      let walletCurrencyUpdate: IWalletCurrency[] | null = null;
+
+      if (isCurrentCoinIndex > -1) {
+        const currencyListUpadte = walletData.currencies.map((el, index) => (index === isCurrentCoinIndex
+          ? {
+            ...el,
+            value:
+                  Number(walletData.currencies[isCurrentCoinIndex].value)
+                  + Number(data.toSum),
+          }
+          : el));
+        walletCurrencyUpdate = currencyListUpadte;
+      } else {
+        const newCurrency = WalletFactory.getNewCurrency(
+          coinToTrade,
+          +data.toSum,
+        );
+        const newCurrencys = [...walletData.currencies, newCurrency];
+        walletCurrencyUpdate = newCurrencys;
+      }
+
+      const walletUpdateData = WalletFactory.getWalletUpdate(
+        walletCurrencyUpdate,
+        walletData,
+      );
+
+      const result = await update({
+        walletId: Number(walletData?.id),
+        walletUpdate: walletUpdateData,
+      }).unwrap();
+
+      if (result) {
+        onClose();
+      }
+    }
+  };
 
   return (
     <FormProvider {...methods}>

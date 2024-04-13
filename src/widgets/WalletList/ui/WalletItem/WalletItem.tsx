@@ -1,11 +1,11 @@
 import { HStack, VStack } from 'shared/ui/Stack';
 import { TextSize, Text, TextColor } from 'shared/ui/Text';
 import { FC } from 'react';
-import { IWalletCoin } from 'entities/Wallet/model/types';
+import { IWalletCurrency } from 'entities/Wallet/model/types';
 import styles from './WalletItem.module.scss';
 
 interface IWalletItemProps {
-  walletData: IWalletCoin;
+  walletData: IWalletCurrency;
 }
 
 export const WalletItem: FC<IWalletItemProps> = ({ walletData }) => {
@@ -28,7 +28,7 @@ export const WalletItem: FC<IWalletItemProps> = ({ walletData }) => {
             className={styles.title}
             size={TextSize.S}
             color={TextColor.secondary}
-            text={walletData.currency}
+            text={String(walletData.value)}
           />
           <Text
             className={styles.symbol}
