@@ -1,8 +1,11 @@
 import { Suspense, useEffect } from 'react';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { Sidebar } from 'widgets/Sidebar';
 import { useDispatch } from 'react-redux';
 import { authActions } from 'entities/user/model/slice';
 import { AppRouter } from './providers/router';
+import { createPortal } from 'react-dom';
 
 function App() {
   const dispatch = useDispatch();
@@ -19,6 +22,7 @@ function App() {
           <AppRouter />
         </div>
       </Suspense>
+      {createPortal(<ToastContainer />, document.body)}
     </div>
   );
 }
