@@ -5,29 +5,25 @@ import { skipToken } from '@reduxjs/toolkit/query';
 import { ContentWrapper } from 'widgets/ContentWrapper';
 import { CardTheme } from 'shared/ui/Card/ui/Card';
 import { VStack } from 'shared/ui/Stack';
-import { useInView } from 'react-intersection-observer';
 import { Mods, classNames } from 'helpers/classNames/classNames';
-import { useMemo } from 'react';
+import { RefObject, useRef } from 'react';
+import useInViewPort from 'shared/lib/hooks/useInViewPort';
 import styles from './NotificationList.module.scss';
 import { NotificationItem } from '../NotificationItem/NotificationItem';
 
 export const NotificationList = () => {
   const user = useSelector(getUserAuthData);
-  const { ref, inView } = useInView({
-    threshold: 0,
-  });
+  const ref = useRef() as RefObject<HTMLDivElement>;
 
+  const { inViewport } = useInViewPort(ref, { threshold: 0.5 });
   const { data: notifList } = useGetNotificationsByUserIdQuery({
     userId: user ? String(user.id) : skipToken,
   });
 
-  const test = useMemo(() => {
-    const mods: Mods = {
-      [styles.test]: !!inView,
-      [styles.bg_view]: !inView,
-    };
-    return mods;
-  }, [inView]);
+  const mods: Mods = {
+    [styles.test]: !!inViewport,
+    [styles.bg_view]: !inViewport,
+  };
 
   if (!notifList || !notifList.length) {
     return <div>No data</div>;
@@ -38,7 +34,7 @@ export const NotificationList = () => {
       title='Notifications'
       theme={CardTheme.NORMAL}
       overflow
-      className={classNames(styles.wrapper, test, [styles.test])}
+      className={classNames(styles.wrapper, mods, [styles.test])}
     >
       <VStack gap='8'>
         {notifList.map((el) => (
