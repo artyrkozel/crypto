@@ -1,6 +1,8 @@
 .TableContainer {
   width: 100%;
   height: 100%;
+  overflow-y: scroll;
+  scrollbar-width: none;
 }
 
 .Table {
@@ -72,4 +74,20 @@ border-bottom-right-radius: 12px;
 
 .sort_btn {
   margin-left: 5px;
+}
+
+.bg_view {
+  // position: relative;
+
+  &::after {
+      content: '';
+      position: absolute;
+      display: block;
+      left: 0;
+      bottom: 0;
+      z-index: 200;
+      width: 100%;
+      height: 80px;
+      background: linear-gradient(rgb(255 255 255 / 0%) 0%, rgb(255 255 255) 100%);
+  }
 }

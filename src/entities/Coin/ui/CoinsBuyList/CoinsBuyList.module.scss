@@ -2,6 +2,7 @@
     grid-column: 2 / 4;
     display: flex;
     column-gap: 14px;
+    grid-area: buy_crypto;
 }
 
 .coin_trade_data {
@@ -14,7 +15,7 @@
 .coin_trade_table {
     width: 50%;
     height: 510px;
-    overflow-y: scroll;
+    position: relative;
 }
 
 .name {

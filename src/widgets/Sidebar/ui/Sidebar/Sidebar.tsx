@@ -1,4 +1,4 @@
-import { classNames } from 'helpers/classNames/classNames';
+import { Mods, classNames } from 'helpers/classNames/classNames';
 import { memo, useMemo, useState } from 'react';
 import Button from 'shared/ui/Button/Button';
 import { useDispatch, useSelector } from 'react-redux';
@@ -8,6 +8,7 @@ import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher';
 import { AppRoutes } from 'shared/config/routeConfig/routeConfig';
 import { authActions } from 'entities/user/model/slice';
 import { Logo } from 'shared/ui/Logo';
+import useWindowDimensions from 'shared/lib/hooks/useWindowDimensions';
 import styles from './Sidebat.module.scss';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 
@@ -18,6 +19,7 @@ interface SidebarProps {
 export const Sidebar = memo(({ className }: SidebarProps) => {
   const [collapsed, setCollapsed] = useState(false);
   const sidebarItemsList = useSelector(getSidebarItems);
+  const { XXXLLayout } = useWindowDimensions();
   const location = useLocation();
   const dispatch = useDispatch();
   const onToggle = () => {
@@ -40,12 +42,15 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
     window.location.href = AppRoutes.LOGIN;
   };
 
+  const mods: Mods = {
+    [styles.collapsed]: collapsed,
+    [styles.Sidebar_lg]: XXXLLayout,
+  };
+
   return (
     <aside
       data-testid='sidebar'
-      className={classNames(styles.Sidebar, { [styles.collapsed]: collapsed }, [
-        className || '',
-      ])}
+      className={classNames(styles.Sidebar, mods, [className])}
     >
       <div>
         <div className={styles.logoWrapper}>
@@ -54,11 +59,17 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
         <div>{itemsList}</div>
       </div>
       <div>
-        <Button variant='primary' onClick={onToggle} className={styles.collapseBtn}>
+        <Button
+          variant='primary'
+          onClick={onToggle}
+          className={styles.collapseBtn}
+        >
           {collapsed ? '>' : '<'}
         </Button>
         <LangSwitcher clasNames={styles.lang} />
-        <Button variant='primary' onClick={onLogout}>Logout</Button>
+        <Button variant='primary' onClick={onLogout}>
+          Logout
+        </Button>
       </div>
     </aside>
   );

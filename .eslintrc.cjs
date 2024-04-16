@@ -60,6 +60,7 @@ module.exports = {
     'jsx-quotes': 'off',
     'no-unused-expressions': 'off',
     'no-alert': 'off',
+    'no-nested-ternary': 'off',
     'import/order': [
       1, 
       { "groups": 

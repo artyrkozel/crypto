@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import {
   AccessorKeyColumnDef,
   SortingState,
   getCoreRowModel,
   useReactTable,
 } from '@tanstack/react-table';
-import { classNames } from 'helpers/classNames/classNames';
+import { Mods, classNames } from 'helpers/classNames/classNames';
 import styles from './Table.module.scss';
 import { TableHeader } from './ui/TableHeader/TableHeader';
 import { TableBody } from './ui/TableBody/TableBody';
@@ -26,6 +26,7 @@ export const Table = <T extends object>({
   className,
 }: ITable<T>) => {
   const [sorting, setSorting] = useState<SortingState>([]);
+  const [inOverview, setInOverview] = useState(false);
 
   const table = useReactTable({
     data,
@@ -35,6 +36,7 @@ export const Table = <T extends object>({
       sorting,
     },
     manualSorting: true,
+
     onSortingChange: (updater) => {
       const newSortingValue = updater instanceof Function ? updater(sorting) : updater;
       onSortHandler && onSortHandler(newSortingValue);
@@ -42,13 +44,22 @@ export const Table = <T extends object>({
     },
   });
 
+  const mods: Mods = {
+    [styles.bg_view]: !inOverview,
+  };
+
+  const viewportHanlder = useCallback((value: boolean) => {
+    setInOverview(value);
+  }, [setInOverview]);
+
   return (
-    <div className={styles.TableContainer}>
+    <div className={classNames(styles.TableContainer, mods, [])}>
       <table className={classNames(styles.Table, {}, [className || ''])}>
         <TableHeader getHeaderGroups={table.getHeaderGroups()} />
         <TableBody
           getRowModel={table.getRowModel}
           onClickHanlder={onClickHanlder}
+          viewportHanlder={viewportHanlder}
         />
       </table>
     </div>

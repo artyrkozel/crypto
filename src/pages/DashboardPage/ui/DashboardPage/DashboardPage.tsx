@@ -9,6 +9,8 @@ import { WalletList } from 'widgets/WalletList';
 import { ContentWrapper } from 'widgets/ContentWrapper';
 import { CardTheme } from 'shared/ui/Card/ui/Card';
 import { NotificationList } from 'widgets/NotificationList';
+import useWindowDimensions from 'shared/lib/hooks/useWindowDimensions';
+import { Mods, classNames } from 'helpers/classNames/classNames';
 import styles from './DashboardPage.module.scss';
 
 const DashboardPage = () => {
@@ -17,6 +19,7 @@ const DashboardPage = () => {
   // console.log('sort', sort);
   const orderBy = 'change';
   const orderDirection = 'asc';
+  const { XXXLLayout, XXLLayout, XLLayout } = useWindowDimensions();
 
   const { data: conins } = useGetTopCoinsQuery({
     limit: 10,
@@ -25,17 +28,31 @@ const DashboardPage = () => {
     orderDirection,
   });
 
+  const mods: Mods = {
+    [styles.DashboardPageLg]: !!XXXLLayout,
+    [styles.DashboardPageXXL]: !!XXLLayout,
+    [styles.DashboardPageXL]: !!XLLayout,
+  };
+
   return (
     <Page>
-      <div className={styles.DashboardPage}>
-        <ContentWrapper title='Wallet Cryptocurrency' theme={CardTheme.NORMAL}>
+      <div className={classNames(styles.DashboardPage, mods, [])}>
+        <ContentWrapper
+          title='Wallet Cryptocurrency'
+          theme={CardTheme.NORMAL}
+          className={styles.Wallet}
+        >
           <Wallet className={styles.wallet} />
           <WalletList />
         </ContentWrapper>
         <CoinsBuyList coins={conins} className={styles.CoinsBuyList} />
         <LeaderBoardList />
-        <div style={{ border: '1px solid #e1e1e1' }}>33333333</div>
-        <div style={{ border: '1px solid #e1e1e1' }}>4444444444</div>
+        <div style={{ border: '1px solid #e1e1e1', gridArea: 'actions', display: XLLayout ? 'none' : 'block' }}>
+          33333333
+        </div>
+        <div style={{ border: '1px solid #e1e1e1', gridArea: 'referal' }}>
+          4444444444
+        </div>
         <NotificationList />
       </div>
       {/* <TopCoinsFilters type={type} />

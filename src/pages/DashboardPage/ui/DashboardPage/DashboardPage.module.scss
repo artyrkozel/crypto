@@ -3,8 +3,32 @@
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 1fr 1fr;
     gap: 40px 16px;
+    grid-template-areas: 
+    "wallet buy_crypto buy_crypto leader"
+    "actions referal notify leader"; 
+}
+
+.DashboardPageLg {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.DashboardPageXXL {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: 
+    "wallet actions leader"
+    "wallet notify leader"
+    "buy_crypto buy_crypto referal"; 
+}
+
+.DashboardPageXL {
+    grid-template: 
+    "wallet leader" 1fr "buy_crypto buy_crypto" 1fr "referal notify" 1fr / 1fr 1fr;
 }
 
 .wallet {
     margin-bottom: 16px;
+}
+
+.Wallet {
+    grid-area: wallet;
 }
