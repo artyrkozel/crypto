@@ -1,0 +1,59 @@
+.QuickActionsItem {
+    border-radius: 12px;
+    border: 1px solid #e8e8e8;
+    background-color: #fff;
+    padding: 16px;
+    transition: .3s;
+    display: block;
+    width: 100%;
+
+    .arrow {
+        display: none;
+    }
+
+
+    .wrapper2 {
+        justify-content: center;
+    }
+
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    &:first-child {
+        grid-column: span 2;
+        .wrapper {
+            flex-direction: row
+        }
+
+        .wrapper2 {
+            justify-content: space-between;
+        }
+        .arrow {
+            display: block;
+        }
+    }
+
+     &:nth-child(2) {
+        grid-column: span 2;
+
+        .wrapper {
+            flex-direction: row;
+        }
+
+        .wrapper2 {
+            justify-content: space-between;
+        }
+
+        .arrow {
+            display: block;
+        }
+    }
+
+    &:hover{
+        border: 1px solid var(--primary-color);
+    }
+}
+

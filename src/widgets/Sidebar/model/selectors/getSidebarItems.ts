@@ -1,7 +1,7 @@
 import { createSelector } from '@reduxjs/toolkit';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { MdOutlineContactPage } from 'react-icons/md';
 import { selectIsAuthenticated } from 'entities/user';
+import { menuIconsMap } from 'shared/lib/icons';
 import { SidebarItemType } from '../types/sidebar';
 
 export const getSidebarItems = createSelector(
@@ -10,13 +10,13 @@ export const getSidebarItems = createSelector(
     const sidebarItemsList: SidebarItemType[] = [
       {
         path: RoutePath['/'],
-        Icon: MdOutlineContactPage,
+        Icon: menuIconsMap.Dashboard,
         text: 'Dashboard',
       },
       {
         path: RoutePath.wallet,
-        Icon: MdOutlineContactPage,
-        text: 'Wallet',
+        Icon: menuIconsMap.Trade,
+        text: 'Trade',
       },
     ];
 

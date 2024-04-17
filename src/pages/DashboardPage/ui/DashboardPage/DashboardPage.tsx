@@ -11,6 +11,8 @@ import { CardTheme } from 'shared/ui/Card/ui/Card';
 import { NotificationList } from 'widgets/NotificationList';
 import useWindowDimensions from 'shared/lib/hooks/useWindowDimensions';
 import { Mods, classNames } from 'helpers/classNames/classNames';
+import { DasboardReferal } from 'widgets/DasboardReferal';
+import { QuickActions } from 'widgets/QuickActions';
 import styles from './DashboardPage.module.scss';
 
 const DashboardPage = () => {
@@ -47,12 +49,8 @@ const DashboardPage = () => {
         </ContentWrapper>
         <CoinsBuyList coins={conins} className={styles.CoinsBuyList} />
         <LeaderBoardList />
-        <div style={{ border: '1px solid #e1e1e1', gridArea: 'actions', display: XLLayout ? 'none' : 'block' }}>
-          33333333
-        </div>
-        <div style={{ border: '1px solid #e1e1e1', gridArea: 'referal' }}>
-          4444444444
-        </div>
+        <QuickActions />
+        <DasboardReferal />
         <NotificationList />
       </div>
       {/* <TopCoinsFilters type={type} />

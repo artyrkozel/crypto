@@ -1,4 +1,4 @@
-import { classNames } from 'helpers/classNames/classNames';
+import { Mods, classNames } from 'helpers/classNames/classNames';
 import { FC, ReactNode, memo } from 'react';
 import { Card } from 'shared/ui/Card';
 import { Text } from 'shared/ui/Text';
@@ -11,12 +11,17 @@ interface IContentWrapperProps {
   title?: string;
   theme?: CardTheme;
   overflow?: boolean;
+  fill?: boolean;
 }
 
 export const ContentWrapper: FC<IContentWrapperProps> = memo(
-  ({ children, className, theme, title, overflow = false }) => {
+  ({ children, className, theme, title, overflow = false, fill = false }) => {
+    const mods: Mods = {
+      [styles.contained]: fill,
+    };
+
     return (
-      <div className={classNames(styles.ContentWrapper, {}, [className])}>
+      <div className={classNames(styles.ContentWrapper, mods, [className])}>
         {title && <Text className={styles.title} title={title} />}
         <Card theme={theme} overflowY={overflow}>
           {children}
