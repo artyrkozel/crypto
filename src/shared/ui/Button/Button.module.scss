@@ -22,6 +22,11 @@
 .secondary {
     color: #FFF;
     background-color: var(--secondary-color);
+
+    &:hover {
+        background-color: var(--primary-color);
+        color: var(--secondary-color);
+    }
 }
 
 .fullWidth {

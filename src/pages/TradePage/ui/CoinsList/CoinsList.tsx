@@ -3,7 +3,7 @@ import {
   createColumnHelper,
 } from '@tanstack/react-table';
 import { ICoin } from 'entities/Coin/model/types/coin';
-import { FC, useMemo } from 'react';
+import { FC, useCallback, useMemo } from 'react';
 import { numMask, round } from 'shared/lib/numbers';
 import { HStack, VStack } from 'shared/ui/Stack';
 import { Flex } from 'shared/ui/Stack/Flex/Flex';
@@ -12,6 +12,8 @@ import { ChangePrice } from 'widgets/ChangePrice';
 import { Table } from 'widgets/Table/Table';
 import { classNames } from 'helpers/classNames/classNames';
 import { useTranslation } from 'react-i18next';
+import { useDispatch } from 'react-redux';
+import { coinActions } from 'entities/Coin/model/slice/slice';
 import styles from './CoinsList.module.scss';
 
 interface ITradeCoinsList {
@@ -21,6 +23,7 @@ interface ITradeCoinsList {
 export const TradeCoinsList: FC<ITradeCoinsList> = ({ coinsList }) => {
   const columnHelper = createColumnHelper<ICoin>();
   const { t } = useTranslation();
+  const dispath = useDispatch();
 
   const columns: AccessorKeyColumnDef<ICoin, string>[] = useMemo(
     () => [
@@ -90,6 +93,14 @@ export const TradeCoinsList: FC<ITradeCoinsList> = ({ coinsList }) => {
     [coinsList, columnHelper],
   );
 
+  const onClickHanlder = useCallback(
+    (row: ICoin) => {
+      dispath(coinActions.setTradeCoinId(row.uuid));
+      // dispath(coinActions.setCoinToBuy(row));
+    },
+    [dispath],
+  );
+
   if (!coinsList || !coinsList.length) {
     return (
       <div className={classNames('', {}, [])}>
@@ -101,7 +112,11 @@ export const TradeCoinsList: FC<ITradeCoinsList> = ({ coinsList }) => {
   return (
     <div className={styles.wrapper_list}>
       <div className={styles.coins_table}>
-        <Table data={coinsList} columns={columns} />
+        <Table
+          data={coinsList}
+          columns={columns}
+          onClickHanlder={onClickHanlder}
+        />
       </div>
     </div>
   );

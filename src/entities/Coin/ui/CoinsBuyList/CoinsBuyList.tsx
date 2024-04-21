@@ -13,10 +13,13 @@ import { numMask, round } from 'shared/lib/numbers';
 import { ChangePrice } from 'widgets/ChangePrice';
 import { Flex } from 'shared/ui/Stack/Flex/Flex';
 import { HStack, VStack } from 'shared/ui/Stack';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { dashboardPageActions } from 'pages/DashboardPage/model/slice/dashboardPageSlice';
 import { ContentWrapper } from 'widgets/ContentWrapper';
 import { coinActions } from 'entities/Coin/model/slice/slice';
+import { useGetCoinByIdQuery } from 'entities/Coin/model/api/api';
+import { skipToken } from '@reduxjs/toolkit/query';
+import { getTradeCoinId } from 'pages/DashboardPage/model/selectors/dashboardPageSelectors';
 import styles from './CoinsBuyList.module.scss';
 import { CoinTrade } from '../CoinTrade/CoinTrade';
 
@@ -28,6 +31,12 @@ interface ICoinsBuyListTable {
 export const CoinsBuyList: FC<ICoinsBuyListTable> = ({ coins, className }) => {
   const { t } = useTranslation();
   const dispath = useDispatch();
+  const coinTradeId = useSelector(getTradeCoinId);
+  
+  const { data: coinData } = useGetCoinByIdQuery({
+    id: coinTradeId || skipToken,
+    timePeriod: '7d',
+  });
 
   const sortHanler = (params: SortingState) => {
     if (!params.length) {
@@ -140,7 +149,7 @@ export const CoinsBuyList: FC<ICoinsBuyListTable> = ({ coins, className }) => {
         data-testid='CoinsBuyList'
       >
         <div className={styles.coin_trade_data}>
-          <CoinTrade />
+          <CoinTrade coinData={coinData} />
         </div>
         <div className={styles.coin_trade_table}>
           <Table

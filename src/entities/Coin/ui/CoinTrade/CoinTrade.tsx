@@ -1,27 +1,24 @@
-import { skipToken } from '@reduxjs/toolkit/query';
-import { useGetCoinByIdQuery } from 'entities/Coin/model/api/api';
-import { getTradeCoinId } from 'pages/DashboardPage/model/selectors/dashboardPageSelectors';
-import { useMemo } from 'react';
-import { useSelector } from 'react-redux';
+import { FC, useMemo } from 'react';
 import { transformCoinPrice } from 'shared/lib/numbers';
 import { HStack, VStack } from 'shared/ui/Stack';
 import { ChangePrice } from 'widgets/ChangePrice';
 import { Chart } from 'widgets/Chart';
 import { ApexOptions } from 'apexcharts';
-import { ChartColors } from 'entities/Coin/model/types/coin';
+import { ChartColors, ICoin } from 'entities/Coin/model/types/coin';
 import { TextSize, Text, TextColor } from 'shared/ui/Text';
 import Button from 'shared/ui/Button/Button';
 import { BuyCoinButton } from 'features/ByCoin';
 import styles from './CoinTrade.module.scss';
 
-export const CoinTrade = () => {
-  const coinTradeId = useSelector(getTradeCoinId);
+interface ICoinTradeProps {
+  coinData: ICoin | undefined;
+  showTradeButtons?: boolean;
+}
 
-  const { data: coinData, isLoading } = useGetCoinByIdQuery({
-    id: coinTradeId || skipToken,
-    timePeriod: '7d',
-  });
-
+export const CoinTrade: FC<ICoinTradeProps> = ({
+  coinData,
+  showTradeButtons = true,
+}) => {
   const chartColor = coinData && +coinData.change > 0
     ? ChartColors.POSITIVE
     : ChartColors.NEGATIVE;
@@ -103,7 +100,7 @@ export const CoinTrade = () => {
     ];
   }, [coinData]);
 
-  if (isLoading) return <div>loading...</div>;
+  // if (isLoading) return <div>loading...</div>;
 
   if (!coinData) {
     return <div>No data</div>;
@@ -150,12 +147,14 @@ export const CoinTrade = () => {
       </HStack>
       <div>
         <Chart options={options} series={series} type='line' height='270' />
-        <HStack justify='around' style={{ marginTop: 36 }}>
-          <Button fullWidth style={{ marginRight: 16 }}>
-            Sell
-          </Button>
-          <BuyCoinButton type='buy' />
-        </HStack>
+        {showTradeButtons ? (
+          <HStack justify='around' style={{ marginTop: 36 }}>
+            <Button fullWidth style={{ marginRight: 16 }}>
+              Sell
+            </Button>
+            <BuyCoinButton type='buy' />
+          </HStack>
+        ) : null}
       </div>
     </>
   );

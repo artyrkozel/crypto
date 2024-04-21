@@ -167,7 +167,7 @@ export const BuyCoinModal: FC<IBuyCoinModal> = ({ onClose }) => {
             </ControlWrapperForm>
           </HStack>
           <Button type='submit' variant='primary'>
-            dubmit
+            Submit
           </Button>
         </div>
       </form>

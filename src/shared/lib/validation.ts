@@ -11,3 +11,11 @@ export const passwordValidation = yup
   .min(8, 'Enter at least 8 characters')
   .max(50, 'Maximum password length is 50 characters')
   .required('Enter a valid password');
+
+export const priceValidation = yup
+  .string()
+  .required('Required field');
+
+export const selectObjectValidation = yup.object({
+  value: yup.mixed().required('Required field'),
+}).required('Required field');

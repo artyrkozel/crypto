@@ -35,3 +35,11 @@ export const generateDepositTest = (
   }
   return message;
 };
+
+export const getAmountWithCommision = (amount: number, commisionPercent: number) => {
+  if (amount && amount > 0) {
+    const commision = Number(amount) * (commisionPercent / 100);
+    return commision + amount;
+  }
+  return 0;
+};

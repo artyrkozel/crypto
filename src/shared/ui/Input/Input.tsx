@@ -1,4 +1,4 @@
-import { ChangeEvent, FC, InputHTMLAttributes, memo } from 'react';
+import { ChangeEvent, FC, InputHTMLAttributes, memo, useCallback } from 'react';
 import { Mods, classNames } from 'helpers/classNames/classNames';
 import styles from './Input.module.scss';
 
@@ -12,8 +12,10 @@ export interface IInputProps extends HTMLInputProps {
   variant?: 'primary' | 'secondary';
   value?: string;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+  onChangeInput?: (e: ChangeEvent<HTMLInputElement>) => void;
   label?: string;
   id?: string;
+  type?: string;
 }
 
 const Input: FC<IInputProps> = memo(
@@ -23,9 +25,19 @@ const Input: FC<IInputProps> = memo(
     onChange,
     label,
     id,
+    onChangeInput,
+    type = 'string',
     ...rest
   }) => {
     const mods: Mods = {};
+
+    const onChangeHandler = useCallback(
+      (e: ChangeEvent<HTMLInputElement>) => {
+        onChangeInput && onChangeInput(e);
+        onChange && onChange(e);
+      },
+      [onChangeInput, onChange],
+    );
 
     return (
       <div
@@ -38,9 +50,10 @@ const Input: FC<IInputProps> = memo(
         )}
         <input
           className={styles.Input}
-          onChange={onChange}
+          onChange={onChangeHandler}
           value={value}
           name={id}
+          type={type}
           {...rest}
         />
       </div>

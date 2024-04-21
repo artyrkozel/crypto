@@ -17,6 +17,7 @@ export type DropdownProps<IOptions> = {
   options?: Array<IOptions>;
   value?: IOptions | null;
   onChange?: (value: IOptions | null) => void;
+  onChaggeValue?: (value: IOptions | null) => void;
   onBlur?: (value: IOptions | null) => void;
   onFocus?: () => void;
   hasError?: boolean;
@@ -30,6 +31,7 @@ export type DropdownProps<IOptions> = {
   id?: string;
   loading?: boolean;
   showCleanBtn?: boolean;
+  onChaggeValu?: (value: IOptions | null) => void;
 };
 
 export const Dropdown = ({
@@ -39,6 +41,7 @@ export const Dropdown = ({
   onBlur,
   onFocus,
   onChange,
+  onChaggeValue,
   ariaLabel,
   hasError = false,
   disabled = false,
@@ -51,12 +54,12 @@ export const Dropdown = ({
   showCleanBtn = true,
 }: DropdownProps<IOptions | null>) => {
   const handleChange = useCallback(
-    ({ selectedItem }: any) => {
-      if (onChange) {
-        onChange(selectedItem);
+    ({ selectedItem }: { selectedItem: IOptions | null }) => {
+      if (onChaggeValue) {
+        onChaggeValue(selectedItem);
       }
     },
-    [onChange],
+    [onChaggeValue],
   );
 
   const {

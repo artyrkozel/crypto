@@ -1,6 +1,8 @@
 import { skipToken } from "@reduxjs/toolkit/query";
 import { ICoin } from "entities/Coin/model/types/coin";
 import { baseApi } from "shared/config/api";
+import { IOptions } from "shared/ui/Dropdown/Dropdown";
+import { coinActions } from "../slice/slice";
 
 export const coinApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
@@ -14,6 +16,13 @@ export const coinApi = baseApi.injectEndpoints({
           orderDirection,
         },
       }),
+      async onQueryStarted(_, { dispatch, queryFulfilled }) {
+        const { data } = await queryFulfilled;
+        if (data) {
+          const coinsOptions: IOptions[] = data.map((coin) => ({ label: coin.name, value: coin.uuid, icon: coin.iconUrl }));
+          dispatch(coinActions.setCoinsOptions(coinsOptions));
+        }
+      },
       transformResponse: (response: { data: { coins: ICoin[] } }) => {
         const { data } = response;
         return data?.coins;
