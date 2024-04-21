@@ -1,7 +1,6 @@
 import { memo, ReactNode, useCallback } from 'react';
 import { classNames } from 'helpers/classNames/classNames';
-import { Card } from 'shared/ui/Card';
-import { CardTheme } from 'shared/ui/Card/ui/Card';
+import Button from 'shared/ui/Button/Button';
 import styles from './Tabs.module.scss';
 
 export interface TabItem {
@@ -29,14 +28,14 @@ export const Tabs = memo((props: TabsProps) => {
   return (
     <div className={classNames(styles.Tabs, {}, [className || ''])}>
       {tabs.map((tab) => (
-        <Card
-          className={styles.tab}
-          theme={tab.value === value ? CardTheme.OUTLINED : CardTheme.NORMAL}
-          key={tab.value}
+        <Button
+          className={classNames(styles.tab, {
+            [styles.active]: value === tab.value,
+          })}
           onClick={clickHandle(tab)}
         >
-          {tab.content}
-        </Card>
+          {tab.value}
+        </Button>
       ))}
     </div>
   );

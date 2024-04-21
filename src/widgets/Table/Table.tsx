@@ -48,9 +48,12 @@ export const Table = <T extends object>({
     [styles.bg_view]: !inOverview,
   };
 
-  const viewportHanlder = useCallback((value: boolean) => {
-    setInOverview(value);
-  }, [setInOverview]);
+  const viewportHanlder = useCallback(
+    (value: boolean) => {
+      setInOverview(value);
+    },
+    [setInOverview],
+  );
 
   return (
     <div className={classNames(styles.TableContainer, mods, [])}>

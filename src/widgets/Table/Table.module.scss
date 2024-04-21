@@ -24,7 +24,7 @@
   }
 
   tr td {
-    background-color:#f9f9f9;
+    background-color:#fff;
   }
 
   tr::after {
@@ -77,17 +77,21 @@ border-bottom-right-radius: 12px;
 }
 
 .bg_view {
-  // position: relative;
-
   &::after {
       content: '';
       position: absolute;
       display: block;
       left: 0;
       bottom: 0;
-      z-index: 200;
+      z-index: 20;
       width: 100%;
       height: 80px;
       background: linear-gradient(rgb(255 255 255 / 0%) 0%, rgb(255 255 255) 100%);
+      border-radius: 12px;
   }
+}
+
+.divider {
+  height: 10px;
+  display: block;
 }

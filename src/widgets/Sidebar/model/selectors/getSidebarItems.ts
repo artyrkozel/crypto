@@ -14,7 +14,7 @@ export const getSidebarItems = createSelector(
         text: 'Dashboard',
       },
       {
-        path: RoutePath.wallet,
+        path: RoutePath.trade,
         Icon: menuIconsMap.Trade,
         text: 'Trade',
       },

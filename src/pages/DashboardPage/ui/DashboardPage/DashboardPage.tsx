@@ -23,7 +23,7 @@ const DashboardPage = () => {
   const orderDirection = 'asc';
   const { XXXLLayout, XXLLayout, XLLayout } = useWindowDimensions();
 
-  const { data: conins } = useGetTopCoinsQuery({
+  const { data: coins } = useGetTopCoinsQuery({
     limit: 10,
     tags: [type],
     orderBy,
@@ -37,7 +37,7 @@ const DashboardPage = () => {
   };
 
   return (
-    <Page>
+    <Page pageTitle='Dashboard'>
       <div className={classNames(styles.DashboardPage, mods, [])}>
         <ContentWrapper
           title='Wallet Cryptocurrency'
@@ -47,7 +47,7 @@ const DashboardPage = () => {
           <Wallet className={styles.wallet} />
           <WalletList />
         </ContentWrapper>
-        <CoinsBuyList coins={conins} className={styles.CoinsBuyList} />
+        <CoinsBuyList coins={coins} className={styles.CoinsBuyList} />
         <LeaderBoardList />
         <QuickActions />
         <DasboardReferal />

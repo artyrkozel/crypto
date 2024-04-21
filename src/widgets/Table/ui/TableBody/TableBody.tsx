@@ -46,7 +46,7 @@ export const TableBody = <T extends object>({
           </>
         );
       })}
-      <div ref={ref} />
+      <div className={styles.divider} ref={ref} />
     </tbody>
   );
 };

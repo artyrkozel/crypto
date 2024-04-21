@@ -1,5 +1,25 @@
 .Tabs {
-    display: flex;
+    display: grid;
     gap: 8px;
     cursor: pointer;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    border: 1px solid rgb(230 230 230);
+    padding: 2px;
+    border-radius: 10px;
+
+}
+
+.tab {
+    color: var(--grey-text-color);
+    background-color: transparent;
+    text-align: center;
+    padding: 5px;
+    text-transform: capitalize;
+}
+
+.active {
+    background-color: var(--primary-color);
+    color: #000;
+    font-weight: 600;
+    border-radius: 7px;
 }

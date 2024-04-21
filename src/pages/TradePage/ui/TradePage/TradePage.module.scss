@@ -1,0 +1,9 @@
+.TradePage {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr 1fr;
+    gap: 40px 16px;
+    grid-template-areas: 
+    "tradeList buyCrypto buyCrypto wallet"
+    "tradeList deposit history wallet"; 
+}

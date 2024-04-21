@@ -1,0 +1,27 @@
+
+.coins_table {
+    margin-top: 24px;
+    overflow-x: scroll;
+    max-height: calc(100vh - 210px);
+    scrollbar-width: none;
+}
+
+.wrapper_list {
+    position: relative;
+}
+
+.name {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.symbol {
+    color: #848484;
+    font-size: 12px;
+}
+
+.price {
+    font-weight: 600;
+    white-space: nowrap;
+}
