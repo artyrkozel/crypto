@@ -3,6 +3,7 @@ import { classNames } from 'helpers/classNames/classNames';
 import styles from './TradePage.module.scss';
 import { TradePageCoins } from '../TradePageCoinsFilters/TradePageCoins';
 import { TradeList } from '../TradeList';
+import { TransationHistory } from '../TransationHistory/TransationHistory';
 
 const TradePage = () => {
   return (
@@ -13,9 +14,7 @@ const TradePage = () => {
         <div style={{ gridArea: 'deposit', border: '1px solid #e6e6e6' }}>
           deposit
         </div>
-        <div style={{ gridArea: 'history', border: '1px solid #e6e6e6' }}>
-          history
-        </div>
+        <TransationHistory />
         <div style={{ gridArea: 'wallet', border: '1px solid #e6e6e6' }}>
           wallet
         </div>

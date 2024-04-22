@@ -1,4 +1,4 @@
-import { useEffect, useCallback } from 'react';
+import { useEffect, useCallback, forwardRef } from 'react';
 import { useSelect } from 'downshift';
 import { IoIosArrowDown } from 'react-icons/io';
 import { VscClose } from 'react-icons/vsc';
@@ -34,7 +34,7 @@ export type DropdownProps<IOptions> = {
   onChaggeValu?: (value: IOptions | null) => void;
 };
 
-export const Dropdown = ({
+export const Dropdown = forwardRef(({
   options = [],
   id,
   value,
@@ -201,4 +201,4 @@ export const Dropdown = ({
       </div>
     </div>
   );
-};
+});

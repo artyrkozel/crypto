@@ -24,7 +24,7 @@ export const WalletList: FC<IWalletListProps> = () => {
   return (
     <div className={classNames(styles.WalletList, {}, [])}>
       {walletCoins.map((el) => (
-        <WalletItem walletData={el} />
+        <WalletItem key={el.name} walletData={el} />
       ))}
     </div>
   );

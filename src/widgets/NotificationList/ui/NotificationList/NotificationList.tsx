@@ -38,7 +38,7 @@ export const NotificationList = () => {
     >
       <VStack gap='8'>
         {notifList.map((el) => (
-          <NotificationItem notification={el} />
+          <NotificationItem key={el.summ} notification={el} />
         ))}
         <div ref={ref} />
       </VStack>

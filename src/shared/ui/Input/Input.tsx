@@ -1,4 +1,11 @@
-import { ChangeEvent, FC, InputHTMLAttributes, memo, useCallback } from 'react';
+import {
+  ChangeEvent,
+  FC,
+  InputHTMLAttributes,
+  forwardRef,
+  memo,
+  useCallback,
+} from 'react';
 import { Mods, classNames } from 'helpers/classNames/classNames';
 import styles from './Input.module.scss';
 
@@ -18,7 +25,7 @@ export interface IInputProps extends HTMLInputProps {
   type?: string;
 }
 
-const Input: FC<IInputProps> = memo(
+const Input: FC<IInputProps> = forwardRef(
   ({
     className,
     value,
@@ -61,4 +68,4 @@ const Input: FC<IInputProps> = memo(
   },
 );
 
-export default Input;
+export default memo(Input);

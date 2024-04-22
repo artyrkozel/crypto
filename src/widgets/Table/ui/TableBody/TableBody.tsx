@@ -42,7 +42,7 @@ export const TableBody = <T extends object>({
                 );
               })}
             </tr>
-            <div className={styles.spacer} />
+            <div className={styles.spacer} style={{ display: 'block' }} />
           </>
         );
       })}

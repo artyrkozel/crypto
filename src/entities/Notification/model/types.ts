@@ -1,5 +1,5 @@
 export interface INotificationCreate {
-    type: 'withdraw' | 'deposit';
+    type: 'deposit' | 'withdraw' | 'exchange';
     summ: number;
     currency: string;
     date: Date;
