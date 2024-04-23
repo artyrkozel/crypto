@@ -1,6 +1,7 @@
 .TransationItem {
     padding: 16px 0 8px;
     width: 100%;
+
     &:not(:last-child) {
         border-bottom: 1px solid #e8e8e8;
     }
