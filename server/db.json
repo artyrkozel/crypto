@@ -54,7 +54,7 @@
     {
       "id": 4,
       "userId": "h34cFBR",
-      "totalValue": 666.06,
+      "totalValue": 689.1710499999999,
       "currencies": [
         {
           "name": "Gemini dollar",
@@ -91,6 +91,12 @@
           "value": 12.06,
           "iconUrl": "https://cdn.coinranking.com/i1NO4uk3i/CSIX_LOGO.png",
           "symbol": "CSIX"
+        },
+        {
+          "name": "Binance USD",
+          "value": 23.11105,
+          "iconUrl": "https://cdn.coinranking.com/6SJHRfClq/busd.svg",
+          "symbol": "BUSD"
         }
       ]
     }
@@ -143,6 +149,22 @@
       "currency": "Carbon",
       "summ": 12.06,
       "id": 6
+    },
+    {
+      "userId": "h34cFBR",
+      "date": "2024-04-22T14:09:46.815Z",
+      "type": "exchange",
+      "currency": "Binance USD",
+      "summ": 22.11,
+      "id": 7
+    },
+    {
+      "userId": "h34cFBR",
+      "date": "2024-04-22T16:41:06.398Z",
+      "type": "exchange",
+      "currency": "Binance USD",
+      "summ": 1.005,
+      "id": 8
     }
   ],
   "transactions": [
@@ -211,6 +233,28 @@
       "type": "exchange",
       "userId": "h34cFBR",
       "id": 6
+    },
+    {
+      "date": "2024-04-22T14:09:45.132Z",
+      "status": "ok",
+      "usdSum": 22.11,
+      "coinSum": 22.02782,
+      "coinName": "Binance USD",
+      "coinSymbol": "BUSD",
+      "type": "exchange",
+      "userId": "h34cFBR",
+      "id": 7
+    },
+    {
+      "date": "2024-04-22T16:41:04.710Z",
+      "status": "ok",
+      "usdSum": 1.005,
+      "coinSum": 1.00105,
+      "coinName": "Binance USD",
+      "coinSymbol": "BUSD",
+      "type": "exchange",
+      "userId": "h34cFBR",
+      "id": 8
     }
   ]
 }

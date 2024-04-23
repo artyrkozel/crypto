@@ -21,7 +21,6 @@ export const NotificationList = () => {
   });
 
   const mods: Mods = {
-    [styles.test]: !!inViewport,
     [styles.bg_view]: !inViewport,
   };
 
@@ -34,7 +33,7 @@ export const NotificationList = () => {
       title='Notifications'
       theme={CardTheme.NORMAL}
       overflow
-      className={classNames(styles.wrapper, mods, [styles.test])}
+      className={classNames(styles.wrapper, mods, [])}
     >
       <VStack gap='8'>
         {notifList.map((el) => (

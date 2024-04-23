@@ -1,3 +1,21 @@
 .TransationHistory {
     grid-area: history;
+    height: 450px;
+    overflow-y: auto;
+}
+
+.bg_view {
+    position: relative;
+
+    &::after {
+        content: '';
+        position: absolute;
+        display: block;
+        left: 0;
+        bottom: 0;
+        z-index: 20;
+        width: 100%;
+        height: 80px;
+        background: linear-gradient(rgb(255 255 255 / 0%) 0%, rgb(255 255 255) 100%);
+    }
 }

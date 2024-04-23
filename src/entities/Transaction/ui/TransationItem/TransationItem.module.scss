@@ -1,0 +1,53 @@
+.TransationItem {
+    padding: 16px 0 8px;
+    width: 100%;
+    &:not(:last-child) {
+        border-bottom: 1px solid #e8e8e8;
+    }
+
+    &:first-child {
+        padding: 8px 0 8px;
+    }
+    
+}
+
+.date {
+    margin-bottom: 10px;
+}
+
+.usdSum {
+    font-weight: 500;
+    
+}
+
+.transationType {
+    text-transform: capitalize;
+}
+
+.deposit {
+    color: #1abc7b;
+}
+
+.withdraw {
+    color: #f13005;
+}
+
+.exchange {
+    color: #1abc7b;
+}
+
+.bg_view {
+    position: relative;
+
+    &::after {
+        content: '';
+        position: absolute;
+        display: block;
+        left: 0;
+        bottom: 0;
+        z-index: 20;
+        width: 100%;
+        height: 80px;
+        background: linear-gradient(rgb(255 255 255 / 0%) 0%, rgb(255 255 255) 100%);
+    }
+}

@@ -96,7 +96,6 @@ export const TradeCoinsList: FC<ITradeCoinsList> = ({ coinsList }) => {
   const onClickHanlder = useCallback(
     (row: ICoin) => {
       dispath(coinActions.setTradeCoinId(row.uuid));
-      // dispath(coinActions.setCoinToBuy(row));
     },
     [dispath],
   );
@@ -108,6 +107,12 @@ export const TradeCoinsList: FC<ITradeCoinsList> = ({ coinsList }) => {
       </div>
     );
   }
+
+  // useEffect(() => {
+  //   if (coinsList && coinsList.length) {
+  //     dispath(coinActions.setTradeCoinId(coinsList[0].uuid));
+  //   }
+  // }, [coinsList, dispath]);
 
   return (
     <div className={styles.wrapper_list}>
