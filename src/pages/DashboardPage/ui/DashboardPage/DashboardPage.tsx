@@ -4,15 +4,12 @@ import { useSelector } from 'react-redux';
 import { getArticlesPageType } from 'pages/DashboardPage/model/selectors/dashboardPageSelectors';
 import { CoinsBuyList } from 'entities/Coin/ui/CoinsBuyList/CoinsBuyList';
 import { LeaderBoardList } from 'features/LeaderBoard';
-import { Wallet } from 'widgets/Wallet';
-import { WalletList } from 'widgets/WalletList';
-import { ContentWrapper } from 'widgets/ContentWrapper';
-import { CardTheme } from 'shared/ui/Card/ui/Card';
 import { NotificationList } from 'widgets/NotificationList';
 import useWindowDimensions from 'shared/lib/hooks/useWindowDimensions';
 import { Mods, classNames } from 'helpers/classNames/classNames';
 import { DasboardReferal } from 'widgets/DasboardReferal';
 import { QuickActions } from 'widgets/QuickActions';
+import { Wallet } from 'entities/Wallet';
 import styles from './DashboardPage.module.scss';
 
 const DashboardPage = () => {
@@ -39,14 +36,7 @@ const DashboardPage = () => {
   return (
     <Page pageTitle='Dashboard'>
       <div className={classNames(styles.DashboardPage, mods, [])}>
-        <ContentWrapper
-          title='Wallet Cryptocurrency'
-          theme={CardTheme.NORMAL}
-          className={styles.Wallet}
-        >
-          <Wallet className={styles.wallet} />
-          <WalletList />
-        </ContentWrapper>
+        <Wallet />
         <CoinsBuyList coins={coins} className={styles.CoinsBuyList} />
         <LeaderBoardList />
         <QuickActions />

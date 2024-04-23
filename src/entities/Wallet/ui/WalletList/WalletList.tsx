@@ -4,11 +4,13 @@ import { Text, TextAlign, TextColor } from 'shared/ui/Text';
 import { getWalletCurrency } from 'entities/Wallet/model/selectors';
 import { useSelector } from 'react-redux';
 import styles from './WalletList.module.scss';
-import { WalletItem } from '../WalletItem/WalletItem';
+import { WalletItem } from './ui/WalletItem/WalletItem';
 
-interface IWalletListProps {}
+interface IWalletListProps {
+  className?: string;
+}
 
-export const WalletList: FC<IWalletListProps> = () => {
+export const WalletList: FC<IWalletListProps> = ({ className }) => {
   const walletCoins = useSelector(getWalletCurrency);
 
   if (!walletCoins.length) {
@@ -22,7 +24,7 @@ export const WalletList: FC<IWalletListProps> = () => {
   }
 
   return (
-    <div className={classNames(styles.WalletList, {}, [])}>
+    <div className={classNames(styles.WalletList, {}, [className])}>
       {walletCoins.map((el) => (
         <WalletItem key={el.name} walletData={el} />
       ))}

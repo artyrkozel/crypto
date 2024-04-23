@@ -1,5 +1,6 @@
 import { Page } from 'widgets/Page/Page';
 import { classNames } from 'helpers/classNames/classNames';
+import { Wallet } from 'entities/Wallet';
 import styles from './TradePage.module.scss';
 import { TradePageCoins } from '../TradePageCoinsFilters/TradePageCoins';
 import { TradeList } from '../TradeList';
@@ -15,9 +16,7 @@ const TradePage = () => {
           deposit
         </div>
         <TransationHistory />
-        <div style={{ gridArea: 'wallet', border: '1px solid #e6e6e6' }}>
-          wallet
-        </div>
+        <Wallet />
       </div>
     </Page>
   );

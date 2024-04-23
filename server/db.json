@@ -54,7 +54,7 @@
     {
       "id": 4,
       "userId": "h34cFBR",
-      "totalValue": 689.1710499999999,
+      "totalValue": 742.4360499999999,
       "currencies": [
         {
           "name": "Gemini dollar",
@@ -97,6 +97,12 @@
           "value": 23.11105,
           "iconUrl": "https://cdn.coinranking.com/6SJHRfClq/busd.svg",
           "symbol": "BUSD"
+        },
+        {
+          "name": "First Digital USD",
+          "value": 53.265,
+          "iconUrl": "https://cdn.coinranking.com/Fsc8c3dOQ/Kegnv2no_400x400.PNG",
+          "symbol": "FDUSD"
         }
       ]
     }
@@ -165,6 +171,14 @@
       "currency": "Binance USD",
       "summ": 1.005,
       "id": 8
+    },
+    {
+      "userId": "h34cFBR",
+      "date": "2024-04-23T18:19:26.510Z",
+      "type": "exchange",
+      "currency": "First Digital USD",
+      "summ": 53.265,
+      "id": 9
     }
   ],
   "transactions": [
@@ -255,6 +269,17 @@
       "type": "exchange",
       "userId": "h34cFBR",
       "id": 8
+    },
+    {
+      "date": "2024-04-23T18:19:24.800Z",
+      "status": "ok",
+      "usdSum": 53.265,
+      "coinSum": 53.09967,
+      "coinName": "First Digital USD",
+      "coinSymbol": "FDUSD",
+      "type": "exchange",
+      "userId": "h34cFBR",
+      "id": 9
     }
   ]
 }

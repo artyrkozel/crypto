@@ -7,13 +7,13 @@ import { useSelector } from 'react-redux';
 import { getUserAuthData } from 'entities/user';
 import { useGetWalletByUserIdQuery } from 'entities/Wallet/api/api';
 import styles from './Wallet.module.scss';
-import Mask from '../../../assets/wallet-mask.png';
+import Mask from '../../../../assets/wallet-mask.png';
 
 interface IWalletProps {
   className?: string;
 }
 
-export const Wallet: FC<IWalletProps> = ({ className }) => {
+export const WalletBalance: FC<IWalletProps> = ({ className }) => {
   const user = useSelector(getUserAuthData);
 
   const { data: wallet } = useGetWalletByUserIdQuery(user?.id);
@@ -23,7 +23,7 @@ export const Wallet: FC<IWalletProps> = ({ className }) => {
   }
 
   return (
-    <div className={classNames(styles.Wallet, {}, [className || ''])}>
+    <div className={classNames(styles.Wallet, {}, [className])}>
       <img className={styles.mask} src={Mask} alt='bg-mask' />
       <div className={styles.balance_wr}>
         <VStack className={styles.balance} gap='8'>

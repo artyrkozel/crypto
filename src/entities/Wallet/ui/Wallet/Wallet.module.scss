@@ -1,0 +1,13 @@
+.Wallet {
+    grid-area: wallet;
+}
+
+.wallet_balance {
+    margin-bottom: 18px;
+}
+
+.wallet_list {
+    height: 405px;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
