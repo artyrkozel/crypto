@@ -1,6 +1,9 @@
 .CoinsList {
+    grid-area: top_currencies;
     display: flex;
-    gap: 12px;
     overflow-x: scroll;
-    padding-bottom: 8px;
+    max-height: 500px;
+    scrollbar-width: none;
+    border: 1px solid #e8e8e8;
+    border-radius: 12px;
 }

@@ -3,6 +3,9 @@ import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { classNames } from 'helpers/classNames/classNames';
 import { ICoin } from 'entities/Coin/model/types/coin';
 import { TextSize, Text } from 'shared/ui/Text';
+import { VStack } from 'shared/ui/Stack';
+import { ContentWrapper } from 'widgets/ContentWrapper';
+import { CardTheme } from 'shared/ui/Card/ui/Card';
 import styles from './TopCoinsList.module.scss';
 import { TopCoinListItem } from '../TopCoinsListItem/TopCoinsListItem';
 
@@ -26,18 +29,24 @@ export const TopCoinsList = memo((props: TopCoinsListProps) => {
   }
 
   return (
-    <div
-      className={classNames(styles.CoinsList, {}, [className || ''])}
-      data-testid='ArticleList'
+    <ContentWrapper
+      title='Top Cryptocurrencies'
+      className={classNames(styles.TradeList, {}, [])}
+      theme={CardTheme.NORMAL}
     >
-      {coins.map((item) => (
-        <TopCoinListItem
-          coin={item}
-          target={target}
-          key={item.name}
-          className={styles.card}
-        />
-      ))}
-    </div>
+      <VStack
+        className={classNames(styles.CoinsList, {}, [className || ''])}
+        data-testid='TopCoinsList'
+      >
+        {coins.map((item) => (
+          <TopCoinListItem
+            coin={item}
+            target={target}
+            key={item.name}
+            className={styles.card}
+          />
+        ))}
+      </VStack>
+    </ContentWrapper>
   );
 });

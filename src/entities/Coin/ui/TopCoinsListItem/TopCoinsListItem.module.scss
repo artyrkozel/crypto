@@ -1,9 +1,15 @@
-.coinItem {
-    width: 350px;
+.TopCoinListItem {
+    width: 100%;
+    background-color: #fff;
+
+    &:not(:last-child) {
+        border-bottom: 1px solid #e8e8e8;
+    }
 }
 
-.coinWrapper {
-    margin-bottom: 12px;
+.coinItem {
+    width: 100%;
+    padding: 16px;
 }
 
 .coinText {
@@ -11,8 +17,8 @@
     font-weight: 600;
 }
 
-.price {
-    margin-bottom: 12px;
+.coin_symbol {
+    font-weight: 500;
 }
 
 .name {

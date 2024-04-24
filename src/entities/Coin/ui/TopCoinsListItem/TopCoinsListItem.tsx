@@ -1,14 +1,15 @@
 import { HTMLAttributeAnchorTarget, memo, useMemo } from 'react';
-import { Text, TextColor } from 'shared/ui/Text';
+import { Text, TextColor, TextSize } from 'shared/ui/Text';
 import { classNames } from 'helpers/classNames/classNames';
 import { Card } from 'shared/ui/Card';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { ChartColors, ICoin } from 'entities/Coin/model/types/coin';
 import { ApexOptions } from 'apexcharts';
 import { numMask, round } from 'shared/lib/numbers';
-import { HStack } from 'shared/ui/Stack';
+import { HStack, VStack } from 'shared/ui/Stack';
 import { ChangePrice } from 'widgets/ChangePrice';
 import { Chart } from 'widgets/Chart';
+import { CardTheme } from 'shared/ui/Card/ui/Card';
 import styles from './TopCoinsListItem.module.scss';
 
 interface ArticleListItemProps {
@@ -24,8 +25,8 @@ export const TopCoinListItem = memo((props: ArticleListItemProps) => {
 
   const options: ApexOptions = {
     chart: {
-      width: '150px',
-      type: 'area',
+      width: '65px',
+      type: 'line',
       dropShadow: {
         enabled: false,
       },
@@ -46,10 +47,11 @@ export const TopCoinListItem = memo((props: ArticleListItemProps) => {
     fill: {
       type: 'gradient',
       gradient: {
-        opacityFrom: 0.75,
+        shadeIntensity: 1,
+        inverseColors: false,
+        opacityFrom: 0.5,
         opacityTo: 0,
-        shade: chartColor,
-        gradientToColors: [chartColor],
+        stops: [0, 90, 100],
       },
     },
     dataLabels: {
@@ -68,15 +70,6 @@ export const TopCoinListItem = memo((props: ArticleListItemProps) => {
       },
     },
     xaxis: {
-      categories: [
-        '01 February',
-        '02 February',
-        '03 February',
-        '04 February',
-        '05 February',
-        '06 February',
-        '07 February',
-      ],
       labels: {
         show: false,
       },
@@ -107,28 +100,44 @@ export const TopCoinListItem = memo((props: ArticleListItemProps) => {
       data-testid='TopCoinListItem'
       target={target}
       to=''
-      className={classNames('', {}, [className || ''])}
+      className={classNames(styles.TopCoinListItem, {}, [className])}
     >
-      <Card className={styles.coinItem}>
-        <HStack justify='between' align='end' className={styles.coinWrapper}>
-          <div>
-            <img src={coin.iconUrl} alt='' style={{ width: 40, height: 40 }} />
-            <Text
-              className={classNames(styles.coinText, {}, [styles.name])}
-              text={coin.name}
-              color={TextColor.secondary}
+      <Card className={styles.coinItem} theme={CardTheme.NORMAL}>
+        <HStack justify='between' align='center' gap='16'>
+          <HStack gap='8' style={{ flexBasis: '30%', minWidth: '40%' }}>
+            <img
+              src={coin.iconUrl}
+              alt={coin.name}
+              style={{ width: 40, height: 40 }}
             />
+            <VStack gap='8'>
+              <Text
+                className={classNames(styles.coinText, {}, [styles.name])}
+                text={coin.name}
+                color={TextColor.secondary}
+                size={TextSize.S}
+              />
+              <Text
+                className={styles.coin_symbol}
+                text={coin.symbol}
+                color={TextColor.grey}
+                size={TextSize.S}
+              />
+            </VStack>
+          </HStack>
+          <div style={{ flexBasis: '30%' }}>
+            <Chart options={options} type='area' height='32' series={series} />
           </div>
-          <div>
+          <VStack gap='8' align='end' style={{ flexBasis: '40%' }}>
             <Text
               text={`$ ${String(numMask(round(+coin.price)))}`}
               color={TextColor.secondary}
-              className={classNames(styles.coinText, {}, [styles.price])}
+              className={styles.coinText}
+              size={TextSize.S}
             />
             <ChangePrice changeValue={+coin.change} />
-          </div>
+          </VStack>
         </HStack>
-        <Chart options={options} type='area' height='80' series={series} />
       </Card>
     </AppLink>
   );

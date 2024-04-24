@@ -6,14 +6,15 @@ import { coinActions } from "../slice/slice";
 
 export const coinApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
-    getTopCoins: build.query<ICoin[], {limit: number, tags: string[], orderBy: string, orderDirection: string}>({
-      query: ({ limit, tags, orderBy, orderDirection }) => ({
+    getTopCoins: build.query<ICoin[], {limit: number, tags: string[], orderBy: string, orderDirection: string, timePeriod: string}>({
+      query: ({ limit, tags, orderBy, orderDirection, timePeriod }) => ({
         url: `https://api.coinranking.com/v2/coins`,
         params: {
           limit,
           tags,
           orderBy,
           orderDirection,
+          timePeriod,
         },
       }),
       async onQueryStarted(_, { dispatch, queryFulfilled }) {

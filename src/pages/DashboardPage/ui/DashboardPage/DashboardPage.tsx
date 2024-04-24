@@ -14,8 +14,7 @@ import styles from './DashboardPage.module.scss';
 
 const DashboardPage = () => {
   const type = useSelector(getArticlesPageType);
-  // const sort = useSelector(getSortType);
-  // console.log('sort', sort);
+  const timePeriod = '';
   const orderBy = 'change';
   const orderDirection = 'asc';
   const { XXXLLayout, XXLLayout, XLLayout } = useWindowDimensions();
@@ -25,6 +24,7 @@ const DashboardPage = () => {
     tags: [type],
     orderBy,
     orderDirection,
+    timePeriod,
   });
 
   const mods: Mods = {
