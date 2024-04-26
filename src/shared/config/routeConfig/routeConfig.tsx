@@ -5,6 +5,7 @@ import { NotFoundPage } from 'pages/NotFoundPage';
 import { AppRoutesProps } from 'app/providers/router/ui/AppRouter';
 import { DashboardPage } from 'pages/DashboardPage';
 import { TradePage } from 'pages/TradePage';
+import { ActionsPage } from 'pages/ActionsPage';
 
 export enum AppRoutes {
   MAIN = '/',
@@ -13,6 +14,7 @@ export enum AppRoutes {
   WALLET = 'wallet',
   TRADE = 'trade',
   NOT_FOUND_PAGE = 'not_found',
+  ACTIONS = 'actions',
 }
 
 export const RoutePath: Record<AppRoutes, string> = {
@@ -22,6 +24,7 @@ export const RoutePath: Record<AppRoutes, string> = {
   [AppRoutes.WALLET]: '/wallet',
   [AppRoutes.NOT_FOUND_PAGE]: '*',
   [AppRoutes.TRADE]: '/trade',
+  [AppRoutes.ACTIONS]: '/actions',
 };
 
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
@@ -52,6 +55,11 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
   [AppRoutes.WALLET]: {
     path: RoutePath.wallet,
     element: <WalletsPage />,
+    authOnly: true,
+  },
+  [AppRoutes.ACTIONS]: {
+    path: RoutePath.actions,
+    element: <ActionsPage />,
     authOnly: true,
   },
 };

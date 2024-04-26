@@ -1,0 +1,30 @@
+.CreditCard {
+    max-width: 450px;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 5px 16px 0 rgb(14 42 84 / 55%);
+    background-color: #21D4FD;
+    background-image: linear-gradient(304deg, #21D4FD 0%, #B721FF 100%);
+    padding: 25px 15px;
+    user-select: none;
+    border-radius: 24px;
+}
+
+.card_chip {
+    margin-bottom: 40px;
+
+    // width: 100% !important;
+}
+
+.card_number {
+    margin-bottom: 35px;
+}
+
+.holder_wrapper {
+    width: 100% !important;
+}
+
+.card_holer {
+    font-weight: 500;
+    color: #fff;
+}

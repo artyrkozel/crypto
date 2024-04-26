@@ -14,7 +14,7 @@ const NotFoundPage = () => {
       <div className={styles.textWrapper}>
         <span>404</span>
         <p>{t('Page Not Found')}</p>
-        <Button variant="primary" onClick={() => navigate(AppRoutes.OVERVIEW)}>
+        <Button variant="primary" onClick={() => navigate(AppRoutes.MAIN)}>
           {t('Go home')}
         </Button>
       </div>

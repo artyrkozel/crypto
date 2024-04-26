@@ -13,9 +13,7 @@ import { useUpdateWalletMutation } from 'entities/Wallet/api/api';
 import { getWalletData } from 'entities/Wallet/model/selectors';
 import { IWalletCurrency } from 'entities/Wallet/model/types';
 import { WalletFactory } from 'shared/lib/factories/WalletFactory';
-import {
-  useCreateNotificationMutation,
-} from 'entities/Notification/model/api/api';
+import { useCreateNotificationMutation } from 'entities/Notification/model/api/api';
 import { NotificationFactory } from 'shared/lib/factories/NotificationFactory';
 
 interface IBuyCoinModal {

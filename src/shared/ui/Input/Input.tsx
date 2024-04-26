@@ -2,7 +2,7 @@ import {
   ChangeEvent,
   FC,
   InputHTMLAttributes,
-  forwardRef,
+  MutableRefObject,
   memo,
   useCallback,
 } from 'react';
@@ -23,49 +23,48 @@ export interface IInputProps extends HTMLInputProps {
   label?: string;
   id?: string;
   type?: string;
+  ref?: MutableRefObject<HTMLInputElement>;
 }
 
-const Input: FC<IInputProps> = forwardRef(
-  ({
-    className,
-    value,
-    onChange,
-    label,
-    id,
-    onChangeInput,
-    type = 'string',
-    ...rest
-  }) => {
-    const mods: Mods = {};
+const Input: FC<IInputProps> = ({
+  className,
+  value,
+  onChange,
+  label,
+  id,
+  onChangeInput,
+  type = 'string',
+  ref,
+  ...rest
+}) => {
+  const mods: Mods = {};
 
-    const onChangeHandler = useCallback(
-      (e: ChangeEvent<HTMLInputElement>) => {
-        onChangeInput && onChangeInput(e);
-        onChange && onChange(e);
-      },
-      [onChangeInput, onChange],
-    );
+  const onChangeHandler = useCallback(
+    (e: ChangeEvent<HTMLInputElement>) => {
+      onChangeInput && onChangeInput(e);
+      onChange && onChange(e);
+    },
+    [onChangeInput, onChange],
+  );
 
-    return (
-      <div
-        className={classNames(styles.inputContainer, mods, [className || ''])}
-      >
-        {label && (
-          <label className={styles.lable} htmlFor={id}>
-            {label}
-          </label>
-        )}
-        <input
-          className={styles.Input}
-          onChange={onChangeHandler}
-          value={value}
-          name={id}
-          type={type}
-          {...rest}
-        />
-      </div>
-    );
-  },
-);
+  return (
+    <div className={classNames(styles.inputContainer, mods, [className])}>
+      {label && (
+        <label className={styles.lable} htmlFor={id}>
+          {label}
+        </label>
+      )}
+      <input
+        className={styles.Input}
+        onChange={onChangeHandler}
+        value={value}
+        name={id}
+        type={type}
+        ref={ref}
+        {...rest}
+      />
+    </div>
+  );
+};
 
 export default memo(Input);

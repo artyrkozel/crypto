@@ -1,30 +1,46 @@
-import { ChangeEvent, useMemo } from 'react';
+import {
+  ChangeEvent,
+  MutableRefObject,
+  SelectHTMLAttributes,
+  useMemo,
+} from 'react';
 
 import { Mods, classNames } from 'helpers/classNames/classNames';
 import styles from './Select.module.scss';
+import { IOptions } from '../Dropdown/Dropdown';
 
-export interface SelectOption<T extends string> {
-  value: T;
-  content: string;
-  icon?: string;
-}
+type HTMLSelectProps = Omit<
+  SelectHTMLAttributes<HTMLSelectElement>,
+  'value' | 'onChange'
+>;
 
-interface SelectProps<T extends string> {
+interface SelectProps extends HTMLSelectProps {
   className?: string;
   label?: string;
-  options?: SelectOption<T>[];
-  value?: T;
+  options?: IOptions[];
+  value?: string;
   onChange?: (e: ChangeEvent<HTMLSelectElement>) => void;
   readonly?: boolean;
+  ref?: MutableRefObject<HTMLSelectElement>;
+  placeholder?: string;
 }
 
-export const Select = <T extends string>(props: SelectProps<T>) => {
-  const { className, label, options, onChange, value, readonly } = props;
+export const Select = (props: SelectProps) => {
+  const {
+    className,
+    label,
+    options,
+    onChange,
+    value,
+    readonly,
+    placeholder,
+    ...rest
+  } = props;
 
   const optionsList = useMemo(
     () => options?.map((opt) => (
       <option className={styles.option} value={opt.value} key={opt.value}>
-        {opt.content}
+        {opt.label}
       </option>
     )),
     [options],
@@ -33,14 +49,18 @@ export const Select = <T extends string>(props: SelectProps<T>) => {
   const mods: Mods = {};
 
   return (
-    <div className={classNames(styles.Wrapper, mods, [className || ''])}>
+    <div className={classNames(styles.Wrapper, mods, [className])}>
       {label && <span className={styles.label}>{`${label}`}</span>}
       <select
+        {...rest}
         disabled={readonly}
         className={styles.select}
         value={value}
         onChange={onChange}
       >
+        <option disabled selected value=''>
+          {placeholder ?? ''}
+        </option>
         {optionsList}
       </select>
     </div>

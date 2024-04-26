@@ -61,6 +61,7 @@ module.exports = {
     'no-unused-expressions': 'off',
     'no-alert': 'off',
     'no-nested-ternary': 'off',
+    '@typescript-eslint/ban-ts-comment': 'off',
     'import/order': [
       1, 
       { "groups": 

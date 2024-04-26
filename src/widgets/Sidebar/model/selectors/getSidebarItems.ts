@@ -18,6 +18,11 @@ export const getSidebarItems = createSelector(
         Icon: menuIconsMap.Trade,
         text: 'Trade',
       },
+      {
+        path: RoutePath.actions,
+        Icon: menuIconsMap.Actions,
+        text: 'Actions',
+      },
     ];
 
     // if (userData) {

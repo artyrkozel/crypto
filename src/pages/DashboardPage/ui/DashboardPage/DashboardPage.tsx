@@ -14,7 +14,7 @@ import styles from './DashboardPage.module.scss';
 
 const DashboardPage = () => {
   const type = useSelector(getArticlesPageType);
-  const timePeriod = '';
+  const timePeriod = '7d';
   const orderBy = 'change';
   const orderDirection = 'asc';
   const { XXXLLayout, XXLLayout, XLLayout } = useWindowDimensions();
