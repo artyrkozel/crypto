@@ -1,9 +1,8 @@
 import { ChangeEvent } from 'react';
-import { Controller, useFormContext } from 'react-hook-form';
-import { ControlWrapperForm } from 'shared/ui/ControlWrapperForm/ControlWrapperForm';
+import { useFormContext } from 'react-hook-form';
+import { ControllerInput } from 'shared/ui/ControllerInput/ControllerInput';
+import { ControllerSelect } from 'shared/ui/ControllerSelect/ControllerSelect';
 import { IOptions } from 'shared/ui/Dropdown/Dropdown';
-import Input from 'shared/ui/Input/Input';
-import { Select } from 'shared/ui/Select';
 /* eslint-disable */
 /* tslint:disable */
 const currentYear = new Date().getFullYear();
@@ -32,7 +31,7 @@ export default function CreditCardForm({
   cardCvv,
   children,
 }: any) {
-  const { register, setValue, control } = useFormContext();
+  const { setValue } = useFormContext();
 
   // TODO: We can improve the regex check with a better approach like in the card component.
   const onCardNumberChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -74,77 +73,59 @@ export default function CreditCardForm({
       <div className='card-list'>{children}</div>
       <div className='card-form__inner'>
         <div className='card-input'>
-          <ControlWrapperForm name='cardNumber'>
-            <Input
-              {...register('cardNumber')}
-              type='number'
-              autoComplete='off'
-              max={19}
-              onFocus={(e) => onCardInputFocus(e, 'cardNumber')}
-              ref={cardNumberRef}
-              onBlur={onCardInputBlur}
-              // value={cardNumber}
-              onChange={onCardNumberChange}
-            />
-          </ControlWrapperForm>
+          <ControllerInput
+            name='cardNumber'
+            type='number'
+            placeholder='Card number'
+            max={19}
+            onFocus={(e) => onCardInputFocus(e, 'cardNumber')}
+            ref={cardNumberRef}
+            onBlur={onCardInputBlur}
+          />
         </div>
-
         <div className='card-input'>
-          <ControlWrapperForm name='cardHolder'>
-            <Input
-              {...register('cardHolder')}
-              type='text'
-              autoComplete='off'
-              placeholder='FULL NAME'
-              max={19}
-              onFocus={(e) => onCardInputFocus(e, 'cardHolder')}
-              ref={cardHolderRef}
-              onBlur={onCardInputBlur}
-            />
-          </ControlWrapperForm>
+          <ControllerInput
+            name='cardHolder'
+            type='text'
+            autoComplete='off'
+            placeholder='FULL NAME'
+            max={19}
+            onFocus={(e) => onCardInputFocus(e, 'cardHolder')}
+            ref={cardHolderRef}
+            onBlur={onCardInputBlur}
+          />
         </div>
 
         <div className='card-form__row'>
           <div className='card-form__col'>
             <div className='card-form__group'>
-              <ControlWrapperForm name='cardMonth'>
-                <Select
-                  {...register('cardMonth')}
-                  options={monthOptions}
-                  ref={cardDateRef}
-                  onBlur={onCardInputBlur}
-                  onFocus={(e) => onCardInputFocus(e, 'cardDate')}
-                  placeholder='Month'
-                />
-              </ControlWrapperForm>
-              <ControlWrapperForm name='cardYear'>
-                <Select
-                  {...register('cardYear')}
-                  options={yearsArr}
-                  ref={cardDateRef}
-                  onBlur={onCardInputBlur}
-                  onFocus={(e) => onCardInputFocus(e, 'cardDate')}
-                  placeholder='Year'
-                />
-              </ControlWrapperForm>
+              <ControllerSelect
+                name='cardMonth'
+                ref={cardDateRef}
+                onBlur={onCardInputBlur}
+                onFocus={(e) => onCardInputFocus(e, 'cardDate')}
+                placeHolder='cardMonth'
+                options={monthOptions}
+              />
+              <ControllerSelect
+                name='cardYear'
+                ref={cardDateRef}
+                onBlur={onCardInputBlur}
+                onFocus={(e) => onCardInputFocus(e, 'cardDate')}
+                placeHolder='cardYear'
+                options={yearsArr}
+              />
             </div>
           </div>
           <div className='card-form__col -cvv'>
-            <Controller
+            <ControllerInput
+              ref={cardCvv}
+              type='text'
+              onFocus={onCvvFocus}
+              onBlur={onCvvBlur}
+              placeholder='CVV'
+              label='cv'
               name='cardCvv'
-              control={control}
-              render={() => (
-                <Input
-                  {...register('cardCvv')}
-                  type='text'
-                  autoComplete='off'
-                  placeholder='CVV'
-                  max={19}
-                  onFocus={onCvvFocus}
-                  onBlur={onCvvBlur}
-                  ref={cardCvv}
-                />
-              )}
             />
           </div>
         </div>

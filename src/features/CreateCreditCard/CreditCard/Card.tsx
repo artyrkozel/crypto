@@ -5,7 +5,7 @@ import {
   SwitchTransition,
 } from 'react-transition-group';
 import { useFormContext } from 'react-hook-form';
-import visaLabel from "../../../shared/assets/img/visa-label.png";
+import visaLabel from '../../../shared/assets/img/visa-label.png';
 import chip from '../../../shared/assets/img/chip.png';
 import './Cards.scss';
 
@@ -66,10 +66,10 @@ const Card = ({
   const outlineElementStyle = (element: any) => {
     return element
       ? {
-        width: `${element.offsetWidth}px`,
-        height: `${element.offsetHeight}px`,
-        transform: `translateX(${element.offsetLeft}px) translateY(${element.offsetTop}px)`,
-      }
+          width: `${element.offsetWidth}px`,
+          height: `${element.offsetHeight}px`,
+          transform: `translateX(${element.offsetLeft}px) translateY(${element.offsetTop}px)`,
+        }
       : null;
   };
 
@@ -151,8 +151,8 @@ const Card = ({
                       <div>FULL NAME</div>
                     </CSSTransition>
                   ) : (
-                    cardHolder
-                    && cardHolder.split('').map((val: any, index: number) => (
+                    cardHolder &&
+                    cardHolder.split('').map((val: any, index: number) => (
                       <CSSTransition
                         timeout={250}
                         classNames='slide-fade-right'
@@ -178,10 +178,7 @@ const Card = ({
                     timeout={200}
                     key={cardMonth}
                   >
-                    <span>
-                      {!cardMonth ? 'MM' : cardMonth}
-                      {' '}
-                    </span>
+                    <span>{!cardMonth ? 'MM' : cardMonth} </span>
                   </CSSTransition>
                 </SwitchTransition>
               </label>

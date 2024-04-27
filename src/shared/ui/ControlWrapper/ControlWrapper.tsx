@@ -4,9 +4,8 @@ import { classNames } from 'helpers/classNames/classNames';
 import styles from './ControlWrapper.module.scss';
 
 export type ControlWrapperProps = {
-  children:
-    | React.JSXElementConstructor<{ hasError?: boolean; id?: string }>
-    | React.ReactElement<{ hasError?: boolean; id?: string }>;
+  children: | React.JSXElementConstructor<{ hasError?: boolean; id?: string }>
+  | React.ReactElement<{ hasError?: boolean; id?: string }>;
   getElementProps?: () => { hasError?: boolean; id?: string };
   error?: string;
   className?: string;
@@ -15,12 +14,10 @@ export type ControlWrapperProps = {
 };
 
 export const ControlWrapper: React.FC<ControlWrapperProps> = React.forwardRef(
-  ({
-    children, error, className, label, headerClass, getElementProps,
-  }) => {
-    const wrapperClasses = classNames(styles.wrapper, {}, [className ?? '']);
+  ({ children, error, className, label, headerClass, getElementProps }) => {
+    const wrapperClasses = classNames(styles.wrapper, {}, [className]);
 
-    const headerClasses = classNames(styles.header, {}, [headerClass ?? '']);
+    const headerClasses = classNames(styles.header, {}, [headerClass]);
     const id = useUniqueId('control');
 
     const localGetElementProps = useMemo(() => {
@@ -34,9 +31,9 @@ export const ControlWrapper: React.FC<ControlWrapperProps> = React.forwardRef(
     return (
       <div className={wrapperClasses}>
         {label && (
-        <label htmlFor={childrenProps.id} className={headerClasses}>
-          {label}
-        </label>
+          <label htmlFor={childrenProps.id} className={headerClasses}>
+            {label}
+          </label>
         )}
         <div className={styles.content}>
           {React.cloneElement(

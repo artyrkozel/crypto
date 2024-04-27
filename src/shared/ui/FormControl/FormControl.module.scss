@@ -1,0 +1,26 @@
+.FormControl {
+    display: inline-flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+}
+
+.lable {
+    text-transform: uppercase;
+    font-weight: 300;
+    color: #848484;
+    margin-left: 15px;
+    margin-bottom: 8px;
+    font-size: 12px;
+  }
+
+  .error {
+    position: relative;
+    padding: 0 8px;
+    display: block;
+    min-height: 20px;
+    color: #f00;
+    text-align: left;
+    top: 8px;
+    font-size: 13px;
+  }

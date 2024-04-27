@@ -113,7 +113,7 @@ export const Dropdown = forwardRef(
     const placeho: Mods = {
       [styles.placeholderSmall]: Boolean(showCleanBtn && selectedItem),
     };
-    console.log(getToggleButtonProps());
+
     return (
       <div className={classNames(styles.wrapper, {}, [className || ''])}>
         <label {...getLabelProps()}>
