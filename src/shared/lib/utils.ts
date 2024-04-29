@@ -1,4 +1,5 @@
 import Cookies from 'js-cookie';
+import { IOptions } from 'shared/ui/Dropdown/Dropdown';
 
 export const setCookies = ({
   accessToken,
@@ -43,3 +44,18 @@ export const getAmountWithCommision = (amount: number, commisionPercent: number)
   }
   return 0;
 };
+
+export const monthsArr = Array.from({ length: 12 }, (x, i) => {
+  const month = i + 1;
+  return month <= 9 ? `0${month}` : month;
+});
+
+export const monthOptions: IOptions[] = monthsArr.map((el) => {
+  const opt = { label: String(el), value: String(el) };
+  return opt;
+});
+
+export const yearsArr: IOptions[] = Array.from({ length: 9 }, (_x, i) => ({
+  label: String(new Date().getFullYear() + i),
+  value: String(new Date().getFullYear() + i),
+}));

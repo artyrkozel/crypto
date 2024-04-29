@@ -30,7 +30,6 @@ const cardBackgroundName = () => {
 const BACKGROUND_IMG = cardBackgroundName();
 
 const Card = ({
-  isCardFlipped,
   currentFocusedElm,
   onCardElementClick,
   cardNumberRef,
@@ -45,6 +44,7 @@ const Card = ({
   const cardMonth = watch('cardMonth');
   const cardYear = watch('cardYear');
   const cardCvv = watch('cardCvv');
+  const isCardFlipped = watch('isCardFlipped');
 
   const cardType = (cardNumber: string) => {
     const number = cardNumber;

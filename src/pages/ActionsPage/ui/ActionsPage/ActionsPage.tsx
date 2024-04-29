@@ -4,7 +4,9 @@ import { config } from 'react-spring';
 import React, { useState } from 'react';
 import { CreditCard } from 'widgets/CreditCard';
 import { ICreditCard } from 'widgets/CreditCard/ui/CreditCard';
-import { CreateCreditCard } from 'features/CreateCreditCard';
+import { CreateCreditCardModal } from 'features/CreateCreditCard';
+import { ContentWrapper } from 'widgets/ContentWrapper';
+import { classNames } from 'helpers/classNames/classNames';
 import styles from './ActionsPage.module.scss';
 
 interface ICardItem {
@@ -66,21 +68,49 @@ const ActionsPage = () => {
   });
   const [cards] = useState(table);
 
+  const [creditCardModal, setCreditCardModal] = useState<boolean>(false);
+
   return (
     <Page pageTitle='Actions'>
-      <div
-        style={{ width: '40%', height: 200 }}
-        className={styles.creditsCards_list}
-      >
-        <Carousel
-          slides={cards}
-          goToSlide={goToSlide}
-          offsetRadius={2}
-          showNavigation
-          animationConfig={config.gentle}
-        />
+      <div className={classNames(styles.ActionsPage)}>
+        <ContentWrapper
+          title='Credit'
+          className={classNames(styles.CreditCards, {}, [])}
+          onClick={() => setCreditCardModal(true)}
+        >
+          <div
+            style={{ height: 200 }}
+            className={styles.creditsCards_list}
+          >
+            <Carousel
+              slides={cards}
+              goToSlide={goToSlide}
+              offsetRadius={2}
+              showNavigation
+              animationConfig={config.gentle}
+            />
+          </div>
+          <CreateCreditCardModal
+            isOpen={creditCardModal}
+            onClose={() => setCreditCardModal(false)}
+          />
+        </ContentWrapper>
+        <div style={{ gridArea: 'withdraw', border: '1px solid #000' }}>
+          withdraw
+        </div>
+        <div style={{ gridArea: 'exchange', border: '1px solid #000' }}>
+          exchange
+        </div>
+        <div style={{ gridArea: 'deposit', border: '1px solid #000' }}>
+          deposit
+        </div>
+        <div style={{ gridArea: 'staking', border: '1px solid #000' }}>
+          staking
+        </div>
+        <div style={{ gridArea: 'check_aml', border: '1px solid #000' }}>
+          staking
+        </div>
       </div>
-      <CreateCreditCard />
     </Page>
   );
 };

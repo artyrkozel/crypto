@@ -1,3 +1,3 @@
-import { CreateCreditCard } from "./CreateCreditCard/CreateCreditCard";
+import { CreateCreditCardModal } from "./CreateCreditCardModal/CreateCreditCardModal";
 
-export { CreateCreditCard };
+export { CreateCreditCardModal };

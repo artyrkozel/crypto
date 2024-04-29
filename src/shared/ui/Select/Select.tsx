@@ -1,6 +1,6 @@
 import {
   ChangeEvent,
-  MutableRefObject,
+  RefObject,
   SelectHTMLAttributes,
   forwardRef,
   useMemo,
@@ -22,7 +22,7 @@ interface SelectProps extends HTMLSelectProps {
   value?: string;
   onChange?: (e: ChangeEvent<HTMLSelectElement>) => void;
   readonly?: boolean;
-  ref?: MutableRefObject<HTMLSelectElement>;
+  ref?: RefObject<HTMLSelectElement>;
   placeholder?: string;
 }
 

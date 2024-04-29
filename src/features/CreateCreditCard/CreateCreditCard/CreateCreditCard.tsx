@@ -1,54 +1,24 @@
-import {
-  ChangeEvent,
-  MutableRefObject,
-  useCallback,
-  useRef,
-  useState,
-} from 'react';
+import { FC, MutableRefObject, useCallback, useRef, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
+import Button from 'shared/ui/Button/Button';
 import styles from './CreateCreditCard.module.scss';
 import Card from '../CreditCard/Card';
-import CreditCardForm from '../CreditCard/CreditCardForm';
+import { CreditCardForm } from '../CreditCard/CreditCardForm';
+import {
+  ICardElementsRef,
+  ICreditCardFields,
+  IFormFieldsRefObj,
+} from '../model/types';
+
+interface ICreateCreditCard {
+  onCloseModal: () => void;
+}
 /* eslint-disable */
 /* tslint:disable */
-const initialState = {
-  cardNumber: '#### #### #### ####',
-  cardHolder: 'FULL NAME',
-  cardMonth: '',
-  cardYear: '',
-  cardCvv: '',
-  isCardFlipped: false,
-};
-
-interface initialStateType {
-  cardNumber: string;
-  cardHolder: string;
-  cardMonth: string;
-  cardYear: string;
-  cardCvv: string;
-  isCardFlipped: boolean;
-}
-
-interface IFormFieldsRefObj {
-  cardNumber: MutableRefObject<HTMLInputElement | null>;
-  cardHolder: MutableRefObject<HTMLInputElement | null>;
-  cardDate: MutableRefObject<HTMLSelectElement | null>;
-  cardCvv: MutableRefObject<HTMLInputElement | null>;
-}
-
-interface ICreditCardFields {
-  cardNumber: string;
-  cardHolder: string;
-  cardMonth: string;
-  cardYear: string;
-  cardCvv: string;
-}
-
-// @ts-ignore
-
-export const CreateCreditCard = () => {
-  const [state, setState] = useState<initialStateType>(initialState);
-  const [currentFocusedElm, setCurrentFocusedElm] = useState(null);
+export const CreateCreditCard: FC<ICreateCreditCard> = ({ onCloseModal }) => {
+  const [currentFocusedElm, setCurrentFocusedElm] = useState<MutableRefObject<
+    HTMLInputElement | HTMLSelectElement
+  > | null>(null);
 
   const methods = useForm<ICreditCardFields>({
     mode: 'onChange',
@@ -59,79 +29,79 @@ export const CreateCreditCard = () => {
       cardMonth: '',
       cardYear: '',
       cardCvv: '',
+      isCardFlipped: false,
     },
   });
 
+  const { handleSubmit, setValue } = methods;
+
   const updateStateValues = useCallback(
-    (keyName: keyof initialStateType, value: keyof initialStateType) => {
-      setState({
-        ...state,
-        [keyName]: value || initialState[keyName],
-      });
+    (value: boolean) => {
+      setValue('isCardFlipped', value);
     },
-    [state],
+    [setValue],
   );
 
   const formFieldsRefObj: IFormFieldsRefObj = {
-    cardNumber: useRef(null),
-    cardHolder: useRef(null),
-    cardDate: useRef(null),
-    cardCvv: useRef(null),
+    cardNumber: useRef<HTMLInputElement | null>(null),
+    cardHolder: useRef<HTMLInputElement>(null),
+    cardDate: useRef<HTMLSelectElement>(null),
+    cardCvv: useRef<HTMLInputElement>(null),
   };
 
-  const focusFormFieldByKey = useCallback(
-    (key: keyof IFormFieldsRefObj) => {
-      // @ts-expect-error
-      formFieldsRefObj[key] && formFieldsRefObj[key].current.focus();
+  const focusFormFieldByKey = useCallback((key: keyof IFormFieldsRefObj) => {
+    // @ts-ignore
+    formFieldsRefObj[key] && formFieldsRefObj[key].current.focus();
+  }, []);
+
+  const cardElementsRef: ICardElementsRef = {
+    cardNumber: useRef<HTMLInputElement | null>(null),
+    cardHolder: useRef<HTMLInputElement | null>(null),
+    cardDate: useRef<HTMLSelectElement | null>(null),
+  };
+
+  const onCardFormInputFocus = useCallback(
+    (inputName: keyof ICardElementsRef) => {
+      const refByName = cardElementsRef[
+        inputName
+      ] as MutableRefObject<HTMLInputElement>;
+      setCurrentFocusedElm(refByName);
     },
-    [formFieldsRefObj],
+    [setCurrentFocusedElm],
   );
-
-  // @ts-ignore
-  const cardElementsRef: any = {
-    cardNumber: useRef(),
-    cardHolder: useRef(),
-    cardDate: useRef(),
-  };
-
-  const onCardFormInputFocus = (
-    _event: ChangeEvent<HTMLInputElement>,
-    inputName: string,
-  ) => {
-    const refByName = cardElementsRef[inputName];
-    setCurrentFocusedElm(refByName);
-  };
 
   const onCardInputBlur = useCallback(() => {
     setCurrentFocusedElm(null);
   }, []);
 
-  const cardMonth = methods.watch('cardMonth');
-  const cardYear = methods.watch('cardYear');
+  const onSubmit = (data: ICreditCardFields) => {
+    return data;
+  };
 
   return (
     <FormProvider {...methods}>
-      <div className={styles.wrapper}>
-        <CreditCardForm
-          cardMonth={cardMonth}
-          cardYear={cardYear}
-          onUpdateState={updateStateValues}
-          cardNumberRef={formFieldsRefObj.cardNumber}
-          cardHolderRef={formFieldsRefObj.cardHolder}
-          cardDateRef={formFieldsRefObj.cardDate}
-          onCardInputFocus={onCardFormInputFocus}
-          onCardInputBlur={onCardInputBlur}
-        >
-          <Card
-            isCardFlipped={state.isCardFlipped}
-            currentFocusedElm={currentFocusedElm}
-            onCardElementClick={focusFormFieldByKey}
-            cardNumberRef={cardElementsRef.cardNumber}
-            cardHolderRef={cardElementsRef.cardHolder}
-            cardDateRef={cardElementsRef.cardDate}
-          />
-        </CreditCardForm>
-      </div>
+      <Button onClick={onCloseModal}>close</Button>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div className={styles.wrapper}>
+          <CreditCardForm
+            onUpdateState={updateStateValues}
+            cardNumberRef={formFieldsRefObj.cardNumber}
+            cardHolderRef={formFieldsRefObj.cardHolder}
+            cardDateRef={formFieldsRefObj.cardDate}
+            onCardInputFocus={onCardFormInputFocus}
+            onCardInputBlur={onCardInputBlur}
+          >
+            <Card
+              currentFocusedElm={currentFocusedElm}
+              onCardElementClick={focusFormFieldByKey}
+              cardNumberRef={cardElementsRef.cardNumber}
+              cardHolderRef={cardElementsRef.cardHolder}
+              cardDateRef={cardElementsRef.cardDate}
+            />
+          </CreditCardForm>
+        </div>
+        <Button type='submit'>Save</Button>
+      </form>
     </FormProvider>
   );
 };

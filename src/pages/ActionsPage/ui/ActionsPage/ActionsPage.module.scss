@@ -1,3 +1,17 @@
+.ActionsPage {
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr 1fr; 
+    grid-template-rows: 1fr 1fr; 
+    gap: 40px 16px;
+    grid-template-areas: 
+      "credit_cards credit_cards withdraw exchange"
+      "deposit deposit staking check_aml";
+}
+
+.CreditCards {
+    grid-area: credit_cards;
+}
+
 .creditsCards_list {
     & > div {
         & > div {

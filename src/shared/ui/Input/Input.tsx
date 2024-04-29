@@ -6,6 +6,7 @@ import {
   useCallback,
 } from 'react';
 import { Mods, classNames } from 'helpers/classNames/classNames';
+import InputMask from 'react-input-mask';
 import styles from './Input.module.scss';
 
 export type HTMLInputProps = Omit<
@@ -19,6 +20,10 @@ export interface IInputProps extends HTMLInputProps {
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   onChangeInput?: (e: ChangeEvent<HTMLInputElement>) => void;
   type?: string;
+  value?: string;
+  mask?: string;
+  inputType: 'input' | 'mask';
+  name: string;
 }
 
 const Input = forwardRef<HTMLInputElement, IInputProps>(
@@ -29,6 +34,10 @@ const Input = forwardRef<HTMLInputElement, IInputProps>(
       onChangeInput,
       type = 'string',
       placeholder,
+      mask,
+      inputType = 'input',
+      name,
+      value,
       ...rest
     },
     ref,
@@ -45,14 +54,31 @@ const Input = forwardRef<HTMLInputElement, IInputProps>(
 
     return (
       <div className={classNames(styles.inputContainer, mods, [className])}>
-        <input
-          className={styles.Input}
-          onChange={onChangeHandler}
-          type={type}
-          placeholder={placeholder && placeholder.toUpperCase()}
-          ref={ref}
-          {...rest}
-        />
+        {inputType === 'input' ? (
+          <input
+            className={styles.Input}
+            onChange={onChangeHandler}
+            type={type}
+            placeholder={placeholder && placeholder.toUpperCase()}
+            ref={ref}
+            {...rest}
+          />
+        ) : (
+          <InputMask
+            className={styles.Input}
+            name={name}
+            mask={mask || ''}
+            maskChar=''
+            onChange={onChangeHandler}
+            type={type}
+            placeholder={placeholder && placeholder.toUpperCase()}
+            inputRef={ref}
+            onBlur={rest.onBlur}
+            onFocus={rest.onFocus}
+            value={value?.toString()}
+            {...rest}
+          />
+        )}
       </div>
     );
   },

@@ -1,4 +1,4 @@
-import { FC, MutableRefObject, SelectHTMLAttributes, memo } from 'react';
+import { FC, RefObject, SelectHTMLAttributes, memo } from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
 import _ from 'lodash';
 import { FormControl } from '../FormControl/FormControl';
@@ -12,7 +12,7 @@ interface IControllerSelect extends SelectHTMLAttributes<HTMLSelectElement> {
   label?: string;
   name: string;
   options: IOptions[];
-  ref?: MutableRefObject<HTMLSelectElement>;
+  ref?: RefObject<HTMLSelectElement>;
 }
 
 export const ControllerSelect: FC<IControllerSelect> = memo(
