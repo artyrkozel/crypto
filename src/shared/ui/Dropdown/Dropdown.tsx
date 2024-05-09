@@ -4,6 +4,7 @@ import { IoIosArrowDown } from 'react-icons/io';
 import { VscClose } from 'react-icons/vsc';
 import { Mods, classNames } from 'helpers/classNames/classNames';
 import styles from './Dropdown.module.scss';
+import { HStack } from '../Stack';
 
 /* eslint-disable */
 
@@ -13,7 +14,7 @@ export interface IOptions {
   icon?: string;
 }
 
-export type DropdownProps<IOptions> = {
+export type DropdownProps = {
   options?: Array<IOptions>;
   value?: IOptions | null;
   onChange?: (value: IOptions | null) => void;
@@ -31,7 +32,6 @@ export type DropdownProps<IOptions> = {
   id?: string;
   loading?: boolean;
   showCleanBtn?: boolean;
-  onChaggeValu?: (value: IOptions | null) => void;
 };
 
 export const Dropdown = forwardRef(
@@ -53,8 +53,7 @@ export const Dropdown = forwardRef(
     itemToString,
     loading,
     showCleanBtn = true,
-    ...rest
-  }: any) => {
+  }: DropdownProps) => {
     const handleChange = useCallback(
       ({ selectedItem }: { selectedItem: IOptions | null }) => {
         if (onChaggeValue) {
@@ -110,7 +109,7 @@ export const Dropdown = forwardRef(
       }
     }, [isOpen, onBlur, onFocus]);
 
-    const placeho: Mods = {
+    const placeholderOption: Mods = {
       [styles.placeholderSmall]: Boolean(showCleanBtn && selectedItem),
     };
 
@@ -128,24 +127,18 @@ export const Dropdown = forwardRef(
             {...getToggleButtonProps()}
           >
             <div className={styles.wrapperPlaceHolder} style={{ height: 24 }}>
-              <div
-                style={{ display: 'flex', alignItems: 'center' }}
-                className={classNames(styles.placeholder, placeho)}
+              <HStack
+                className={classNames(styles.placeholder, placeholderOption)}
               >
                 {selectedItem?.icon && (
                   <img
-                    style={{
-                      width: 24,
-                      height: 24,
-                      display: 'inline-block',
-                      marginRight: 8,
-                    }}
+                    className={styles.option_img}
                     src={selectedItem.icon}
                     alt='icon'
                   />
                 )}
                 {selectedItem ? convertItemToString(selectedItem) : placeholder}
-              </div>
+              </HStack>
               <div className={styles.wrapperButtons}>
                 {showCleanBtn && selectedItem && (
                   <span

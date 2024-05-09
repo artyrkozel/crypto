@@ -19,3 +19,5 @@ export const priceValidation = yup
 export const selectObjectValidation = yup.object({
   value: yup.mixed().required('Required field'),
 }).required('Required field');
+
+export const stringRequired = yup.string().required('Required field');

@@ -1,5 +1,4 @@
 import { ControlWrapperForm } from 'shared/ui/ControlWrapperForm/ControlWrapperForm';
-import Input from 'shared/ui/Input/Input';
 import { HStack, VStack } from 'shared/ui/Stack';
 import { FormProvider, useForm } from 'react-hook-form';
 import { Dropdown, IOptions } from 'shared/ui/Dropdown/Dropdown';
@@ -21,6 +20,7 @@ import { useUpdateWalletMutation } from 'entities/Wallet/api/api';
 import { getWalletData } from 'entities/Wallet/model/selectors';
 import { IWalletCurrency } from 'entities/Wallet/model/types';
 import { WalletFactory } from 'shared/lib/factories/WalletFactory';
+import { ControllerInput } from 'shared/ui/ControllerInput/ControllerInput';
 import styles from './BuyCoin.module.scss';
 
 export interface IBuyCoinFields {
@@ -62,7 +62,7 @@ export const BuyCoin: FC<IBuyCoin> = ({ coinData }) => {
   const [createNotify] = useCreateNotificationMutation();
   const [walletUpdate] = useUpdateWalletMutation();
 
-  const { register, handleSubmit, setValue, watch } = methods;
+  const { handleSubmit, setValue, watch } = methods;
 
   const priceFrom = watch('priceFrom');
 
@@ -183,31 +183,25 @@ export const BuyCoin: FC<IBuyCoin> = ({ coinData }) => {
     <FormProvider {...methods}>
       <form noValidate onSubmit={handleSubmit(onSubmit)}>
         <HStack align='end' gap='8' style={{ marginBottom: 16 }}>
-          <ControlWrapperForm name='priceFrom'>
-            <Input
-              placeholder='0'
-              autoFocus
-              {...register('priceFrom')}
-              label='From'
-              onChangeInput={onChangePriceFrom}
-              type='number'
-            />
-          </ControlWrapperForm>
+          <ControllerInput
+            name='priceFrom'
+            placeholder='0'
+            autoFocus
+            label='From'
+            onChangeInput={onChangePriceFrom}
+          />
           <ControlWrapperForm name='fromCurrenency'>
             <Dropdown options={[]} showCleanBtn={false} disabled />
           </ControlWrapperForm>
         </HStack>
         <HStack align='end' gap='8'>
-          <ControlWrapperForm name='priceTo'>
-            <Input
-              placeholder='0'
-              autoFocus
-              {...register('priceTo')}
-              label='To'
-              type='number'
-              onChangeInput={onChangePriceTo}
-            />
-          </ControlWrapperForm>
+          <ControllerInput
+            name='priceTo'
+            placeholder='0'
+            autoFocus
+            label='To'
+            onChangeInput={onChangePriceTo}
+          />
           <ControlWrapperForm name='toCurrenency'>
             <Dropdown
               options={coinsOptions}

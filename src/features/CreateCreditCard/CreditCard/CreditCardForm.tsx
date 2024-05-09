@@ -46,7 +46,6 @@ export const CreditCardForm: FC<ICreditCardForm> = ({
           ref={cardNumberRef}
           onBlur={onCardInputBlur}
           autoComplete='off'
-          inputType='mask'
           mask='9999 9999 9999 9999'
         />
         <ControllerInput
@@ -64,7 +63,7 @@ export const CreditCardForm: FC<ICreditCardForm> = ({
             ref={cardDateRef}
             onBlur={onCardInputBlur}
             onFocus={() => onCardInputFocus('cardDate')}
-            placeHolder='cardMonth'
+            placeHolder='Month'
             options={monthOptions}
           />
           <ControllerSelect
@@ -72,7 +71,7 @@ export const CreditCardForm: FC<ICreditCardForm> = ({
             ref={cardDateRef}
             onBlur={onCardInputBlur}
             onFocus={() => onCardInputFocus('cardDate')}
-            placeHolder='cardYear'
+            placeHolder='Year'
             options={yearsArr}
           />
           <ControllerInput

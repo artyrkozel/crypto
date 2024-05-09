@@ -1,6 +1,9 @@
 import { FC, MutableRefObject, useCallback, useRef, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
+import * as yup from 'yup';
 import Button from 'shared/ui/Button/Button';
+import { stringRequired } from 'shared/lib/validation';
+import { yupResolver } from '@hookform/resolvers/yup';
 import styles from './CreateCreditCard.module.scss';
 import Card from '../CreditCard/Card';
 import { CreditCardForm } from '../CreditCard/CreditCardForm';
@@ -9,10 +12,30 @@ import {
   ICreditCardFields,
   IFormFieldsRefObj,
 } from '../model/types';
+import { CardDesignPicker } from '../CardDesignPicker/CardDesignPicker';
 
 interface ICreateCreditCard {
   onCloseModal: () => void;
 }
+
+const CreditCardFormSchema = yup.object({
+  cardHolder: stringRequired,
+  cardNumber: stringRequired,
+  cardMonth: stringRequired,
+  cardYear: stringRequired,
+  cardCvv: stringRequired,
+}) as yup.ObjectSchema<ICreditCardFields>;
+
+const defaultValues: ICreditCardFields = {
+  cardNumber: '',
+  cardHolder: '',
+  cardMonth: '',
+  cardYear: '',
+  cardCvv: '',
+  isCardFlipped: false,
+  mask: 'mask0',
+};
+
 /* eslint-disable */
 /* tslint:disable */
 export const CreateCreditCard: FC<ICreateCreditCard> = ({ onCloseModal }) => {
@@ -22,18 +45,11 @@ export const CreateCreditCard: FC<ICreateCreditCard> = ({ onCloseModal }) => {
 
   const methods = useForm<ICreditCardFields>({
     mode: 'onChange',
-    // resolver: yupResolver(FormSchema),
-    defaultValues: {
-      cardNumber: '',
-      cardHolder: '',
-      cardMonth: '',
-      cardYear: '',
-      cardCvv: '',
-      isCardFlipped: false,
-    },
+    resolver: yupResolver(CreditCardFormSchema),
+    defaultValues,
   });
 
-  const { handleSubmit, setValue, watch } = methods;
+  const { handleSubmit, setValue } = methods;
 
   const updateStateValues = useCallback(
     (value: boolean) => {
@@ -74,6 +90,8 @@ export const CreateCreditCard: FC<ICreateCreditCard> = ({ onCloseModal }) => {
     setCurrentFocusedElm(null);
   }, []);
 
+  const setMaskValue = (mask: string) => setValue('mask', mask);
+
   const onSubmit = (data: ICreditCardFields) => {
     return data;
   };
@@ -100,6 +118,7 @@ export const CreateCreditCard: FC<ICreateCreditCard> = ({ onCloseModal }) => {
               cardHolderRef={cardElementsRef.cardHolder}
               cardDateRef={cardElementsRef.cardDate}
             />
+            <CardDesignPicker setMask={setMaskValue} />
           </CreditCardForm>
         </div>
         <Button type='submit' fullWidth>

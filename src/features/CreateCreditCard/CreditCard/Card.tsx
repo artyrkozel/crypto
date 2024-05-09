@@ -12,6 +12,7 @@ import {
   SwitchTransition,
 } from 'react-transition-group';
 import { useFormContext } from 'react-hook-form';
+import { creditMask } from 'shared/lib/icons';
 import visaLabel from '../../../shared/assets/img/visa-label.png';
 import chip from '../../../shared/assets/img/chip.png';
 import './Cards.scss';
@@ -43,6 +44,7 @@ const Card: FC<ICardProps> = ({
   const cardYear = watch('cardYear');
   const cardCvv: string = watch('cardCvv');
   const isCardFlipped = watch('isCardFlipped');
+  const cardMask = watch('mask');
 
   const outlineElementStyle = (
     element: HTMLInputElement | HTMLSelectElement | null,
@@ -83,8 +85,11 @@ const Card: FC<ICardProps> = ({
           className={`card-item__focus ${currentFocusedElm ? `-active` : ``}`}
           style={style}
         />
-        <div className='card-item__cover' />
-
+        <img
+          style={{ position: 'absolute', width: '100%' }}
+          src={creditMask[cardMask]}
+          alt='credit_mask'
+        />
         <div className='card-item__wrapper'>
           <div className='card-item__top'>
             <img src={chip} alt='' className='card-item__chip' />
@@ -167,6 +172,7 @@ const Card: FC<ICardProps> = ({
             <div
               className='card-item__date'
               onClick={() => onCardElementClick('cardDate')}
+              // @ts-ignore
               ref={cardDateRef}
             >
               <div className='card-item__dateTitle'>Expires</div>

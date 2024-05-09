@@ -16,4 +16,5 @@ export interface ICreditCardFields {
     cardYear: string;
     cardCvv: string;
     isCardFlipped: boolean;
+    mask: string;
 }

@@ -22,7 +22,6 @@ export interface IInputProps extends HTMLInputProps {
   type?: string;
   value?: string;
   mask?: string;
-  inputType: 'input' | 'mask';
   name: string;
 }
 
@@ -35,7 +34,6 @@ const Input = forwardRef<HTMLInputElement, IInputProps>(
       type = 'string',
       placeholder,
       mask,
-      inputType = 'input',
       name,
       value,
       ...rest
@@ -54,32 +52,21 @@ const Input = forwardRef<HTMLInputElement, IInputProps>(
 
     return (
       <div className={classNames(styles.inputContainer, mods, [className])}>
-        {inputType === 'input' ? (
-          <input
-            className={styles.Input}
-            onChange={onChangeHandler}
-            type={type}
-            placeholder={placeholder && placeholder.toUpperCase()}
-            ref={ref}
-            {...rest}
-          />
-        ) : (
-          <InputMask
-            className={styles.Input}
-            name={name}
-            mask={mask || ''}
-            maskChar=' '
-            alwaysShowMask={false}
-            onChange={onChangeHandler}
-            type={type}
-            placeholder={placeholder && placeholder.toUpperCase()}
-            inputRef={ref}
-            onBlur={rest.onBlur}
-            onFocus={rest.onFocus}
-            value={value?.toString()}
-            {...rest}
-          />
-        )}
+        <InputMask
+          className={styles.Input}
+          name={name}
+          mask={mask || ''}
+          maskChar=' '
+          alwaysShowMask={false}
+          onChange={onChangeHandler}
+          type={type}
+          placeholder={placeholder && placeholder.toUpperCase()}
+          inputRef={ref}
+          onBlur={rest.onBlur}
+          onFocus={rest.onFocus}
+          value={value?.toString()}
+          {...rest}
+        />
       </div>
     );
   },

@@ -55,7 +55,7 @@ export const monthOptions: IOptions[] = monthsArr.map((el) => {
   return opt;
 });
 
-export const yearsArr: IOptions[] = Array.from({ length: 9 }, (_x, i) => ({
+export const yearsArr: IOptions[] = Array.from({ length: 9 }, (_, i) => ({
   label: String(new Date().getFullYear() + i),
   value: String(new Date().getFullYear() + i),
 }));
