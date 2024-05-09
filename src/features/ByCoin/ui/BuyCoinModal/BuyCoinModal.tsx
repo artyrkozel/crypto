@@ -6,7 +6,6 @@ import { useSelector } from 'react-redux';
 import Button from 'shared/ui/Button/Button';
 import { ControlWrapperForm } from 'shared/ui/ControlWrapperForm/ControlWrapperForm';
 import { Dropdown } from 'shared/ui/Dropdown';
-import Input from 'shared/ui/Input/Input';
 import { HStack } from 'shared/ui/Stack';
 import { IOptions } from 'shared/ui/Dropdown/Dropdown';
 import { useUpdateWalletMutation } from 'entities/Wallet/api/api';
@@ -15,6 +14,7 @@ import { IWalletCurrency } from 'entities/Wallet/model/types';
 import { WalletFactory } from 'shared/lib/factories/WalletFactory';
 import { useCreateNotificationMutation } from 'entities/Notification/model/api/api';
 import { NotificationFactory } from 'shared/lib/factories/NotificationFactory';
+import { ControllerInput } from 'shared/ui/ControllerInput/ControllerInput';
 
 interface IBuyCoinModal {
   onClose: () => void;
@@ -44,7 +44,7 @@ export const BuyCoinModal: FC<IBuyCoinModal> = ({ onClose }) => {
     },
   });
 
-  const { register, handleSubmit, setValue } = methods;
+  const { handleSubmit, setValue } = methods;
 
   const orderOptions = useMemo<IOptions[]>(
     () => [
@@ -140,10 +140,10 @@ export const BuyCoinModal: FC<IBuyCoinModal> = ({ onClose }) => {
           </HStack>
           <HStack align='end' gap='8' style={{ marginBottom: 16 }}>
             <ControlWrapperForm name='fromSumm'>
-              <Input
+              <ControllerInput
+                name='fromSumm'
                 placeholder='0'
                 autoFocus
-                {...register('fromSumm')}
                 label='I give'
               />
             </ControlWrapperForm>
@@ -153,10 +153,10 @@ export const BuyCoinModal: FC<IBuyCoinModal> = ({ onClose }) => {
           </HStack>
           <HStack align='end' gap='8'>
             <ControlWrapperForm name='toSum'>
-              <Input
+              <ControllerInput
+                name='toSum'
                 placeholder='0'
                 autoFocus
-                {...register('toSum')}
                 label='I receive'
               />
             </ControlWrapperForm>

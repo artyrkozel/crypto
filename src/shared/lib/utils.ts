@@ -45,7 +45,7 @@ export const getAmountWithCommision = (amount: number, commisionPercent: number)
   return 0;
 };
 
-export const monthsArr = Array.from({ length: 12 }, (x, i) => {
+export const monthsArr = Array.from({ length: 12 }, (_, i) => {
   const month = i + 1;
   return month <= 9 ? `0${month}` : month;
 });

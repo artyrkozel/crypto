@@ -1,33 +1,28 @@
-import { useFormContext } from 'react-hook-form';
 import { ControlWrapperForm } from 'shared/ui/ControlWrapperForm/ControlWrapperForm';
+import { ControllerInput } from 'shared/ui/ControllerInput/ControllerInput';
 import { Dropdown } from 'shared/ui/Dropdown';
-import Input from 'shared/ui/Input/Input';
 import { HStack } from 'shared/ui/Stack';
 
 export const BuyCoinForm = () => {
-  const { register } = useFormContext();
-
   return (
     <>
       <HStack align='end' gap='8' style={{ marginBottom: 16 }}>
-        <ControlWrapperForm name='fromSumm'>
-          <Input
-            placeholder='0'
-            autoFocus
-            {...register('fromSumm')}
-            label='I give'
-          />
-        </ControlWrapperForm>
+        <ControllerInput
+          name='fromSumm'
+          placeholder='0'
+          autoFocus
+          label='I give'
+        />
         <ControlWrapperForm name='fromCurrenency'>
           <Dropdown options={[]} showCleanBtn={false} disabled />
         </ControlWrapperForm>
       </HStack>
       <HStack align='end' gap='8'>
         <ControlWrapperForm name='toSum'>
-          <Input
+          <ControllerInput
+            name='toSum'
             placeholder='0'
             autoFocus
-            {...register('toSum')}
             label='I receive'
           />
         </ControlWrapperForm>
