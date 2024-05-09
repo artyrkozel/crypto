@@ -2,6 +2,8 @@ import { ChangeEvent, FC, ReactNode, RefObject } from 'react';
 import { ControllerInput } from 'shared/ui/ControllerInput/ControllerInput';
 import { ControllerSelect } from 'shared/ui/ControllerSelect/ControllerSelect';
 import { monthOptions, yearsArr } from 'shared/lib/utils';
+import { HStack, VStack } from 'shared/ui/Stack';
+import styles from './CreditCardForm.module.scss';
 import { ICardElementsRef } from '../model/types';
 
 interface ICreditCardForm {
@@ -35,64 +37,53 @@ export const CreditCardForm: FC<ICreditCardForm> = ({
 
   return (
     <div className='card-form'>
-      <div className='card-list'>{children}</div>
-      <div className='card-form__inner'>
-        <div className='card-input'>
-          <ControllerInput
-            name='cardNumber'
-            type='number'
-            placeholder='Card number'
-            onFocus={() => onCardInputFocus('cardNumber')}
-            ref={cardNumberRef}
+      <div>{children}</div>
+      <VStack className={styles.wrapper} gap='8'>
+        <ControllerInput
+          name='cardNumber'
+          placeholder='Card number'
+          onFocus={() => onCardInputFocus('cardNumber')}
+          ref={cardNumberRef}
+          onBlur={onCardInputBlur}
+          autoComplete='off'
+          inputType='mask'
+          mask='9999 9999 9999 9999'
+        />
+        <ControllerInput
+          name='cardHolder'
+          type='text'
+          autoComplete='off'
+          placeholder='FULL NAME'
+          onFocus={() => onCardInputFocus('cardHolder')}
+          ref={cardHolderRef}
+          onBlur={onCardInputBlur}
+        />
+        <HStack gap='8'>
+          <ControllerSelect
+            name='cardMonth'
+            ref={cardDateRef}
             onBlur={onCardInputBlur}
-            autoComplete='off'
+            onFocus={() => onCardInputFocus('cardDate')}
+            placeHolder='cardMonth'
+            options={monthOptions}
           />
-        </div>
-        <div className='card-input'>
-          <ControllerInput
-            name='cardHolder'
-            type='text'
-            autoComplete='off'
-            placeholder='FULL NAME'
-            onFocus={() => onCardInputFocus('cardHolder')}
-            ref={cardHolderRef}
+          <ControllerSelect
+            name='cardYear'
+            ref={cardDateRef}
             onBlur={onCardInputBlur}
+            onFocus={() => onCardInputFocus('cardDate')}
+            placeHolder='cardYear'
+            options={yearsArr}
           />
-        </div>
-
-        <div className='card-form__row'>
-          <div className='card-form__col'>
-            <div className='card-form__group'>
-              <ControllerSelect
-                name='cardMonth'
-                ref={cardDateRef}
-                onBlur={onCardInputBlur}
-                onFocus={() => onCardInputFocus('cardDate')}
-                placeHolder='cardMonth'
-                options={monthOptions}
-              />
-              <ControllerSelect
-                name='cardYear'
-                ref={cardDateRef}
-                onBlur={onCardInputBlur}
-                onFocus={() => onCardInputFocus('cardDate')}
-                placeHolder='cardYear'
-                options={yearsArr}
-              />
-            </div>
-          </div>
-          <div className='card-form__col -cvv'>
-            <ControllerInput
-              type='text'
-              onFocus={onCvvFocus}
-              onBlur={onCvvBlur}
-              placeholder='CVV'
-              label='cv'
-              name='cardCvv'
-            />
-          </div>
-        </div>
-      </div>
+          <ControllerInput
+            maxLength={4}
+            onFocus={onCvvFocus}
+            onBlur={onCvvBlur}
+            placeholder='CVV'
+            name='cardCvv'
+          />
+        </HStack>
+      </VStack>
     </div>
   );
 };

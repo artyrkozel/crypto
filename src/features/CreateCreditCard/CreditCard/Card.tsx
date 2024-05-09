@@ -1,4 +1,11 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import {
+  useState,
+  useEffect,
+  MutableRefObject,
+  RefObject,
+  FC,
+  CSSProperties,
+} from 'react';
 import {
   CSSTransition,
   TransitionGroup,
@@ -8,74 +15,50 @@ import { useFormContext } from 'react-hook-form';
 import visaLabel from '../../../shared/assets/img/visa-label.png';
 import chip from '../../../shared/assets/img/chip.png';
 import './Cards.scss';
+import { IFormFieldsRefObj } from '../model/types';
 
-/* eslint-disable */
-/* tslint:disable */
+interface ICardProps {
+  currentFocusedElm: MutableRefObject<
+    HTMLInputElement | HTMLSelectElement
+  > | null;
+  onCardElementClick: (key: keyof IFormFieldsRefObj) => void;
+  cardNumberRef: RefObject<HTMLInputElement>;
+  cardHolderRef: RefObject<HTMLInputElement>;
+  cardDateRef: RefObject<HTMLSelectElement | HTMLDivElement>;
+}
 
-const CARDS = {
-  visa: '^4',
-  amex: '^(34|37)',
-  mastercard: '^5[1-5]',
-  discover: '^6011',
-  unionpay: '^62',
-  troy: '^9792',
-  diners: '^(30[0-5]|36)',
-};
-
-const cardBackgroundName = () => {
-  const random = Math.floor(Math.random() * 25 + 1);
-  return `${random}.jpeg`;
-};
-
-const BACKGROUND_IMG = cardBackgroundName();
-
-const Card = ({
+const Card: FC<ICardProps> = ({
   currentFocusedElm,
   onCardElementClick,
   cardNumberRef,
   cardHolderRef,
   cardDateRef,
-}: any) => {
-  const [style, setStyle] = useState<any>(null);
+}) => {
+  const [style, setStyle] = useState<CSSProperties | undefined>(undefined);
   const { watch } = useFormContext();
 
   const cardNumber = watch('cardNumber');
-  const cardHolder = watch('cardHolder');
+  const cardHolder: string = watch('cardHolder');
   const cardMonth = watch('cardMonth');
   const cardYear = watch('cardYear');
-  const cardCvv = watch('cardCvv');
+  const cardCvv: string = watch('cardCvv');
   const isCardFlipped = watch('isCardFlipped');
 
-  const cardType = (cardNumber: string) => {
-    const number = cardNumber;
-    let re;
-    for (const [card, pattern] of Object.entries(CARDS)) {
-      re = new RegExp(pattern);
-      if (number.match(re) != null) {
-        return card;
-      }
-    }
-
-    return 'visa';
-  };
-
-  const useCardType = useMemo(() => {
-    return cardType(cardNumber);
-  }, [cardNumber]);
-
-  const outlineElementStyle = (element: any) => {
+  const outlineElementStyle = (
+    element: HTMLInputElement | HTMLSelectElement | null,
+  ) => {
     return element
       ? {
-          width: `${element.offsetWidth}px`,
-          height: `${element.offsetHeight}px`,
-          transform: `translateX(${element.offsetLeft}px) translateY(${element.offsetTop}px)`,
-        }
-      : null;
+        width: `${element.offsetWidth}px`,
+        height: `${element.offsetHeight}px`,
+        transform: `translateX(${element.offsetLeft}px) translateY(${element.offsetTop}px)`,
+      }
+      : undefined;
   };
 
   useEffect(() => {
     if (currentFocusedElm) {
-      const style = outlineElementStyle(currentFocusedElm.current) as any;
+      const style = outlineElementStyle(currentFocusedElm.current);
       setStyle(style);
     }
   }, [currentFocusedElm]);
@@ -106,39 +89,55 @@ const Card = ({
           <div className='card-item__top'>
             <img src={chip} alt='' className='card-item__chip' />
             <div className='card-item__type'>
-              <img
-                alt={useCardType}
-                src={visaLabel}
-                className='card-item__typeImg'
-              />
+              <img src={visaLabel} alt='visa' className='card-item__typeImg' />
             </div>
           </div>
 
-          <label
+          <div
             className='card-item__number'
             ref={cardNumberRef}
             onClick={() => onCardElementClick('cardNumber')}
           >
             <TransitionGroup className='slide-fade-up' component='div'>
-              {cardNumber ? (
-                maskCardNumber(cardNumber).map((val, index) => (
+              {cardNumber === ''
+                ? maskCardNumber('#### **** **** ####').map((val, index) => (
                   <CSSTransition
                     classNames='slide-fade-up'
                     timeout={250}
                     key={index}
                   >
-                    <div className='card-item__numberItem'>{val}</div>
+                    <div
+                      style={{
+                        width: 16,
+                        display: 'inline-block',
+                        fontSize: 27,
+                      }}
+                    >
+                      {val}
+                    </div>
                   </CSSTransition>
                 ))
-              ) : (
-                <CSSTransition classNames='slide-fade-up' timeout={250}>
-                  <div className='card-item__numberItem'>#</div>
-                </CSSTransition>
-              )}
+                : maskCardNumber(cardNumber).map((val, index) => (
+                  <CSSTransition
+                    classNames='slide-fade-up'
+                    timeout={250}
+                    key={index}
+                  >
+                    <div
+                      style={{
+                        width: 16,
+                        display: 'inline-block',
+                        fontSize: 27,
+                      }}
+                    >
+                      {val}
+                    </div>
+                  </CSSTransition>
+                ))}
             </TransitionGroup>
-          </label>
+          </div>
           <div className='card-item__content'>
-            <label
+            <div
               className='card-item__info'
               onClick={() => onCardElementClick('cardHolder')}
               ref={cardHolderRef}
@@ -151,8 +150,8 @@ const Card = ({
                       <div>FULL NAME</div>
                     </CSSTransition>
                   ) : (
-                    cardHolder &&
-                    cardHolder.split('').map((val: any, index: number) => (
+                    cardHolder
+                    && cardHolder.split('').map((val, index: number) => (
                       <CSSTransition
                         timeout={250}
                         classNames='slide-fade-right'
@@ -164,24 +163,27 @@ const Card = ({
                   )}
                 </TransitionGroup>
               </div>
-            </label>
+            </div>
             <div
               className='card-item__date'
               onClick={() => onCardElementClick('cardDate')}
               ref={cardDateRef}
             >
-              <label className='card-item__dateTitle'>Expires</label>
-              <label className='card-item__dateItem'>
+              <div className='card-item__dateTitle'>Expires</div>
+              <div className='card-item__dateItem'>
                 <SwitchTransition in-out>
                   <CSSTransition
                     classNames='slide-fade-up'
                     timeout={200}
                     key={cardMonth}
                   >
-                    <span>{!cardMonth ? 'MM' : cardMonth} </span>
+                    <span>
+                      {!cardMonth ? 'MM' : cardMonth}
+                      {' '}
+                    </span>
                   </CSSTransition>
                 </SwitchTransition>
-              </label>
+              </div>
               /
               <label htmlFor='cardYear' className='card-item__dateItem'>
                 <SwitchTransition out-in>
@@ -202,19 +204,13 @@ const Card = ({
       </div>
 
       <div className='card-item__side -back'>
-        <div className='card-item__cover'>
-          <img
-            alt=''
-            src={`/card-background/${BACKGROUND_IMG}`}
-            className='card-item__bg'
-          />
-        </div>
+        <div className='card-item__cover' />
         <div className='card-item__band' />
         <div className='card-item__cvv'>
           <div className='card-item__cvvTitle'>CVV</div>
           <div className='card-item__cvvBand'>
             <TransitionGroup>
-              {cardCvv.split('').map((val: any, index: number) => (
+              {cardCvv.split('').map((_, index: number) => (
                 <CSSTransition
                   classNames='zoom-in-out'
                   key={index}

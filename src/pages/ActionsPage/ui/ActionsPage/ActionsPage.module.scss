@@ -7,15 +7,3 @@
       "credit_cards credit_cards withdraw exchange"
       "deposit deposit staking check_aml";
 }
-
-.CreditCards {
-    grid-area: credit_cards;
-}
-
-.creditsCards_list {
-    & > div {
-        & > div {
-            width:80%;
-        }
-    }
-}

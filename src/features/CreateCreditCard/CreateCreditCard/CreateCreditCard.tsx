@@ -24,7 +24,7 @@ export const CreateCreditCard: FC<ICreateCreditCard> = ({ onCloseModal }) => {
     mode: 'onChange',
     // resolver: yupResolver(FormSchema),
     defaultValues: {
-      cardNumber: '#### #### #### ####',
+      cardNumber: '',
       cardHolder: '',
       cardMonth: '',
       cardYear: '',
@@ -33,7 +33,7 @@ export const CreateCreditCard: FC<ICreateCreditCard> = ({ onCloseModal }) => {
     },
   });
 
-  const { handleSubmit, setValue } = methods;
+  const { handleSubmit, setValue, watch } = methods;
 
   const updateStateValues = useCallback(
     (value: boolean) => {
@@ -80,7 +80,9 @@ export const CreateCreditCard: FC<ICreateCreditCard> = ({ onCloseModal }) => {
 
   return (
     <FormProvider {...methods}>
-      <Button onClick={onCloseModal}>close</Button>
+      <Button className={styles.close_btn} onClick={onCloseModal}>
+        close
+      </Button>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.wrapper}>
           <CreditCardForm
@@ -100,7 +102,9 @@ export const CreateCreditCard: FC<ICreateCreditCard> = ({ onCloseModal }) => {
             />
           </CreditCardForm>
         </div>
-        <Button type='submit'>Save</Button>
+        <Button type='submit' fullWidth>
+          Save
+        </Button>
       </form>
     </FormProvider>
   );

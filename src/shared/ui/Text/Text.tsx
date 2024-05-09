@@ -26,6 +26,7 @@ interface TextProps {
   classNameText?: string;
   title?: string;
   text?: string;
+  uppercase?: boolean;
   align?: TextAlign;
   size?: TextSize;
   color?: TextColor;
@@ -50,6 +51,7 @@ export const Text = memo((props: TextProps) => {
     align = TextAlign.LEFT,
     size = TextSize.M,
     color = TextColor.primary,
+    uppercase = false,
     'data-testid': dataTestId = 'Text',
   } = props;
 
@@ -59,6 +61,7 @@ export const Text = memo((props: TextProps) => {
     [cls[align]]: true,
     [cls[size]]: true,
     [cls[color]]: true,
+    [cls[uppercase ? 'uppercase' : '']]: !!uppercase,
   };
 
   return (

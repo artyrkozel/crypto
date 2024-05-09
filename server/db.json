@@ -103,6 +103,12 @@
           "value": 53.265,
           "iconUrl": "https://cdn.coinranking.com/Fsc8c3dOQ/Kegnv2no_400x400.PNG",
           "symbol": "FDUSD"
+        },
+        {
+          "name": "USDD",
+          "value": 0,
+          "iconUrl": "https://cdn.coinranking.com/HeEyq_2CG/usdd.png",
+          "symbol": "USDD"
         }
       ]
     }
@@ -179,6 +185,14 @@
       "currency": "First Digital USD",
       "summ": 53.265,
       "id": 9
+    },
+    {
+      "userId": "h34cFBR",
+      "date": "2024-04-29T18:18:08.270Z",
+      "type": "exchange",
+      "currency": "USDD",
+      "summ": 0,
+      "id": 10
     }
   ],
   "transactions": [
@@ -280,6 +294,17 @@
       "type": "exchange",
       "userId": "h34cFBR",
       "id": 9
+    },
+    {
+      "date": "2024-04-29T18:18:06.552Z",
+      "status": "ok",
+      "usdSum": 0,
+      "coinSum": 0,
+      "coinName": "USDD",
+      "coinSymbol": "USDD",
+      "type": "exchange",
+      "userId": "h34cFBR",
+      "id": 10
     }
   ]
 }

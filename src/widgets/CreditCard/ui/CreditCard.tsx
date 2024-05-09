@@ -1,10 +1,11 @@
 import { HStack, VStack } from 'shared/ui/Stack';
 import { TextSize, Text, TextColor } from 'shared/ui/Text';
 import { FC } from 'react';
+import { crediCardMasked } from 'shared/lib/masks';
+import { creditMask } from 'shared/lib/icons';
 import styles from './CreditCard.module.scss';
 import cardChip from '../../../shared/assets/img/chip.png';
 import cardLabel from '../../../shared/assets/img/visa-label.png';
-import cardMask from '../../../shared/assets/img/card-effect.png';
 
 export interface ICreditCard {
   id: number;
@@ -17,33 +18,33 @@ interface ICreditCardProps {
   card: ICreditCard;
 }
 
+const cardBackgroundName = () => {
+  const random = Math.floor(Math.random() * 4);
+  return `mask${random}`;
+};
+
 export const CreditCard: FC<ICreditCardProps> = ({ card }) => {
+  const BACKGROUND_IMG = cardBackgroundName();
+
   return (
-    <div className={styles.CreditCard}>
+    <VStack align='normal' className={styles.CreditCard}>
       <img
-        src={cardMask}
+        className={styles.card_mask}
+        src={creditMask[BACKGROUND_IMG]}
         alt='mask'
-        style={{
-          position: 'absolute',
-          height: '100%',
-          width: '100%',
-          top: 0,
-          left: 0,
-          objectFit: 'cover',
-        }}
       />
       <HStack className={styles.card_chip} align='start' justify='between'>
-        <img style={{ width: 45 }} src={cardChip} alt='chip' />
-        <img style={{ maxWidth: 65 }} src={cardLabel} alt='label' />
+        <img className={styles.chip} src={cardChip} alt='chip' />
+        <img className={styles.card_label} src={cardLabel} alt='label' />
       </HStack>
       <Text
         className={styles.card_number}
-        text={card.cardNumber}
+        text={crediCardMasked(card.cardNumber)}
         size={TextSize.L}
       />
 
       <HStack className={styles.holder_wrapper} justify='between' align='end'>
-        <VStack gap='8' className={styles.holder_wrapper}>
+        <VStack gap='4'>
           <Text
             text='Card holder'
             color={TextColor.secondary}
@@ -54,11 +55,14 @@ export const CreditCard: FC<ICreditCardProps> = ({ card }) => {
             text={card.cardHolder}
             color={TextColor.secondary}
             size={TextSize.M}
+            uppercase
           />
         </VStack>
-
-        <Text text={card.expires} />
+        <VStack gap='4'>
+          <Text text='Expires' color={TextColor.secondary} size={TextSize.S} />
+          <Text text={card.expires} uppercase />
+        </VStack>
       </HStack>
-    </div>
+    </VStack>
   );
 };

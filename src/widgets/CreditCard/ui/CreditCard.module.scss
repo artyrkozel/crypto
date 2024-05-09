@@ -1,10 +1,8 @@
 .CreditCard {
-    max-width: 450px;
+    max-width: 420px;
     width: 100%;
     position: relative;
     box-shadow: 0 5px 16px 0 rgb(14 42 84 / 55%);
-    background-color: #21D4FD;
-    background-image: linear-gradient(304deg, #21D4FD 0%, #B721FF 100%);
     padding: 25px 15px;
     user-select: none;
     border-radius: 24px;
@@ -12,19 +10,41 @@
 
 .card_chip {
     margin-bottom: 40px;
-
-    // width: 100% !important;
 }
 
 .card_number {
+    padding: 0 12px;
     margin-bottom: 35px;
+
+    p {
+        font-size: 27px;
+    } 
 }
 
 .holder_wrapper {
-    width: 100% !important;
+    padding: 10px 12px;
 }
 
 .card_holer {
     font-weight: 500;
     color: #fff;
+}
+
+.card_mask {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover !important;
+    border-radius: 12px;
+    z-index: -1;
+}
+
+.chip {
+    width: 55px;
+}
+
+.card_label {
+    max-width: 90px;
 }
