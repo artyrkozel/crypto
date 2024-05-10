@@ -1,9 +1,9 @@
-import { classNames } from 'helpers/classNames/classNames';
-import Button from 'shared/ui/Button/Button';
 import { useNavigate } from 'react-router-dom';
-import { AppRoutes } from 'shared/config/routeConfig/routeConfig';
 import { useTranslation } from 'react-i18next';
 import styles from './NotFoundPage.module.scss';
+import { classNames } from '@/helpers/classNames/classNames';
+import Button from '@/shared/ui/Button/Button';
+import { AppRoutes } from '@/shared/config/routeConfig/routeConfig';
 
 const NotFoundPage = () => {
   const navigate = useNavigate();

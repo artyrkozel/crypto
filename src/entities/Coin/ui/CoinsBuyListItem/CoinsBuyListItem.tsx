@@ -1,12 +1,12 @@
-import { ICoin } from 'entities/Coin/model/types/coin';
 import { FC } from 'react';
-import { Card } from 'shared/ui/Card';
-import { Text, TextColor } from 'shared/ui/Text';
-import { HStack } from 'shared/ui/Stack';
-import { numMask, round } from 'shared/lib/numbers';
-import { ChangePrice } from 'widgets/ChangePrice';
-import { classNames } from 'helpers/classNames/classNames';
 import styles from './CoinsBuyListItem.module.scss';
+import { ICoin } from '@/entities/Coin/model/types/coin';
+import { Card } from '@/shared/ui/Card';
+import { Text, TextColor } from '@/shared/ui/Text';
+import { HStack } from '@/shared/ui/Stack';
+import { numMask, round } from '@/shared/lib/numbers';
+import { ChangePrice } from '@/widgets/ChangePrice';
+import { classNames } from '@/helpers/classNames/classNames';
 
 interface ICoinsByListItemProps {
   className?: string;

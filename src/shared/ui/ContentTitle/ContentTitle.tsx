@@ -1,6 +1,6 @@
 import React from 'react';
-import { classNames } from 'helpers/classNames/classNames';
 import styles from './ContentTitle.module.scss';
+import { classNames } from '@/helpers/classNames/classNames';
 
 export type ControlWrapperProps = {
   children: string;

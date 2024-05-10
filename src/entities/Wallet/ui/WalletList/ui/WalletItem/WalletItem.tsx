@@ -1,8 +1,8 @@
-import { HStack, VStack } from 'shared/ui/Stack';
-import { TextSize, Text, TextColor } from 'shared/ui/Text';
 import { FC } from 'react';
-import { IWalletCurrency } from 'entities/Wallet/model/types';
 import styles from './WalletItem.module.scss';
+import { HStack, VStack } from '@/shared/ui/Stack';
+import { TextSize, Text, TextColor } from '@/shared/ui/Text';
+import { IWalletCurrency } from '@/entities/Wallet/model/types';
 
 interface IWalletItemProps {
   walletData: IWalletCurrency;

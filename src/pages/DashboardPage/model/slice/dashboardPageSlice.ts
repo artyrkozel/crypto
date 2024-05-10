@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { CoinFilterType } from 'entities/Coin/model/consts/coinConsts';
+import { CoinFilterType } from '@/entities/Coin/model/consts/coinConsts';
 
 export interface DasboardState {
     type: CoinFilterType,

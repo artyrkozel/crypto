@@ -1,9 +1,9 @@
-import { useGetLeaderboardQuery } from 'entities/user/api/api';
-import { Text } from 'shared/ui/Text';
-import { VStack } from 'shared/ui/Stack';
-import { classNames } from 'helpers/classNames/classNames';
 import { LeaderBoardItem } from './LeaderBoardItem';
 import styles from './Leaderboard.module.scss';
+import { useGetLeaderboardQuery } from '@/entities/user/api/api';
+import { Text } from '@/shared/ui/Text';
+import { VStack } from '@/shared/ui/Stack';
+import { classNames } from '@/helpers/classNames/classNames';
 
 export const LeaderBoardList = () => {
   const { data: leaderUser } = useGetLeaderboardQuery({});

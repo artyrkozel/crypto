@@ -1,14 +1,14 @@
 import { FC, useMemo } from 'react';
-import { transformCoinPrice } from 'shared/lib/numbers';
-import { HStack, VStack } from 'shared/ui/Stack';
-import { ChangePrice } from 'widgets/ChangePrice';
-import { Chart } from 'widgets/Chart';
 import { ApexOptions } from 'apexcharts';
-import { ChartColors, ICoin } from 'entities/Coin/model/types/coin';
-import { TextSize, Text, TextColor } from 'shared/ui/Text';
-import Button from 'shared/ui/Button/Button';
-import { BuyCoinButton } from 'features/ByCoin';
 import styles from './CoinTrade.module.scss';
+import { transformCoinPrice } from '@/shared/lib/numbers';
+import { HStack, VStack } from '@/shared/ui/Stack';
+import { ChangePrice } from '@/widgets/ChangePrice';
+import { Chart } from '@/widgets/Chart';
+import { ChartColors, ICoin } from '@/entities/Coin/model/types/coin';
+import { TextSize, Text, TextColor } from '@/shared/ui/Text';
+import Button from '@/shared/ui/Button/Button';
+import { BuyCoinButton } from '@/features/ByCoin';
 
 interface ICoinTradeProps {
   coinData: ICoin | undefined;

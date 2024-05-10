@@ -1,6 +1,6 @@
-import { baseApi } from "shared/config/api";
 import { skipToken } from "@reduxjs/toolkit/query";
 import { ITransaction, ITransactionCreate } from "../types/types";
+import { baseApi } from "@/shared/config/api";
 
 export const transactionApi = baseApi.enhanceEndpoints({ addTagTypes: ['TransactionsList'] }).injectEndpoints({
   endpoints: (build) => ({

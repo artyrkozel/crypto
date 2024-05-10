@@ -1,12 +1,12 @@
 import { skipToken } from '@reduxjs/toolkit/query';
-import { useGetCoinByIdQuery } from 'entities/Coin/model/api/api';
-import { getTradeCoinId } from 'entities/Coin/model/selectors/getTradeCoinId/getTradeCoinId';
-import { classNames } from 'helpers/classNames/classNames';
 import { useSelector } from 'react-redux';
-import { ContentWrapper } from 'widgets/ContentWrapper';
-import { CoinTrade } from 'entities/Coin/ui/CoinTrade/CoinTrade';
-import { BuyCoin } from 'features/BuyCoin';
 import styles from './TradeList.module.scss';
+import { useGetCoinByIdQuery } from '@/entities/Coin/model/api/api';
+import { getTradeCoinId } from '@/entities/Coin/model/selectors/getTradeCoinId/getTradeCoinId';
+import { classNames } from '@/helpers/classNames/classNames';
+import { ContentWrapper } from '@/widgets/ContentWrapper';
+import { CoinTrade } from '@/entities/Coin/ui/CoinTrade/CoinTrade';
+import { BuyCoin } from '@/features/BuyCoin';
 
 export const TradeList = () => {
   const coinTradeId = useSelector(getTradeCoinId);

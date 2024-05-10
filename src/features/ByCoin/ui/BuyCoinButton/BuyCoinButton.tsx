@@ -1,7 +1,7 @@
 import { FC, useState } from 'react';
-import Button from 'shared/ui/Button/Button';
-import { Modal } from 'shared/ui/Modal';
 import { BuyCoinModal } from '../BuyCoinModal/BuyCoinModal';
+import Button from '@/shared/ui/Button/Button';
+import { Modal } from '@/shared/ui/Modal';
 
 interface IBuyCoinButtonProps {
   type: 'buy' | 'sell';

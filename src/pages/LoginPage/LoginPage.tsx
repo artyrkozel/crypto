@@ -1,7 +1,7 @@
-import { LoginForm } from 'features/AuthByEmail';
-import { Text, TextAlign } from 'shared/ui/Text';
 import styles from './Login.module.scss';
 import LoginLogo from '../../assets/login-logo.png';
+import { LoginForm } from '@/features/AuthByEmail';
+import { Text, TextAlign } from '@/shared/ui/Text';
 
 const LoginPage = () => {
   return (

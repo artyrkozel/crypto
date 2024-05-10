@@ -1,6 +1,6 @@
-import { baseApi } from "shared/config/api";
 import { skipToken } from "@reduxjs/toolkit/query";
 import { INotificationCreate } from "../types";
+import { baseApi } from "@/shared/config/api";
 
 export const notificationApi = baseApi.enhanceEndpoints({ addTagTypes: ['Notification'] }).injectEndpoints({
   endpoints: (build) => ({

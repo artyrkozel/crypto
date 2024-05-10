@@ -1,7 +1,7 @@
 import { memo, ReactNode, useCallback } from 'react';
-import { classNames } from 'helpers/classNames/classNames';
-import Button from 'shared/ui/Button/Button';
 import styles from './Tabs.module.scss';
+import { classNames } from '@/helpers/classNames/classNames';
+import Button from '@/shared/ui/Button/Button';
 
 export interface TabItem {
   value: string;

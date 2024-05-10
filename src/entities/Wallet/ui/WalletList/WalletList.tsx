@@ -1,10 +1,10 @@
 import { FC } from 'react';
-import { classNames } from 'helpers/classNames/classNames';
-import { Text, TextAlign, TextColor } from 'shared/ui/Text';
-import { getWalletCurrency } from 'entities/Wallet/model/selectors';
 import { useSelector } from 'react-redux';
 import styles from './WalletList.module.scss';
 import { WalletItem } from './ui/WalletItem/WalletItem';
+import { classNames } from '@/helpers/classNames/classNames';
+import { Text, TextAlign, TextColor } from '@/shared/ui/Text';
+import { getWalletCurrency } from '@/entities/Wallet/model/selectors';
 
 interface IWalletListProps {
   className?: string;

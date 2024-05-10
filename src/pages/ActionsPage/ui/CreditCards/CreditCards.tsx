@@ -1,12 +1,12 @@
 import Carousel from 'react-spring-3d-carousel';
 import { config } from 'react-spring';
 import React, { useState } from 'react';
-import { CreditCard } from 'widgets/CreditCard';
-import { ICreditCard } from 'widgets/CreditCard/ui/CreditCard';
-import { CreateCreditCardModal } from 'features/CreateCreditCard';
-import { ContentWrapper } from 'widgets/ContentWrapper';
-import { classNames } from 'helpers/classNames/classNames';
 import styles from './CreditCards.module.scss';
+import { CreditCard } from '@/widgets/CreditCard';
+import { ICreditCard } from '@/widgets/CreditCard/ui/CreditCard';
+import { CreateCreditCardModal } from '@/features/CreateCreditCard';
+import { ContentWrapper } from '@/widgets/ContentWrapper';
+import { classNames } from '@/helpers/classNames/classNames';
 
 interface ICardItem {
   key: number;

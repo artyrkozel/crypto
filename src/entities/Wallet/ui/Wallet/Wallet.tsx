@@ -1,9 +1,9 @@
-import { CardTheme } from 'shared/ui/Card/ui/Card';
-import { ContentWrapper } from 'widgets/ContentWrapper';
 import { FC } from 'react';
 import styles from './Wallet.module.scss';
 import { WalletBalance } from '../WalletBalance/WalletBalance';
 import { WalletList } from '../WalletList/WalletList';
+import { ContentWrapper } from '@/widgets/ContentWrapper';
+import { CardTheme } from '@/shared/ui/Card/ui/Card';
 
 interface IWallet {
   className?: string;

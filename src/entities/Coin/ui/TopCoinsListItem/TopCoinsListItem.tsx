@@ -1,16 +1,16 @@
 import { HTMLAttributeAnchorTarget, memo, useMemo } from 'react';
-import { Text, TextColor, TextSize } from 'shared/ui/Text';
-import { classNames } from 'helpers/classNames/classNames';
-import { Card } from 'shared/ui/Card';
-import { AppLink } from 'shared/ui/AppLink/AppLink';
-import { ChartColors, ICoin } from 'entities/Coin/model/types/coin';
 import { ApexOptions } from 'apexcharts';
-import { numMask, round } from 'shared/lib/numbers';
-import { HStack, VStack } from 'shared/ui/Stack';
-import { ChangePrice } from 'widgets/ChangePrice';
-import { Chart } from 'widgets/Chart';
-import { CardTheme } from 'shared/ui/Card/ui/Card';
 import styles from './TopCoinsListItem.module.scss';
+import { Text, TextColor, TextSize } from '@/shared/ui/Text';
+import { classNames } from '@/helpers/classNames/classNames';
+import { Card } from '@/shared/ui/Card';
+import { AppLink } from '@/shared/ui/AppLink/AppLink';
+import { ChartColors, ICoin } from '@/entities/Coin/model/types/coin';
+import { numMask, round } from '@/shared/lib/numbers';
+import { HStack, VStack } from '@/shared/ui/Stack';
+import { ChangePrice } from '@/widgets/ChangePrice';
+import { Chart } from '@/widgets/Chart';
+import { CardTheme } from '@/shared/ui/Card/ui/Card';
 
 interface ArticleListItemProps {
   className?: string;

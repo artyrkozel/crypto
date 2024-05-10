@@ -2,19 +2,19 @@ import {
   AccessorKeyColumnDef,
   createColumnHelper,
 } from '@tanstack/react-table';
-import { ICoin } from 'entities/Coin/model/types/coin';
 import { FC, useCallback, useMemo } from 'react';
-import { numMask, round } from 'shared/lib/numbers';
-import { HStack, VStack } from 'shared/ui/Stack';
-import { Flex } from 'shared/ui/Stack/Flex/Flex';
-import { TextSize, Text, TextColor } from 'shared/ui/Text';
-import { ChangePrice } from 'widgets/ChangePrice';
-import { Table } from 'widgets/Table/Table';
-import { classNames } from 'helpers/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
-import { coinActions } from 'entities/Coin/model/slice/slice';
 import styles from './CoinsList.module.scss';
+import { ICoin } from '@/entities/Coin/model/types/coin';
+import { numMask, round } from '@/shared/lib/numbers';
+import { HStack, VStack } from '@/shared/ui/Stack';
+import { Flex } from '@/shared/ui/Stack/Flex/Flex';
+import { TextSize, Text, TextColor } from '@/shared/ui/Text';
+import { ChangePrice } from '@/widgets/ChangePrice';
+import { Table } from '@/widgets/Table/Table';
+import { classNames } from '@/helpers/classNames/classNames';
+import { coinActions } from '@/entities/Coin/model/slice/slice';
 
 interface ITradeCoinsList {
   coinsList: ICoin[] | undefined;

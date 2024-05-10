@@ -1,7 +1,7 @@
-import { baseApi } from 'shared/config/api';
-import { ApiError } from 'app/types/types';
 import { IWallet, IWalletCreate } from '../model/types';
 import { walletActions } from '../model/slice';
+import { baseApi } from '@/shared/config/api';
+import { ApiError } from '@/app/types/types';
 
 export const walletApi = baseApi.enhanceEndpoints({ addTagTypes: ['Wallet'] }).injectEndpoints({
   endpoints: (build) => ({

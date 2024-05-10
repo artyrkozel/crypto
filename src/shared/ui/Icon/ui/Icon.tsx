@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
-import { classNames } from 'helpers/classNames/classNames';
 import styles from './Icon.module.scss';
+import { classNames } from '@/helpers/classNames/classNames';
 
 interface IconProps extends React.SVGProps<SVGSVGElement> {
   className?: string;

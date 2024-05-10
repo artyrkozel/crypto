@@ -1,8 +1,8 @@
 import { skipToken } from "@reduxjs/toolkit/query";
-import { ICoin } from "entities/Coin/model/types/coin";
-import { baseApi } from "shared/config/api";
-import { IOptions } from "shared/ui/Dropdown/Dropdown";
 import { coinActions } from "../slice/slice";
+import { ICoin } from "@/entities/Coin/model/types/coin";
+import { baseApi } from "@/shared/config/api";
+import { IOptions } from "@/shared/ui/Dropdown/Dropdown";
 
 export const coinApi = baseApi.injectEndpoints({
   endpoints: (build) => ({

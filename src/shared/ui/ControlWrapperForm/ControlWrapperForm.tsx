@@ -1,10 +1,10 @@
 import { useCallback } from 'react';
 import { useController, useFormContext } from 'react-hook-form';
-import { useUniqueId } from 'shared/lib/hooks/useUniqeId';
 import {
   ControlWrapper,
   ControlWrapperProps,
 } from '../ControlWrapper/ControlWrapper';
+import { useUniqueId } from '@/shared/lib/hooks/useUniqeId';
 
 type ControlWrapperFormProp = Omit<ControlWrapperProps, 'getElementProps'> & {
   name: string;

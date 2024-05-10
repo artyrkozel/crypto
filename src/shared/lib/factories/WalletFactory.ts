@@ -1,5 +1,5 @@
-import { ICoin } from "entities/Coin/model/types/coin";
-import { IWallet, IWalletCurrency } from "entities/Wallet/model/types";
+import { ICoin } from "@/entities/Coin/model/types/coin";
+import { IWallet, IWalletCurrency } from "@/entities/Wallet/model/types";
 
 export class WalletFactory {
   static getWalletUpdate(walletCurrencyUpdate: IWalletCurrency[], oldWalletData: IWallet): IWallet {

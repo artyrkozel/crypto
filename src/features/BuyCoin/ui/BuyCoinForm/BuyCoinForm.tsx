@@ -1,7 +1,7 @@
-import { ControlWrapperForm } from 'shared/ui/ControlWrapperForm/ControlWrapperForm';
-import { ControllerInput } from 'shared/ui/ControllerInput/ControllerInput';
-import { Dropdown } from 'shared/ui/Dropdown';
-import { HStack } from 'shared/ui/Stack';
+import { ControlWrapperForm } from '@/shared/ui/ControlWrapperForm/ControlWrapperForm';
+import { ControllerInput } from '@/shared/ui/ControllerInput/ControllerInput';
+import { Dropdown } from '@/shared/ui/Dropdown';
+import { HStack } from '@/shared/ui/Stack';
 
 export const BuyCoinForm = () => {
   return (

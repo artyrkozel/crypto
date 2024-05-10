@@ -1,11 +1,11 @@
 import { Suspense, useEffect } from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Sidebar } from 'widgets/Sidebar';
 import { useDispatch } from 'react-redux';
-import { authActions } from 'entities/user/model/slice';
 import { createPortal } from 'react-dom';
 import { AppRouter } from './providers/router';
+import { authActions } from '@/entities/user/model/slice';
+import { Sidebar } from '@/widgets/Sidebar';
 
 function App() {
   const dispatch = useDispatch();

@@ -1,12 +1,12 @@
 import { ChangeEvent, FC, ReactNode, RefObject } from 'react';
-import { ControllerInput } from 'shared/ui/ControllerInput/ControllerInput';
-import { ControllerSelect } from 'shared/ui/ControllerSelect/ControllerSelect';
-import { monthOptions, yearsArr } from 'shared/lib/utils';
-import { HStack, VStack } from 'shared/ui/Stack';
 import styles from './CreditCardForm.module.scss';
 import { ICardElementsRef } from '../model/types';
+import { HStack, VStack } from '@/shared/ui/Stack';
+import { monthOptions, yearsArr } from '@/shared/lib/utils';
+import { ControllerInput } from '@/shared/ui/ControllerInput/ControllerInput';
+import { ControllerSelect } from '@/shared/ui/ControllerSelect/ControllerSelect';
 
-interface ICreditCardForm {
+export interface ICreditCardForm {
   onUpdateState: (value: boolean) => void;
   onCardInputFocus: (inputName: keyof ICardElementsRef) => void;
   cardNumberRef: RefObject<HTMLInputElement>;

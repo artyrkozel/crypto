@@ -1,7 +1,7 @@
-import { baseApi } from 'shared/config/api';
-import { setCookies } from 'shared/lib/utils';
 import { LeaderUser, LoginFormData, UserObject, UserWithToken } from '../model/types';
 import { authActions } from '../model/slice';
+import { baseApi } from '@/shared/config/api';
+import { setCookies } from '@/shared/lib/utils';
 
 export const authApi = baseApi.injectEndpoints({
   endpoints: (build) => ({

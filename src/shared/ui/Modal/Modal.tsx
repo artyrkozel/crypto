@@ -1,8 +1,8 @@
 import { FC, ReactNode } from 'react';
-import { useModal } from 'shared/lib/hooks/useModal';
-import { Mods, classNames } from 'helpers/classNames/classNames';
 import styles from './Modal.module.scss';
 import { Portal } from '../Portal/Portal';
+import { useModal } from '@/shared/lib/hooks/useModal';
+import { Mods, classNames } from '@/helpers/classNames/classNames';
 
 interface ModalProps {
   className?: string;

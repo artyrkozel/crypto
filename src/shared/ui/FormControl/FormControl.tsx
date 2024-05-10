@@ -1,6 +1,6 @@
 import { FC, ReactNode } from 'react';
-import { classNames } from 'helpers/classNames/classNames';
 import styles from './FormControl.module.scss';
+import { classNames } from '@/helpers/classNames/classNames';
 
 interface IFormControl {
   label?: string;

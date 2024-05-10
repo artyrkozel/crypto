@@ -12,11 +12,11 @@ import {
   SwitchTransition,
 } from 'react-transition-group';
 import { useFormContext } from 'react-hook-form';
-import { creditMask } from 'shared/lib/icons';
+import { IFormFieldsRefObj } from '../model/types';
 import visaLabel from '../../../shared/assets/img/visa-label.png';
 import chip from '../../../shared/assets/img/chip.png';
+import { creditMask } from '@/shared/lib/icons';
 import './Cards.scss';
-import { IFormFieldsRefObj } from '../model/types';
 
 interface ICardProps {
   currentFocusedElm: MutableRefObject<

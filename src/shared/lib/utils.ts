@@ -1,5 +1,5 @@
 import Cookies from 'js-cookie';
-import { IOptions } from 'shared/ui/Dropdown/Dropdown';
+import { IOptions } from '@/shared/ui/Dropdown/Dropdown';
 
 export const setCookies = ({
   accessToken,

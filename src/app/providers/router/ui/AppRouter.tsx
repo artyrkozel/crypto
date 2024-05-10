@@ -1,7 +1,7 @@
 import { Suspense, memo, useCallback } from 'react';
 import { Route, RouteProps, Routes } from 'react-router-dom';
-import { routeConfig } from 'shared/config/routeConfig/routeConfig';
 import { RequireAuth } from './RequireAuth';
+import { routeConfig } from '@/shared/config/routeConfig/routeConfig';
 
 export type AppRoutesProps = RouteProps & {
   authOnly?: boolean;

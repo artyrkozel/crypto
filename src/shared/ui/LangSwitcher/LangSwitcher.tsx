@@ -1,6 +1,6 @@
-import { classNames } from 'helpers/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import Button from '../Button/Button';
+import { classNames } from '@/helpers/classNames/classNames';
 
 interface ILangSwitcherProps {
   clasNames?: string;

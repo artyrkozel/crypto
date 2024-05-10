@@ -1,11 +1,11 @@
-import OverviewPage from 'pages/OverviewPage/OverviewPage';
-import LoginPage from 'pages/LoginPage/LoginPage';
-import WalletsPage from 'pages/WalletsPage/WalletsPage';
-import { NotFoundPage } from 'pages/NotFoundPage';
-import { AppRoutesProps } from 'app/providers/router/ui/AppRouter';
-import { DashboardPage } from 'pages/DashboardPage';
-import { TradePage } from 'pages/TradePage';
-import { ActionsPage } from 'pages/ActionsPage';
+import OverviewPage from '@/pages/OverviewPage/OverviewPage';
+import LoginPage from '@/pages/LoginPage/LoginPage';
+import WalletsPage from '@/pages/WalletsPage/WalletsPage';
+import { NotFoundPage } from '@/pages/NotFoundPage';
+import { AppRoutesProps } from '@/app/providers/router/ui/AppRouter';
+import { DashboardPage } from '@/pages/DashboardPage';
+import { TradePage } from '@/pages/TradePage';
+import { ActionsPage } from '@/pages/ActionsPage';
 
 export enum AppRoutes {
   MAIN = '/',

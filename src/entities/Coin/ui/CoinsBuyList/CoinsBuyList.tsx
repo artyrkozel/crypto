@@ -1,27 +1,27 @@
-import { ICoin } from 'entities/Coin/model/types/coin';
-import { classNames } from 'helpers/classNames/classNames';
 import { FC, useCallback, useEffect, useMemo } from 'react';
-import { TextSize, Text, TextColor } from 'shared/ui/Text';
 import { useTranslation } from 'react-i18next';
-import { Table } from 'widgets/Table/Table';
 import {
   AccessorKeyColumnDef,
   SortingState,
   createColumnHelper,
 } from '@tanstack/react-table';
-import { numMask, round } from 'shared/lib/numbers';
-import { ChangePrice } from 'widgets/ChangePrice';
-import { Flex } from 'shared/ui/Stack/Flex/Flex';
-import { HStack, VStack } from 'shared/ui/Stack';
 import { useDispatch, useSelector } from 'react-redux';
-import { dashboardPageActions } from 'pages/DashboardPage/model/slice/dashboardPageSlice';
-import { ContentWrapper } from 'widgets/ContentWrapper';
-import { coinActions } from 'entities/Coin/model/slice/slice';
-import { useGetCoinByIdQuery } from 'entities/Coin/model/api/api';
 import { skipToken } from '@reduxjs/toolkit/query';
-import { getTradeCoinId } from 'pages/DashboardPage/model/selectors/dashboardPageSelectors';
 import styles from './CoinsBuyList.module.scss';
 import { CoinTrade } from '../CoinTrade/CoinTrade';
+import { ICoin } from '@/entities/Coin/model/types/coin';
+import { classNames } from '@/helpers/classNames/classNames';
+import { TextSize, Text, TextColor } from '@/shared/ui/Text';
+import { Table } from '@/widgets/Table/Table';
+import { numMask, round } from '@/shared/lib/numbers';
+import { ChangePrice } from '@/widgets/ChangePrice';
+import { Flex } from '@/shared/ui/Stack/Flex/Flex';
+import { HStack, VStack } from '@/shared/ui/Stack';
+import { dashboardPageActions } from '@/pages/DashboardPage/model/slice/dashboardPageSlice';
+import { ContentWrapper } from '@/widgets/ContentWrapper';
+import { coinActions } from '@/entities/Coin/model/slice/slice';
+import { useGetCoinByIdQuery } from '@/entities/Coin/model/api/api';
+import { getTradeCoinId } from '@/pages/DashboardPage/model/selectors/dashboardPageSelectors';
 
 interface ICoinsBuyListTable {
   coins: ICoin[] | undefined;

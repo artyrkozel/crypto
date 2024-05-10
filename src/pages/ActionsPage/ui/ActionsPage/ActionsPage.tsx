@@ -1,7 +1,7 @@
-import { Page } from 'widgets/Page/Page';
-import { classNames } from 'helpers/classNames/classNames';
 import styles from './ActionsPage.module.scss';
 import { CreditCards } from '../CreditCards/CreditCards';
+import { Page } from '@/widgets/Page/Page';
+import { classNames } from '@/helpers/classNames/classNames';
 
 const ActionsPage = () => {
   return (

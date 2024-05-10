@@ -6,9 +6,9 @@ import {
   useMemo,
 } from 'react';
 
-import { Mods, classNames } from 'helpers/classNames/classNames';
 import styles from './Select.module.scss';
 import { IOptions } from '../Dropdown/Dropdown';
+import { Mods, classNames } from '@/helpers/classNames/classNames';
 
 export type HTMLSelectProps = Omit<
   SelectHTMLAttributes<HTMLSelectElement>,

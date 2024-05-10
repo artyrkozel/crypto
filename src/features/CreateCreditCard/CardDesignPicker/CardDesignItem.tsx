@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { creditMask } from 'shared/lib/icons';
 import styles from './CardDesignItem.module.scss';
+import { creditMask } from '@/shared/lib/icons';
 
 interface ICardDesignItem {
   mask: string;

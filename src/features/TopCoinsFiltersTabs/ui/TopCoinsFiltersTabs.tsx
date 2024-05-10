@@ -1,8 +1,8 @@
 import { FC, memo, useCallback, useMemo } from 'react';
-import { CoinFilterType } from 'entities/Coin/model/consts/coinConsts';
-import { TabItem, Tabs } from 'shared/ui/Tabs/ui/Tabs';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'helpers/classNames/classNames';
+import { CoinFilterType } from '@/entities/Coin/model/consts/coinConsts';
+import { TabItem, Tabs } from '@/shared/ui/Tabs/ui/Tabs';
+import { classNames } from '@/helpers/classNames/classNames';
 
 interface TopCoinsTabsProps {
   className?: string;

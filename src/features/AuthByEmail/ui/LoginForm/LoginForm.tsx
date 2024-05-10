@@ -1,14 +1,14 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { classNames } from 'helpers/classNames/classNames';
 import { FormProvider, useForm } from 'react-hook-form';
-import { emailValidation, passwordValidation } from 'shared/lib/validation';
-import Button from 'shared/ui/Button/Button';
 import * as yup from 'yup';
-import { ContentTitle } from 'shared/ui/ContentTitle/ContentTitle';
-import { usePostLoginMutation } from 'entities/user/api/api';
-import { AppRoutes } from 'shared/config/routeConfig/routeConfig';
-import { ControllerInput } from 'shared/ui/ControllerInput/ControllerInput';
 import styles from './LoginForm.module.scss';
+import { classNames } from '@/helpers/classNames/classNames';
+import { emailValidation, passwordValidation } from '@/shared/lib/validation';
+import Button from '@/shared/ui/Button/Button';
+import { ContentTitle } from '@/shared/ui/ContentTitle/ContentTitle';
+import { usePostLoginMutation } from '@/entities/user/api/api';
+import { AppRoutes } from '@/shared/config/routeConfig/routeConfig';
+import { ControllerInput } from '@/shared/ui/ControllerInput/ControllerInput';
 
 const FormSchema = yup
   .object()

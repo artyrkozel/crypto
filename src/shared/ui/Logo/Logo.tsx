@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
-import { AppRoutes } from 'shared/config/routeConfig/routeConfig';
 import { FC } from 'react';
 import logo from '../../../assets/Logo.png';
 import logoMini from '../../../assets/logo-mini.png';
+import { AppRoutes } from '@/shared/config/routeConfig/routeConfig';
 
 interface ILogo {
   collapsed: boolean;

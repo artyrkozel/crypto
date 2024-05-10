@@ -5,6 +5,9 @@ import svgr from 'vite-plugin-svgr';
 
 export default defineConfig({
   plugins: [react(), tsconfigPaths(), svgr()],
+  resolve: {
+    alias: [{ find: '@', replacement: '/src' }],
+  },
   server: {
     host: true,
     open: true,

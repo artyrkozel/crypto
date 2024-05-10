@@ -1,5 +1,5 @@
-import { ICoin } from "entities/Coin/model/types/coin";
-import { INotificationCreate } from "entities/Notification/model/types";
+import { ICoin } from "@/entities/Coin/model/types/coin";
+import { INotificationCreate } from "@/entities/Notification/model/types";
 
 export class NotificationFactory {
   static createNotification(currentCoin: ICoin, userId: string, summ: number, type: 'deposit' | 'withdraw' | 'exchange' = 'exchange') {

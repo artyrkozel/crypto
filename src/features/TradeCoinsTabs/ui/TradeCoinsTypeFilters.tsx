@@ -1,8 +1,8 @@
-import { ETradeTab } from 'entities/Coin/model/consts/coinConsts';
-import { classNames } from 'helpers/classNames/classNames';
 import { FC, memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { TabItem, Tabs } from 'shared/ui/Tabs/ui/Tabs';
+import { ETradeTab } from '@/entities/Coin/model/consts/coinConsts';
+import { classNames } from '@/helpers/classNames/classNames';
+import { TabItem, Tabs } from '@/shared/ui/Tabs/ui/Tabs';
 
 interface ITradeCoinsTabs {
   className?: string;

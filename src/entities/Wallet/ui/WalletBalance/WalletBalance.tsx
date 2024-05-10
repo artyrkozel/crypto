@@ -1,13 +1,13 @@
 import { FC } from 'react';
-import { TextSize, Text } from 'shared/ui/Text';
-import { Logo } from 'shared/ui/Logo';
-import { classNames } from 'helpers/classNames/classNames';
-import { VStack } from 'shared/ui/Stack';
 import { useSelector } from 'react-redux';
-import { getUserAuthData } from 'entities/user';
-import { useGetWalletByUserIdQuery } from 'entities/Wallet/api/api';
 import styles from './Wallet.module.scss';
 import Mask from '../../../../assets/wallet-mask.png';
+import { TextSize, Text } from '@/shared/ui/Text';
+import { Logo } from '@/shared/ui/Logo';
+import { classNames } from '@/helpers/classNames/classNames';
+import { VStack } from '@/shared/ui/Stack';
+import { getUserAuthData } from '@/entities/user';
+import { useGetWalletByUserIdQuery } from '@/entities/Wallet/api/api';
 
 interface IWalletProps {
   className?: string;

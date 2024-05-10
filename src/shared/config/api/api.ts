@@ -1,7 +1,7 @@
 import { BaseQueryFn, FetchArgs, createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { IApiError } from 'app/types/types';
 import Cookies from 'js-cookie';
-import { alert } from 'widgets/Notification';
+import { IApiError } from '@/app/types/types';
+import { alert } from '@/widgets/Notification';
 
 const _baseQuery = fetchBaseQuery({
   baseUrl: 'http://localhost:8000/',

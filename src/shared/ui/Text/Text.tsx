@@ -1,6 +1,6 @@
 import { memo } from 'react';
-import { Mods, classNames } from 'helpers/classNames/classNames';
 import cls from './Text.module.scss';
+import { Mods, classNames } from '@/helpers/classNames/classNames';
 
 export enum TextAlign {
   RIGHT = 'right',

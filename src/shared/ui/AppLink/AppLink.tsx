@@ -1,8 +1,7 @@
 import { Link, LinkProps } from 'react-router-dom';
 import { memo, ReactNode } from 'react';
-
-import { classNames } from 'helpers/classNames/classNames';
 import styles from './AppLink.module.scss';
+import { classNames } from '@/helpers/classNames/classNames';
 
 interface AppLinkProps extends LinkProps {
     className?: string;

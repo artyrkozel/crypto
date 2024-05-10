@@ -1,16 +1,16 @@
-import { Page } from 'widgets/Page/Page';
-import { useGetTopCoinsQuery } from 'entities/Coin/model/api/api';
 import { useSelector } from 'react-redux';
-import { getArticlesPageType } from 'pages/DashboardPage/model/selectors/dashboardPageSelectors';
-import { CoinsBuyList } from 'entities/Coin/ui/CoinsBuyList/CoinsBuyList';
-import { LeaderBoardList } from 'features/LeaderBoard';
-import { NotificationList } from 'widgets/NotificationList';
-import useWindowDimensions from 'shared/lib/hooks/useWindowDimensions';
-import { Mods, classNames } from 'helpers/classNames/classNames';
-import { DasboardReferal } from 'widgets/DasboardReferal';
-import { QuickActions } from 'widgets/QuickActions';
-import { Wallet } from 'entities/Wallet';
 import styles from './DashboardPage.module.scss';
+import { Page } from '@/widgets/Page/Page';
+import { useGetTopCoinsQuery } from '@/entities/Coin/model/api/api';
+import { getArticlesPageType } from '@/pages/DashboardPage/model/selectors/dashboardPageSelectors';
+import { CoinsBuyList } from '@/entities/Coin/ui/CoinsBuyList/CoinsBuyList';
+import { LeaderBoardList } from '@/features/LeaderBoard';
+import { NotificationList } from '@/widgets/NotificationList';
+import useWindowDimensions from '@/shared/lib/hooks/useWindowDimensions';
+import { Mods, classNames } from '@/helpers/classNames/classNames';
+import { DasboardReferal } from '@/widgets/DasboardReferal';
+import { QuickActions } from '@/widgets/QuickActions';
+import { Wallet } from '@/entities/Wallet';
 
 const DashboardPage = () => {
   const type = useSelector(getArticlesPageType);

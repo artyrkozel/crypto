@@ -2,9 +2,9 @@ import { useEffect, useCallback, forwardRef } from 'react';
 import { useSelect } from 'downshift';
 import { IoIosArrowDown } from 'react-icons/io';
 import { VscClose } from 'react-icons/vsc';
-import { Mods, classNames } from 'helpers/classNames/classNames';
 import styles from './Dropdown.module.scss';
 import { HStack } from '../Stack';
+import { Mods, classNames } from '@/helpers/classNames/classNames';
 
 /* eslint-disable */
 

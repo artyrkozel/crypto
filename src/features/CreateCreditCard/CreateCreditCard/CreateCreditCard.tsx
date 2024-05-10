@@ -1,8 +1,6 @@
 import { FC, MutableRefObject, useCallback, useRef, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import * as yup from 'yup';
-import Button from 'shared/ui/Button/Button';
-import { stringRequired } from 'shared/lib/validation';
 import { yupResolver } from '@hookform/resolvers/yup';
 import styles from './CreateCreditCard.module.scss';
 import Card from '../CreditCard/Card';
@@ -13,6 +11,8 @@ import {
   IFormFieldsRefObj,
 } from '../model/types';
 import { CardDesignPicker } from '../CardDesignPicker/CardDesignPicker';
+import { stringRequired } from '@/shared/lib/validation';
+import Button from '@/shared/ui/Button/Button';
 
 interface ICreateCreditCard {
   onCloseModal: () => void;

@@ -16,7 +16,7 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "prepare": "husky install",
-    "test:unit": "jest --config ./config/jest/jest.config.ts"
+    "test:e2e": "cypress open"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
@@ -29,6 +29,7 @@
     "axios": "^1.6.7",
     "axios-mock-adapter": "^1.22.0",
     "concurrently": "^8.2.2",
+    "cypress": "^13.9.0",
     "downshift": "^9.0.4",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-plugin-import": "^2.29.1",

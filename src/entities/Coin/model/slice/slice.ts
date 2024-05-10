@@ -1,6 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { IOptions } from 'shared/ui/Dropdown/Dropdown';
 import { ICoin } from '../types/coin';
+import { IOptions } from '@/shared/ui/Dropdown/Dropdown';
 
 export interface CoinState {
     coinToTrade: ICoin | null;

@@ -1,13 +1,13 @@
 import { useTranslation } from 'react-i18next';
 import { HTMLAttributeAnchorTarget, memo } from 'react';
-import { classNames } from 'helpers/classNames/classNames';
-import { ICoin } from 'entities/Coin/model/types/coin';
-import { TextSize, Text } from 'shared/ui/Text';
-import { VStack } from 'shared/ui/Stack';
-import { ContentWrapper } from 'widgets/ContentWrapper';
-import { CardTheme } from 'shared/ui/Card/ui/Card';
 import styles from './TopCoinsList.module.scss';
 import { TopCoinListItem } from '../TopCoinsListItem/TopCoinsListItem';
+import { classNames } from '@/helpers/classNames/classNames';
+import { ICoin } from '@/entities/Coin/model/types/coin';
+import { TextSize, Text } from '@/shared/ui/Text';
+import { VStack } from '@/shared/ui/Stack';
+import { ContentWrapper } from '@/widgets/ContentWrapper';
+import { CardTheme } from '@/shared/ui/Card/ui/Card';
 
 interface TopCoinsListProps {
   className?: string;

@@ -1,9 +1,9 @@
-import { LeaderUser } from 'entities/user/model/types';
 import { FC } from 'react';
-import { HStack } from 'shared/ui/Stack';
-import { TextSize, Text, TextColor } from 'shared/ui/Text';
-import { ChangePrice } from 'widgets/ChangePrice';
 import styles from './LeaderBoardItem.module.scss';
+import { LeaderUser } from '@/entities/user/model/types';
+import { HStack } from '@/shared/ui/Stack';
+import { TextSize, Text, TextColor } from '@/shared/ui/Text';
+import { ChangePrice } from '@/widgets/ChangePrice';
 
 interface ILeaderBoardItem {
   leader: LeaderUser;

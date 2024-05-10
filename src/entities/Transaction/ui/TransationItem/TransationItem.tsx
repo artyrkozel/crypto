@@ -1,10 +1,10 @@
-import { ITransaction } from 'entities/Transaction/model/types/types';
 import { FC } from 'react';
-import { HStack, VStack } from 'shared/ui/Stack';
-import { TextSize, Text, TextColor } from 'shared/ui/Text';
-import { dateToString } from 'shared/lib/date';
-import { Mods, classNames } from 'helpers/classNames/classNames';
 import styles from './TransationItem.module.scss';
+import { ITransaction } from '@/entities/Transaction/model/types/types';
+import { HStack, VStack } from '@/shared/ui/Stack';
+import { TextSize, Text, TextColor } from '@/shared/ui/Text';
+import { dateToString } from '@/shared/lib/date';
+import { Mods, classNames } from '@/helpers/classNames/classNames';
 
 interface ITransationItem {
   transation: ITransaction;

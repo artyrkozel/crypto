@@ -1,20 +1,20 @@
-import { getCoinToBuy } from 'entities/Coin/model/selectors/getCoinToBuy/getCoinToBuy';
 import { FC, useEffect, useMemo } from 'react';
 import { VscClose } from 'react-icons/vsc';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useSelector } from 'react-redux';
-import Button from 'shared/ui/Button/Button';
-import { ControlWrapperForm } from 'shared/ui/ControlWrapperForm/ControlWrapperForm';
-import { Dropdown } from 'shared/ui/Dropdown';
-import { HStack } from 'shared/ui/Stack';
-import { IOptions } from 'shared/ui/Dropdown/Dropdown';
-import { useUpdateWalletMutation } from 'entities/Wallet/api/api';
-import { getWalletData } from 'entities/Wallet/model/selectors';
-import { IWalletCurrency } from 'entities/Wallet/model/types';
-import { WalletFactory } from 'shared/lib/factories/WalletFactory';
-import { useCreateNotificationMutation } from 'entities/Notification/model/api/api';
-import { NotificationFactory } from 'shared/lib/factories/NotificationFactory';
-import { ControllerInput } from 'shared/ui/ControllerInput/ControllerInput';
+import { getCoinToBuy } from '@/entities/Coin/model/selectors/getCoinToBuy/getCoinToBuy';
+import Button from '@/shared/ui/Button/Button';
+import { ControlWrapperForm } from '@/shared/ui/ControlWrapperForm/ControlWrapperForm';
+import { Dropdown } from '@/shared/ui/Dropdown';
+import { HStack } from '@/shared/ui/Stack';
+import { IOptions } from '@/shared/ui/Dropdown/Dropdown';
+import { useUpdateWalletMutation } from '@/entities/Wallet/api/api';
+import { getWalletData } from '@/entities/Wallet/model/selectors';
+import { IWalletCurrency } from '@/entities/Wallet/model/types';
+import { WalletFactory } from '@/shared/lib/factories/WalletFactory';
+import { useCreateNotificationMutation } from '@/entities/Notification/model/api/api';
+import { NotificationFactory } from '@/shared/lib/factories/NotificationFactory';
+import { ControllerInput } from '@/shared/ui/ControllerInput/ControllerInput';
 
 interface IBuyCoinModal {
   onClose: () => void;

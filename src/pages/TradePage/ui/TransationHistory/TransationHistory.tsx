@@ -1,14 +1,14 @@
-import { Mods, classNames } from 'helpers/classNames/classNames';
-import { ContentWrapper } from 'widgets/ContentWrapper';
-import { useGetTransactionsListQuery } from 'entities/Transaction/model/api/api';
 import { useSelector } from 'react-redux';
-import { getUserAuthData } from 'entities/user';
-import { TransationItem } from 'entities/Transaction/ui/TransationItem/TransationItem';
-import useInViewPort from 'shared/lib/hooks/useInViewPort';
 import { RefObject, useRef } from 'react';
-import { VStack } from 'shared/ui/Stack';
-import { CardTheme } from 'shared/ui/Card/ui/Card';
 import styles from './TransationHistory.module.scss';
+import { Mods, classNames } from '@/helpers/classNames/classNames';
+import { ContentWrapper } from '@/widgets/ContentWrapper';
+import { useGetTransactionsListQuery } from '@/entities/Transaction/model/api/api';
+import { getUserAuthData } from '@/entities/user';
+import { TransationItem } from '@/entities/Transaction/ui/TransationItem/TransationItem';
+import useInViewPort from '@/shared/lib/hooks/useInViewPort';
+import { VStack } from '@/shared/ui/Stack';
+import { CardTheme } from '@/shared/ui/Card/ui/Card';
 
 export const TransationHistory = () => {
   const user = useSelector(getUserAuthData);

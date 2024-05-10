@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
-import { useUniqueId } from 'shared/lib/hooks/useUniqeId';
-import { classNames } from 'helpers/classNames/classNames';
 import styles from './ControlWrapper.module.scss';
+import { useUniqueId } from '@/shared/lib/hooks/useUniqeId';
+import { classNames } from '@/helpers/classNames/classNames';
 
 export type ControlWrapperProps = {
   children: | React.JSXElementConstructor<{ hasError?: boolean; id?: string }>

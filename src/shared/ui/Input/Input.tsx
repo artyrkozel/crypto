@@ -5,9 +5,9 @@ import {
   memo,
   useCallback,
 } from 'react';
-import { Mods, classNames } from 'helpers/classNames/classNames';
 import InputMask from 'react-input-mask';
 import styles from './Input.module.scss';
+import { Mods, classNames } from '@/helpers/classNames/classNames';
 
 export type HTMLInputProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,

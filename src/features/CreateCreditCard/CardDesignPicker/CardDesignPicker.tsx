@@ -1,7 +1,7 @@
-import { HStack } from 'shared/ui/Stack';
 import { FC } from 'react';
 import styles from './CardDesignPicker.module.scss';
 import { CardDesignItem } from './CardDesignItem';
+import { HStack } from '@/shared/ui/Stack';
 
 interface ICardDesignPickerProps {
   setMask: (mask: string) => void;

@@ -1,7 +1,7 @@
-import { Modal } from 'shared/ui/Modal';
 import { FC } from 'react';
-import { classNames } from 'helpers/classNames/classNames';
 import { CreateCreditCard } from '../CreateCreditCard/CreateCreditCard';
+import { Modal } from '@/shared/ui/Modal';
+import { classNames } from '@/helpers/classNames/classNames';
 
 interface ICreateCreditCardModalProps {
   className?: string;
