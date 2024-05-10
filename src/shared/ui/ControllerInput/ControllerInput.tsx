@@ -5,6 +5,7 @@ import {
   FocusEvent,
   memo,
   FC,
+  RefObject,
 } from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
 import _ from 'lodash';
@@ -20,6 +21,7 @@ interface IControllerInputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   name: string;
   onChangeInput?: (e: ChangeEvent<HTMLInputElement>) => void;
+  ref?: RefObject<HTMLInputElement>;
 }
 
 export const ControllerInput: FC<IControllerInputProps> = memo(
