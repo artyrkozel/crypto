@@ -1,12 +1,12 @@
-import { INotificationCreate } from '@/entities/Notification/model/types';
 import { FC } from 'react';
+import styles from './NotificationItem.module.scss';
+import { INotificationCreate } from '@/entities/Notification/model/types';
 import { TextSize, Text, TextColor } from '@/shared/ui/Text';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { NotificationIcon } from '@/shared/ui/NotificationIcon';
 import { classNames } from '@/helpers/classNames/classNames';
 import { dateToString } from '@/shared/lib/date';
 import { generateDepositTest } from '@/shared/lib/utils';
-import styles from './NotificationItem.module.scss';
 
 interface INotificationItemProps {
   notification: INotificationCreate;

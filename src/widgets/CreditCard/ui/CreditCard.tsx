@@ -1,11 +1,11 @@
-import { HStack, VStack } from '@/shared/ui/Stack';
-import { TextSize, Text, TextColor } from '@/shared/ui/Text';
 import { FC } from 'react';
-import { crediCardMasked } from '@/shared/lib/masks';
-import { creditMask } from '@/shared/lib/icons';
 import styles from './CreditCard.module.scss';
 import cardChip from '../../../shared/assets/img/chip.png';
 import cardLabel from '../../../shared/assets/img/visa-label.png';
+import { HStack, VStack } from '@/shared/ui/Stack';
+import { TextSize, Text, TextColor } from '@/shared/ui/Text';
+import { crediCardMasked } from '@/shared/lib/masks';
+import { creditMask } from '@/shared/lib/icons';
 
 export interface ICreditCard {
   id: number;

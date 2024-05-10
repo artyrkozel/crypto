@@ -1,9 +1,9 @@
-import { CardTheme } from '@/shared/ui/Card/ui/Card';
-import { ContentWrapper } from '@/widgets/ContentWrapper';
 import { IoWalletOutline } from 'react-icons/io5';
 import { IconType } from 'react-icons/lib';
 import styles from './QuickActions.module.scss';
 import { QuickActionsItem } from '../QuickActionsItem/QuickActionsItem';
+import { ContentWrapper } from '@/widgets/ContentWrapper';
+import { CardTheme } from '@/shared/ui/Card/ui/Card';
 
 export interface IQuickAction {
   to: string;

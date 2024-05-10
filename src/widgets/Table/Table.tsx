@@ -5,10 +5,10 @@ import {
   getCoreRowModel,
   useReactTable,
 } from '@tanstack/react-table';
-import { Mods, classNames } from '@/helpers/classNames/classNames';
 import styles from './Table.module.scss';
 import { TableHeader } from './ui/TableHeader/TableHeader';
 import { TableBody } from './ui/TableBody/TableBody';
+import { Mods, classNames } from '@/helpers/classNames/classNames';
 
 interface ITable<T extends object> {
   onSortHandler?: (param: SortingState) => void;

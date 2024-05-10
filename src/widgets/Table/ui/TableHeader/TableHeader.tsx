@@ -1,6 +1,6 @@
 import { HeaderGroup, flexRender } from '@tanstack/react-table';
-import { SortIcon } from '@/widgets/SortIcon/SortIcon';
 import styles from '../../Table.module.scss';
+import { SortIcon } from '@/widgets/SortIcon/SortIcon';
 
 interface ITableHeaderProps<T extends object> {
   getHeaderGroups: HeaderGroup<T>[];

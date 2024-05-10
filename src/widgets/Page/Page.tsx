@@ -1,7 +1,7 @@
 import { FC, memo, ReactNode } from 'react';
+import styles from './Page.module.scss';
 import { classNames } from '@/helpers/classNames/classNames';
 import { Text } from '@/shared/ui/Text';
-import styles from './Page.module.scss';
 
 interface PageProps {
   className?: string;

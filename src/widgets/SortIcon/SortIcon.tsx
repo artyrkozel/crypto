@@ -1,7 +1,7 @@
-import { classNames } from '@/helpers/classNames/classNames';
-import { Icon } from '@/shared/ui/Icon';
 import { FC, SVGProps } from 'react';
 import styles from './SortIcon.module.scss';
+import { classNames } from '@/helpers/classNames/classNames';
+import { Icon } from '@/shared/ui/Icon';
 
 function Sort(props: SVGProps<SVGSVGElement>) {
   return (

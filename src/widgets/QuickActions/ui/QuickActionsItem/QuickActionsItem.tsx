@@ -1,10 +1,10 @@
-import { HStack } from '@/shared/ui/Stack';
 import { IoIosArrowForward } from 'react-icons/io';
-import { Text, TextColor, TextSize } from '@/shared/ui/Text';
-import { AppLink } from '@/shared/ui/AppLink/AppLink';
 import { FC } from 'react';
 import styles from './QuickActionsItem.module.scss';
 import { IQuickAction } from '../QuickActions/QuickActions';
+import { AppLink } from '@/shared/ui/AppLink/AppLink';
+import { Text, TextColor, TextSize } from '@/shared/ui/Text';
+import { HStack } from '@/shared/ui/Stack';
 
 interface IQuickActionsItem {
   action: IQuickAction;

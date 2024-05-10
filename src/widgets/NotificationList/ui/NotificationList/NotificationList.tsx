@@ -1,15 +1,15 @@
-import { useGetNotificationsByUserIdQuery } from '@/entities/Notification/model/api/api';
 import { useSelector } from 'react-redux';
-import { getUserAuthData } from '@/entities/user';
 import { skipToken } from '@reduxjs/toolkit/query';
+import { RefObject, useRef } from 'react';
+import styles from './NotificationList.module.scss';
+import { NotificationItem } from '../NotificationItem/NotificationItem';
+import { useGetNotificationsByUserIdQuery } from '@/entities/Notification/model/api/api';
+import { getUserAuthData } from '@/entities/user';
 import { ContentWrapper } from '@/widgets/ContentWrapper';
 import { CardTheme } from '@/shared/ui/Card/ui/Card';
 import { VStack } from '@/shared/ui/Stack';
 import { Mods, classNames } from '@/helpers/classNames/classNames';
-import { RefObject, useRef } from 'react';
 import useInViewPort from '@/shared/lib/hooks/useInViewPort';
-import styles from './NotificationList.module.scss';
-import { NotificationItem } from '../NotificationItem/NotificationItem';
 
 export const NotificationList = () => {
   const user = useSelector(getUserAuthData);

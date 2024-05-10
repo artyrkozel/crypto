@@ -1,16 +1,16 @@
-import { Mods, classNames } from '@/helpers/classNames/classNames';
 import { memo, useMemo, useState } from 'react';
-import Button from '@/shared/ui/Button/Button';
 import { useDispatch, useSelector } from 'react-redux';
-import { getSidebarItems } from '@/widgets/Sidebar/model/selectors/getSidebarItems';
 import { useLocation } from 'react-router-dom';
+import styles from './Sidebat.module.scss';
+import { SidebarItem } from '../SidebarItem/SidebarItem';
+import { Mods, classNames } from '@/helpers/classNames/classNames';
+import Button from '@/shared/ui/Button/Button';
+import { getSidebarItems } from '@/widgets/Sidebar/model/selectors/getSidebarItems';
 import { LangSwitcher } from '@/shared/ui/LangSwitcher/LangSwitcher';
 import { AppRoutes } from '@/shared/config/routeConfig/routeConfig';
 import { authActions } from '@/entities/user/model/slice';
 import { Logo } from '@/shared/ui/Logo';
 import useWindowDimensions from '@/shared/lib/hooks/useWindowDimensions';
-import styles from './Sidebat.module.scss';
-import { SidebarItem } from '../SidebarItem/SidebarItem';
 
 interface SidebarProps {
   className?: string;
