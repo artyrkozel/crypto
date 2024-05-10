@@ -1,7 +1,7 @@
 import { Row, flexRender } from '@tanstack/react-table';
-import { classNames } from 'helpers/classNames/classNames';
+import { classNames } from '@/helpers/classNames/classNames';
 import { RefObject, useEffect, useRef } from 'react';
-import useInViewPort from 'shared/lib/hooks/useInViewPort';
+import useInViewPort from '@/shared/lib/hooks/useInViewPort';
 import styles from '../../Table.module.scss';
 
 interface ITableHeaderProps<T extends object> {

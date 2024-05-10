@@ -1,6 +1,6 @@
 import { FC, memo } from 'react';
-import { classNames, Mods } from 'helpers/classNames/classNames';
-import { Text, TextAlign, TextSize } from 'shared/ui/Text';
+import { classNames, Mods } from '@/helpers/classNames/classNames';
+import { Text, TextAlign, TextSize } from '@/shared/ui/Text';
 import styles from './ChangePrice.module.scss';
 
 interface ChangePriceProps {

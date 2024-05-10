@@ -1,14 +1,14 @@
-import { Mods, classNames } from 'helpers/classNames/classNames';
+import { Mods, classNames } from '@/helpers/classNames/classNames';
 import { memo, useMemo, useState } from 'react';
-import Button from 'shared/ui/Button/Button';
+import Button from '@/shared/ui/Button/Button';
 import { useDispatch, useSelector } from 'react-redux';
-import { getSidebarItems } from 'widgets/Sidebar/model/selectors/getSidebarItems';
+import { getSidebarItems } from '@/widgets/Sidebar/model/selectors/getSidebarItems';
 import { useLocation } from 'react-router-dom';
-import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher';
-import { AppRoutes } from 'shared/config/routeConfig/routeConfig';
-import { authActions } from 'entities/user/model/slice';
-import { Logo } from 'shared/ui/Logo';
-import useWindowDimensions from 'shared/lib/hooks/useWindowDimensions';
+import { LangSwitcher } from '@/shared/ui/LangSwitcher/LangSwitcher';
+import { AppRoutes } from '@/shared/config/routeConfig/routeConfig';
+import { authActions } from '@/entities/user/model/slice';
+import { Logo } from '@/shared/ui/Logo';
+import useWindowDimensions from '@/shared/lib/hooks/useWindowDimensions';
 import styles from './Sidebat.module.scss';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 

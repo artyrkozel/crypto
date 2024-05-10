@@ -1,5 +1,5 @@
 import { ApexOptions } from 'apexcharts';
-import { classNames } from 'helpers/classNames/classNames';
+import { classNames } from '@/helpers/classNames/classNames';
 import { FC } from 'react';
 import ReactApexChart from 'react-apexcharts';
 

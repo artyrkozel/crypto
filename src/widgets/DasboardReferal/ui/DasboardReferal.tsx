@@ -1,11 +1,11 @@
-import { classNames } from 'helpers/classNames/classNames';
-import { ReferalBanner } from 'widgets/Banners';
-import { Text, TextColor, TextSize } from 'shared/ui/Text';
-import { HStack, VStack } from 'shared/ui/Stack';
-import Button from 'shared/ui/Button/Button';
-import { alert } from 'widgets/Notification';
-import { CardTheme } from 'shared/ui/Card/ui/Card';
-import { ContentWrapper } from 'widgets/ContentWrapper';
+import { classNames } from '@/helpers/classNames/classNames';
+import { ReferalBanner } from '@/widgets/Banners';
+import { Text, TextColor, TextSize } from '@/shared/ui/Text';
+import { HStack, VStack } from '@/shared/ui/Stack';
+import Button from '@/shared/ui/Button/Button';
+import { alert } from '@/widgets/Notification';
+import { CardTheme } from '@/shared/ui/Card/ui/Card';
+import { ContentWrapper } from '@/widgets/ContentWrapper';
 import styles from './DasboardReferal.module.scss';
 
 export const DasboardReferal = () => {

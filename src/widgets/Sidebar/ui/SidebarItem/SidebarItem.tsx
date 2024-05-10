@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'helpers/classNames/classNames';
-import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { classNames } from '@/helpers/classNames/classNames';
+import { AppLink } from '@/shared/ui/AppLink/AppLink';
 import { useLocation } from 'react-router-dom';
 import styles from './SidebarItem.module.scss';
 import { SidebarItemType } from '../../model/types/sidebar';

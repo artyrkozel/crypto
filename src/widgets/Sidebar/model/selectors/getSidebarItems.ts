@@ -1,7 +1,7 @@
 import { createSelector } from '@reduxjs/toolkit';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { selectIsAuthenticated } from 'entities/user';
-import { menuIconsMap } from 'shared/lib/icons';
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { selectIsAuthenticated } from '@/entities/user';
+import { menuIconsMap } from '@/shared/lib/icons';
 import { SidebarItemType } from '../types/sidebar';
 
 export const getSidebarItems = createSelector(

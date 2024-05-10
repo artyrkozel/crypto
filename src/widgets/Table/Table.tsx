@@ -5,7 +5,7 @@ import {
   getCoreRowModel,
   useReactTable,
 } from '@tanstack/react-table';
-import { Mods, classNames } from 'helpers/classNames/classNames';
+import { Mods, classNames } from '@/helpers/classNames/classNames';
 import styles from './Table.module.scss';
 import { TableHeader } from './ui/TableHeader/TableHeader';
 import { TableBody } from './ui/TableBody/TableBody';

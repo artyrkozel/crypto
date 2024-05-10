@@ -1,6 +1,6 @@
 import { FC, memo, ReactNode } from 'react';
-import { classNames } from 'helpers/classNames/classNames';
-import { Text } from 'shared/ui/Text';
+import { classNames } from '@/helpers/classNames/classNames';
+import { Text } from '@/shared/ui/Text';
 import styles from './Page.module.scss';
 
 interface PageProps {

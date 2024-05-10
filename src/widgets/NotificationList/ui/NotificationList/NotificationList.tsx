@@ -1,13 +1,13 @@
-import { useGetNotificationsByUserIdQuery } from 'entities/Notification/model/api/api';
+import { useGetNotificationsByUserIdQuery } from '@/entities/Notification/model/api/api';
 import { useSelector } from 'react-redux';
-import { getUserAuthData } from 'entities/user';
+import { getUserAuthData } from '@/entities/user';
 import { skipToken } from '@reduxjs/toolkit/query';
-import { ContentWrapper } from 'widgets/ContentWrapper';
-import { CardTheme } from 'shared/ui/Card/ui/Card';
-import { VStack } from 'shared/ui/Stack';
-import { Mods, classNames } from 'helpers/classNames/classNames';
+import { ContentWrapper } from '@/widgets/ContentWrapper';
+import { CardTheme } from '@/shared/ui/Card/ui/Card';
+import { VStack } from '@/shared/ui/Stack';
+import { Mods, classNames } from '@/helpers/classNames/classNames';
 import { RefObject, useRef } from 'react';
-import useInViewPort from 'shared/lib/hooks/useInViewPort';
+import useInViewPort from '@/shared/lib/hooks/useInViewPort';
 import styles from './NotificationList.module.scss';
 import { NotificationItem } from '../NotificationItem/NotificationItem';
 

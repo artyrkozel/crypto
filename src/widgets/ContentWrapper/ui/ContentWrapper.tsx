@@ -1,10 +1,10 @@
-import { Mods, classNames } from 'helpers/classNames/classNames';
+import { Mods, classNames } from '@/helpers/classNames/classNames';
 import { FC, ReactNode, memo } from 'react';
-import { Card } from 'shared/ui/Card';
-import { Text } from 'shared/ui/Text';
-import { CardTheme } from 'shared/ui/Card/ui/Card';
-import { HStack } from 'shared/ui/Stack';
-import Button from 'shared/ui/Button/Button';
+import { Card } from '@/shared/ui/Card';
+import { Text } from '@/shared/ui/Text';
+import { CardTheme } from '@/shared/ui/Card/ui/Card';
+import { HStack } from '@/shared/ui/Stack';
+import Button from '@/shared/ui/Button/Button';
 import styles from './ContentWrapper.module.scss';
 
 interface IContentWrapperProps {

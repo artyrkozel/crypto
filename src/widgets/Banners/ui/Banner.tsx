@@ -1,7 +1,7 @@
 import { FC, memo } from 'react';
-import { classNames } from 'helpers/classNames/classNames';
-import { Text, TextColor, TextSize } from 'shared/ui/Text';
-import { HStack, VStack } from 'shared/ui/Stack';
+import { classNames } from '@/helpers/classNames/classNames';
+import { Text, TextColor, TextSize } from '@/shared/ui/Text';
+import { HStack, VStack } from '@/shared/ui/Stack';
 import styles from './Banners.module.scss';
 import bannerMask from '../../../assets/banner-mask.png';
 

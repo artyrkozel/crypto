@@ -1,5 +1,5 @@
-import { CardTheme } from 'shared/ui/Card/ui/Card';
-import { ContentWrapper } from 'widgets/ContentWrapper';
+import { CardTheme } from '@/shared/ui/Card/ui/Card';
+import { ContentWrapper } from '@/widgets/ContentWrapper';
 import { IoWalletOutline } from 'react-icons/io5';
 import { IconType } from 'react-icons/lib';
 import styles from './QuickActions.module.scss';
